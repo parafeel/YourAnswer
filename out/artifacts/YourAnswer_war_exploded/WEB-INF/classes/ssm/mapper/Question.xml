@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="ssm.mapper.QuestionMapper">
+    	<resultMap id="QuestionResultMap" type="ssm.pojo.Question" >
+    		<id column="qId" property="qId" jdbcType="INTEGER" />
+    		<result column="qTitle" property="qTitle" jdbcType="VARCHAR" />
+    		<result column="qDetail" property="qDetail" jdbcType="VARCHAR" />
+    		<result column="qMadeByUserId" property="qMadeByUserId" jdbcType="INTEGER" />
+    		<result column="qMadeDate" property="qMadeDate" />
+    		<association property="qMadeByUser" resultMap="UserResultMap"/>  
+  		</resultMap>
+  		<resultMap id="UserResultMap" type="ssm.pojo.User">  
+        	<id column="uId" property="uId" jdbcType="INTEGER" />
+    		<result column="uEmail" property="uEmail" jdbcType="VARCHAR" />
+    		<result column="uRealName" property="uRealName" jdbcType="VARCHAR" />
+    		<result column="uTel" property="uTel" jdbcType="VARCHAR" />
+    		
+    		<result column="uName" property="uName" jdbcType="VARCHAR" />
+    		<result column="uGender" property="uGender" jdbcType="VARCHAR" />
+    		<result column="uWord" property="uWord" jdbcType="VARCHAR" />
+    		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
+    		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
+    	</resultMap>  
+  		<sql id="Question_Column_List" >
+    		qId, qTitle, qDetail, qMadeByUserId,qMadeDate
+  		</sql>
+    	
+    	<insert id="addQuestion" parameterType="ssm.pojo.Question" >
+            insert into question (qTitle ,qDetail ,qMadeByUserId,qMadeDate) 
+            	values( #{qTitle},#{qDetail},#{qMadeByUserId},#{qMadeDate}) 
+        </insert>
+        <select id="hasQTitle" resultMap="QuestionResultMap"  parameterType="java.lang.String" >
+        	select <include refid="Question_Column_List" /> from  question WHERE qTitle = #{qTitle}
+        </select>
+         
+        <delete id="deleteQuestionById" parameterType="java.lang.Integer" >
+            delete from question where qId= #{qId}   
+        </delete>
+         
+        <update id="updateQuestionById" parameterType="ssm.pojo.Question" >
+            update question
+		    <set >
+		    	<if test="qTitle != null" >
+		       		qTitle = #{qTitle,jdbcType=VARCHAR},
+		     	</if>
+		     	<if test="qDetail != null" >
+		     		qDetail = #{qDetail,jdbcType=VARCHAR},
+		     	</if>
+		   	</set>
+		   	where qId = #{qId,jdbcType=INTEGER}   
+        </update>
+        
+        <select id="queryQuestionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
+            select  <include refid="Question_Column_List" />
+            	 from question where qId= #{qId} 
+        </select>
+        
+        <select id="queryQuesion" resultMap="QuestionResultMap" parameterType="ssm.pojo.Question"  >
+            select  <include refid="Question_Column_List" />
+            	 from question where qTitle=#{qTitle} and qDetail=#{qDetail}
+        </select>
+        
+        <select id="queryQuestionByTime" resultMap="QuestionResultMap" >
+          SELECT  * FROM user,question  WHERE user.uId=question.qMadeByUserId 
+          	AND  qMadeDate>=DATE_SUB(NOW(),INTERVAL 30 DAY) ORDER BY qMadeDate DESC
+        </select>
+        
+        
+        <select id="queryQuestionByUserId" resultType="ssm.pojo.Question" parameterType="java.lang.Integer"  >
+            SELECT  <include refid="Question_Column_List" />
+            	 FROM question where qMadeByUserId=#{qMadeByUserId}
+        </select>
+        
+        <!-- 
+        <select id="getUserById" resultMap="QuestionResultMap" parameterType="java.lang.Integer">
+            select <include refid="Question_Column_List" />
+            	 from user  where uId= #{uId}    
+        </select>
+ 		    --> 
+ 		    
+       
+        
+    </mapper>

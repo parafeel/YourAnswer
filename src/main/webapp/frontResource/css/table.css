@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-10-14 20:11:02
+ * @version $Id$
+ */
+
+.tableFixed{
+    margin-top: 70px;
+  	margin-right: auto;
+  	margin-bottom: 30px;
+  	margin-left: auto;
+}
+
+.leaveTop {
+	 margin-top: 70px;
+}
+

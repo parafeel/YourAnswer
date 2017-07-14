@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="ssm.mapper.AnswerMapper">
+    	<resultMap id="AnswerResultMap" type="ssm.pojo.Answer" >
+    		<id column="aId" property="aId" jdbcType="INTEGER" />
+    		<result column="aContent" property="aContent" jdbcType="VARCHAR" />
+    		<result column="aMadeByUserId" property="aMadeByUserId" jdbcType="INTEGER" />
+    		<result column="aMadeDate" property="aMadeDate" />
+    		<result column="aBelongToQuestionId" property="aBelongToQuestionId" jdbcType="INTEGER" />
+  			<association property="aMadeByUser" resultMap="UserResultMap"/>  
+        	<association property="aBelongToQuestion" resultMap="QuestionResultMap"/>  
+  		</resultMap>
+  		<resultMap id="UserResultMap" type="ssm.pojo.User">
+        	<id column="uId" property="uId" jdbcType="INTEGER" />
+    		<result column="uEmail" property="uEmail" jdbcType="VARCHAR" />
+    		<result column="uRealName" property="uRealName" jdbcType="VARCHAR" />
+    		<result column="uTel" property="uTel" jdbcType="VARCHAR" />
+    		
+    		<result column="uName" property="uName" jdbcType="VARCHAR" />
+    		<result column="uGender" property="uGender" jdbcType="VARCHAR" />
+    		<result column="uWord" property="uWord" jdbcType="VARCHAR" />
+    		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
+    		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
+    	</resultMap>  
+    	<resultMap id="QuestionResultMap" type="ssm.pojo.Question">
+        	<id column="qId" property="qId" jdbcType="INTEGER" />
+    		<result column="qTitle" property="qTitle" jdbcType="VARCHAR" />
+    		<result column="qDetail" property="qDetail" jdbcType="VARCHAR" />
+    		<result column="qMadeByUserId" property="qMadeByUserId" jdbcType="INTEGER" />
+    		<result column="qMadeDate" property="qMadeDate" />
+    	</resultMap>  
+  		
+  		
+  		<sql id="Base_Column_List" >
+    		aId, aContent, aMadeByUserId, aMadeDate,aBelongToQuestionId
+  		</sql>
+    	
+    	<insert id="addAnswer" parameterType="ssm.pojo.Answer" >
+            insert into answer (aContent ,aMadeByUserId ,aMadeDate,aBelongToQuestionId) 
+            	values( #{aContent},#{aMadeByUserId},#{aMadeDate},#{aBelongToQuestionId}) 
+        </insert>
+        
+        <select id="hasAnswerdById" resultMap="AnswerResultMap" >
+        	select <include refid="Base_Column_List" /> from  answer WHERE 
+        		aMadeByUserId=#{aMadeByUserId} and aBelongToQuestionId=#{aBelongToQuestionId}
+        </select>
+        
+        <select id="hasAnswerd" resultMap="AnswerResultMap"  parameterType="ssm.pojo.Answer" >
+        	select <include refid="Base_Column_List" /> from  answer WHERE 
+        		aMadeByUserId=#{aMadeByUserId} and aBelongToQuestionId=#{aBelongToQuestionId}
+        </select>
+         
+        <delete id="deleteAnswerById" parameterType="java.lang.Integer" >
+            delete from answer where aId= #{aId}   
+        </delete>
+         
+        <update id="updateAnswerById" parameterType="ssm.pojo.Answer" >
+            update answer
+		    <set >
+		    	<if test="aContent != null" >
+		       		aContent = #{aContent,jdbcType=VARCHAR},
+		     	</if>
+		     	<if test="qMadeDate != null" >
+		     		aMadeDate = #{aMadeDate},
+		     	</if>
+		   	</set>
+		   	where aId = #{aId,jdbcType=INTEGER}   
+        </update>
+        
+        <select id="queryAnswerById" resultMap="AnswerResultMap" parameterType="java.lang.Integer"  >
+            select  <include refid="Base_Column_List" />
+            	 from answer where aid= #{aid} 
+        </select>
+    	
+    	<!-- 查询List的时候，mybatis会自动将查询的结果，按照resultType封装到一起 ，此处无parameterType，因为在
+    	对应mapper接口用@Param("aMadeByUserId")标注了传入的变量-->
+        <select id="queryAnswersByQuestion" resultMap="AnswerResultMap">
+        	SELECT * FROM  answer,user,question 
+            	WHERE aBelongToQuestionId=#{aBelongToQuestionId}  and aMadeByUserId = uId and aBelongToQuestionId = qId
+            	ORDER BY answer.aMadeDate DESC
+        </select>
+        
+        <select id="queryAnswersByUserId" resultMap="AnswerResultMap">
+            SELECT * FROM  answer,user,question 
+            	WHERE aMadeByUserId=#{aMadeByUserId} and user.uId = #{aMadeByUserId} and 
+            	answer.aBelongToQuestionId = question.qId ORDER BY answer.aMadeDate DESC
+        </select>  
+        
+    </mapper>

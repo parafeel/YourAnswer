@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="parafeel@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="parafeel">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bwg"/>
+    <schema id="4" parent="1" name="geodatabase"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="sakila"/>
+    <schema id="9" parent="1" name="ssmbwg"/>
+    <schema id="10" parent="1" name="sys"/>
+    <schema id="11" parent="1" name="world"/>
+    <table id="12" parent="2" name="answer"/>
+    <table id="13" parent="2" name="question"/>
+    <table id="14" parent="2" name="questionandanswer"/>
+    <table id="15" parent="2" name="topic"/>
+    <table id="16" parent="2" name="topicandquestion"/>
+    <table id="17" parent="2" name="user"/>
+    <table id="18" parent="2" name="userrelationship"/>
+    <column id="19" parent="12" name="aId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="20" parent="12" name="aContent">
+      <Position>2</Position>
+      <DataType>longtext|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="12" name="aMadeByUserId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="22" parent="12" name="aMadeDate">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="23" parent="12" name="aBelongToQuestionId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="24" parent="12" name="aId">
+      <ColNames>aId</ColNames>
+    </index>
+    <key id="25" parent="12" name="PRIMARY">
+      <ColNames>aId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="13" name="qId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="27" parent="13" name="qTitle">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="28" parent="13" name="qDetail">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="29" parent="13" name="qMadeByUserId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="30" parent="13" name="qMadeDate">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="31" parent="13" name="qid">
+      <ColNames>qId</ColNames>
+    </index>
+    <column id="32" parent="14" name="qaId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="33" parent="14" name="qId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="34" parent="14" name="aId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="35" parent="14" name="PRIMARY">
+      <ColNames>qaId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="15" name="tId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="15" name="tName">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="38" parent="15" name="tDetail">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="39" parent="15" name="tMadeDate">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="40" parent="15" name="tQuestionCount">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="41" parent="15" name="PRIMARY">
+      <ColNames>tId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="42" parent="16" name="tqId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="16" name="tId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="44" parent="16" name="qId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="45" parent="16" name="PRIMARY">
+      <ColNames>tqId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="46" parent="17" name="uId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="47" parent="17" name="uName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="48" parent="17" name="uPassword">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="49" parent="17" name="uEmail">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="50" parent="17" name="uRealName">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="51" parent="17" name="uTel">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="52" parent="17" name="uRegistDate">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="53" parent="17" name="uGender">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="54" parent="17" name="uWord">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="55" parent="17" name="uResidence">
+      <Position>10</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="56" parent="17" name="uProfession">
+      <Position>11</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <index id="57" parent="17" name="uId">
+      <ColNames>uId</ColNames>
+    </index>
+    <column id="58" parent="18" name="relationId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="18" name="fromUserId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="60" parent="18" name="toUserId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="61" parent="18" name="relation">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="62" parent="18" name="urId">
+      <ColNames>relationId</ColNames>
+    </index>
+  </database-model>
+</dataSource>
