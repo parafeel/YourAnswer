@@ -13,23 +13,35 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
 
-<title>Welcome to Answer</title>
+
+<style>
+	html{height: 100%}
+	body{margin: 0;height: 100%;
+		background: #fff;}
+	canvas{display: block;width: 100%;height: 100%;}
+	.welcome-text{
+		position: absolute;
+		top:30%;
+		left: 20%;
+		height: 20%;
+		width: 20%;
+		opacity: 0.8;
+	}
+</style>
+
+	<title>Welcome to Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
-	 
-	<div class="container">
-		<br>
-		<br>
-		<br>
-       	<div class="jumbotron">
+
+	<canvas id="canvas"></canvas>
+	<script src="${pageContext.request.contextPath}/frontResource/JS/index.js"></script>
+
+	<div class="welcome-text">
 		<p>
 			你好！${currentUser.uName}
 		</p>
-		</div>
 	</div>
-    
-	
 	
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 	
