@@ -91,10 +91,10 @@ public class AnswerController {
 		ModelAndView mav = new ModelAndView();
 		Question currentQuestion = questionService.getQuestionById(qId);
 		Answer currentAnswer = answerService.getAnserById(aId);
-		User theAnswerdUser = userService.getUserById(currentAnswer.getaMadeByUserId());
+		User theAnsweredUser = userService.getUserById(currentAnswer.getaMadeByUserId());
 		mav.addObject("currentQuestion", currentQuestion);
 		mav.addObject("currentAnswer", currentAnswer);
-		mav.addObject("theAnswerdUser", theAnswerdUser);
+		mav.addObject("theAnsweredUser", theAnsweredUser);
 		mav.setViewName("showAnswer");
 		return mav;
 	}
