@@ -23,24 +23,32 @@
 		<br>
 		<br>
 		<br>
-       	<div class="highlight">
+       	<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
 	    		<h3>${currentQuestion.qTitle }</h3>
 	  		</div>
+			<hr>
+			<div style="padding: 5px 0; color:#999999">问题详情：</div>
 	  		<div class="form-group">
-	    		<p>	${currentQuestion.qDetail }</p>
+	    		<div>	${currentQuestion.qDetail }</div>
 	    	</div>
 	  		<div>
-	    		<p>问题标签：</p>
+				<div style="padding: 5px 0; color:#999999">问题标签：</div>
 	    		<p>	暂无</p>
+				<div class="form-group"  style="color:#999999">
+					<!-- 格式化从数据库读取的时间 -->
+					<h6>发布于：<fmt:formatDate value="${currentQuestion.qMadeDate }" pattern="yyyy-MM-dd HH:mm"/></h6>
+				</div>
+				<br>
+				<div class="QuestionButtonGroup">
+					<form method="post" action="${pageContext.request.contextPath}/makeAnswer/${currentQuestion.qId}">
+						<input type="hidden" name="qId" id="qId" value="${currentQuestion.qId }">
+						<button type="submit" class="btn btn-default">回答</button>
+					</form>
+				</div>
 	    	</div>
-	    	
-	    	<div class="QuestionButtonGroup" style = "text-align:right;">
-	    		<form method="post" action="${pageContext.request.contextPath}/tryAnswer/${currentQuestion.qId}">
-	    			<input type="hidden" name="qId" id="qId" value="${currentQuestion.qId }">
-	    			<button type="submit" class="btn btn-default">回答</button>
-	    		</form>
-	    	</div>
+	    	<br>
+
 		</div>
 	</div>
 	

@@ -10,11 +10,11 @@
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
-<script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
 
-<style>
+<style type="text/css">
 	html{height: 100%}
 	body{margin: 0;height: 100%;
 		background: #fff;}
@@ -35,7 +35,7 @@
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
 
 	<canvas id="canvas"></canvas>
-	<script src="${pageContext.request.contextPath}/frontResource/JS/index.js"></script>
+	<script src="${pageContext.request.contextPath}/frontResource/JS/index.js" type="text/javascript"></script>
 
 	<div class="welcome-text">
 		<p>

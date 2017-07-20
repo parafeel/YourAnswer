@@ -24,7 +24,7 @@
 		<br>
 		<br>
 		<br>
-       	<div class="highlight">
+       	<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
 	    		<h2>${currentQuestion.qTitle }</h2>
 	  		</div>
@@ -50,10 +50,13 @@
 	</div>
 	
 	<div  class="container">
-		<div class="highlight">
+		<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
-	    		<h4>${theAnswerdUser.uName }</h4>
-	    		<p >	${currentAnswer.aContent }</p>
+	    		<h6><a href="${pageContext.request.contextPath}/showUser/${currentAnswer.aMadeByUser.uId}"
+					   target="_blank">${currentAnswer.aMadeByUser.uName }</a></h6>
+				<h6 style="color:#999999" >${currentAnswer.aMadeByUser.uWord }</h6>
+				<hr>
+	    		<p>${currentAnswer.aContent }</p>
 	    		<p>	<fmt:formatDate value="${currentAnswer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
 	    	</div>
 		</div>

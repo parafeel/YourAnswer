@@ -1,6 +1,8 @@
 package ssm.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.Answer;
@@ -37,7 +40,41 @@ public class QuestionController {
 		ModelAndView mav = new ModelAndView("addQuestion");
 		return mav;
 	}
-	
+
+	/**	//试着用Ajax实现提问功能，之后发现只要Ajax发来数据成功，返回都进入了success回调，还需要解析Json来实现跳转，
+	 * //还不如单纯用form
+	@RequestMapping("addQuestion")
+	@ResponseBody	//使用Ajax必须要有
+	public Map<String,Object> addQuestion(Question question, HttpSession session) {
+		Map<String,Object> resultMap = new HashMap<String, Object>();
+		String addQuestionMessage;
+		User currentUser = (User)session.getAttribute("currentUser");
+		if(currentUser == null) {
+			addQuestionMessage = "您还未登陆，登陆后才可提问！";
+			resultMap.put("addQuestionMessage", addQuestionMessage);
+			return resultMap;
+		} else {
+			if(questionService.getQuestion(question.getqTitle()) != null) {
+				addQuestionMessage = "已存在相同问题！";
+				resultMap.put("addQuestionMessage", addQuestionMessage);
+				return resultMap;
+			} else {
+				question.setqMadeByUserId(currentUser.getuId());
+				questionService.putQuestion(question);
+				Question currentQuestion = questionService.getQuestion(question.getqTitle());
+				if(currentQuestion != null) {
+					resultMap.put("qId", currentQuestion.getqId());
+					addQuestionMessage = "提问成功！";
+					resultMap.put("addQuestionMessage", addQuestionMessage);
+				} else {
+					addQuestionMessage = "似乎出现了问题！";
+					resultMap.put("addQuestionMessage", addQuestionMessage);
+				}
+			}
+		}
+		return resultMap;
+	}**/
+
 	@RequestMapping("addQuestion")
 	public ModelAndView addQuestion(Question question, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -49,17 +86,23 @@ public class QuestionController {
 			mav.setViewName("addQuestion");
 			return mav;
 		} else {
-			question.setqMadeByUserId(currentUser.getuId());
-			questionService.putQuestion(question);
-			Question currentQuestion = questionService.getQuestion(question.getqTitle());
-			if(currentQuestion != null) {
-				mav.addObject("qId", currentQuestion.getqId());
-				mav.addObject("currentQuestion", currentQuestion);
-				mav.setViewName("redirect:/Question/{qId}");
-			} else {
-				mav.setViewName("addQuestion");
-				addQuestionMessage = "问题未提问成功！";
+			if(questionService.getQuestion(question.getqTitle()) != null) {
+				addQuestionMessage = "已存在相同问题！";
 				mav.addObject("addQuestionMessage", addQuestionMessage);
+				mav.setViewName("addQuestion");
+			} else {
+				question.setqMadeByUserId(currentUser.getuId());
+				questionService.putQuestion(question);
+				Question currentQuestion = questionService.getQuestion(question.getqTitle());
+				if(currentQuestion != null) {
+					mav.addObject("qId", currentQuestion.getqId());
+					mav.addObject("currentQuestion", currentQuestion);
+					mav.setViewName("redirect:/Question/{qId}");
+				} else {
+					mav.setViewName("addQuestion");
+					addQuestionMessage = "问题未提问成功！";
+					mav.addObject("addQuestionMessage", addQuestionMessage);
+				}
 			}
 		}
 		return mav;

@@ -56,15 +56,15 @@
                     }
                     else {
                 %>${currentUser.uName}
-                    <span class="caret "></span></a>
+                    <span class="caret "></span>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="${pageContext.request.contextPath}/showUser/${currentUser.uId}"><span class="glyphicon glyphicon-stats"></span> 个人主页</a></li>
                         <li><a href="${pageContext.request.contextPath}/setting/${currentUser.uId}"><span class="glyphicon glyphicon-wrench"></span> 账号设置</a></li>
                         <li><a href="${pageContext.request.contextPath}/userLogout"><span class="glyphicon glyphicon-off"></span> 退出登录</a></li>
                     </ul>
-                <%
-                    }
-                %>
+                    <%
+                        }
+                    %>
 
                 </li>
             </ul>

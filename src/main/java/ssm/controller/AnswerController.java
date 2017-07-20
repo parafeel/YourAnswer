@@ -39,18 +39,18 @@ public class AnswerController {
 	}
 
 	//此处使用rest风格的URL
-	@RequestMapping("tryAnswer/{qId}")
-	public ModelAndView tryAnswer(@PathVariable ("qId") int qId) {
+	@RequestMapping("makeAnswer/{qId}")
+	public ModelAndView makeAnswer(@PathVariable ("qId") int qId) {
 		Question currentQuestion = questionService.getQuestionById(qId);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("currentQuestion", currentQuestion);
 		mav.addObject("qId", qId);
-		mav.setViewName("tryAnswer");
+		mav.setViewName("addAnswer");
 		return mav;
 	}
 	
 	@RequestMapping("addAnswer/{qId}")
-	public ModelAndView addAnswer(@PathVariable ("qId") int qId, Answer answer, HttpSession session) {
+	public ModelAndView addAnswer(int qId, Answer answer, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String addAnswerMessage;
 		boolean flag;
@@ -59,9 +59,9 @@ public class AnswerController {
 			addAnswerMessage = "您还未登陆，登陆后才可回答！";
 			Question currentQuesstion = questionService.getQuestionById(qId);
 			mav.addObject("currentQuestion", currentQuesstion);
-			mav.addObject("addAnswerMessage", addAnswerMessage);
 			mav.addObject("qId", qId);
-			mav.setViewName("tryAnswer");
+			mav.addObject("addAnswerMessage", addAnswerMessage);
+			mav.setViewName("addAnswer");
 			return mav;
 		} else {
 			answer.setaMadeByUserId(currentUser.getuId());
@@ -75,12 +75,12 @@ public class AnswerController {
 				mav.setViewName("redirect:/Question/{qId}/showAnswer/{aId}");
 			} else {
 				mav.addObject("qId", qId);
-				addAnswerMessage = "好像出现了什么问题！";
+				addAnswerMessage = "似乎出现了什么问题！";
 				Question currentQuesstion = questionService.getQuestionById(qId);
 				mav.addObject("currentQuestion", currentQuesstion);
 				mav.addObject("addAnswerMessage", addAnswerMessage);
 				mav.addObject("qId", qId);
-				mav.setViewName("tryAnswer");
+				mav.setViewName("addAnswer");
 			}
 		}
 		return mav;
@@ -92,9 +92,9 @@ public class AnswerController {
 		Question currentQuestion = questionService.getQuestionById(qId);
 		Answer currentAnswer = answerService.getAnserById(aId);
 		User theAnsweredUser = userService.getUserById(currentAnswer.getaMadeByUserId());
+		currentAnswer.setaMadeByUser(theAnsweredUser);
 		mav.addObject("currentQuestion", currentQuestion);
 		mav.addObject("currentAnswer", currentAnswer);
-		mav.addObject("theAnsweredUser", theAnsweredUser);
 		mav.setViewName("showAnswer");
 		return mav;
 	}

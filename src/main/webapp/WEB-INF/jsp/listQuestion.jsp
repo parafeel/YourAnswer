@@ -25,17 +25,17 @@
 	<br>
     <c:forEach items="${questions}" var="question" varStatus="st">
         <div class="container">
-        	<div class="highlight">
+        	<div class="highlight" style="background-color: #f6f6f6;">
 				<div class="form-group smallInfo" style="color:#D0D0D0">
 					<h6><a style="color:#999999" href="${pageContext.request.contextPath}/showUser/${question.qMadeByUserId}" target="_blank">${question.qMadeByUser.uName}</a> &nbsp;提出了问题：</h6>
 				</div>
+				<hr>
 				<div class="form-group">
-		    		<h4><a href="${pageContext.request.contextPath}/Question/${question.qId}" >${question.qTitle }</a></h4>
+		    		<h3><a href="${pageContext.request.contextPath}/Question/${question.qId}">${question.qTitle }</a></h3>
 		  		</div>
-		  		<div class="form-group">
+		  		<div class="form-group" >
 		    		<p>	${question.qDetail }</p>
 		    	</div>
-		    	<hr>
 		    	<div class="form-group"  style="color:#999999">
 		    		<!-- 格式化从数据库读取的时间 -->
 		    		<h6>发布于：<fmt:formatDate value="${question.qMadeDate }" pattern="yyyy-MM-dd HH:mm"/></h6>

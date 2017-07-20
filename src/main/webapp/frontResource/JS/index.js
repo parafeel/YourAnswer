@@ -1,3 +1,4 @@
+"use strict";
 
 class Circle {
     //创建对象
