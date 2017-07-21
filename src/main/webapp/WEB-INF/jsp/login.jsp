@@ -8,15 +8,30 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/style.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/jquery-3.2.1.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/frontResource/JS/loginAction.js"></script>
+<script>
+    $(document).ready( function() {
+        $('#login').click(checkLogin);
+    });
+    function checkLogin() {
+        var ulPassword = $('#ulPassword').val();
+        if(ulPassword.length < 6) {
+            $('#loginMessage').addClass("alert-warning");
+            $('#loginMessage').html("密码格式不正确");
+            return false;
+		}
+		return true;
+    }
+</script>
 
 <title>Login or Regist --Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
+
+
 
 	<div id="page-content" class="single-page">
 		<div class="container">
@@ -37,9 +52,10 @@
 								   id="ulPassword" required>
 						</div>
 						<div>
-							<div class="alert " role="alert">${loginMessage}</div>
+							<div class="alert" role="alert" id="loginMessage">${loginMessage}</div>
 						</div>
-						<button type="submit" class="btn btn-1" name="login" id="login">立即登录</button>
+						<button type="submit" class="btn btn-1" name="login" id="login" >
+							立即登录</button>
 						<a href="#">忘记密码 ?</a>
 					</form>
 				</div>
@@ -86,6 +102,6 @@
 	</div>
 
 	
-	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>	
+	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 </body>
 </html>

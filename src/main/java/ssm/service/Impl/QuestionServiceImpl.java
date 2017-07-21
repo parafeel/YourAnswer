@@ -73,6 +73,8 @@ public class QuestionServiceImpl implements QuestionService{
 	}
 
 	@Override
+	//根据uId获取此用户提出的所有问题
+	//之后可以设置匿名问题不能被查询出来，待拓展
 	public List<Question> getQuestionsByUserId(int uId) {
 		// TODO Auto-generated method stub
 		return questionMapper.queryQuestionByUserId(uId);

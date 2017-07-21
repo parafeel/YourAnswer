@@ -22,10 +22,13 @@
 		<br>
 		<br>
 		<br>
+		<br>
+		<br>
+		<br>
        	<div class="alert alert-info" role="alert">
-		<p>
-			${wrongInfoMessage}
-		</p>
+			<p>
+				${wrongInfoMessage}
+			</p>
 		</div>
 	</div>
     

@@ -21,7 +21,7 @@ $(function () {
 });
 </script>
 
-<title>编辑个人资料-- Answer</title>
+<title>账户资料-- Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
@@ -32,7 +32,7 @@ $(function () {
 		<br>
 		<div class="col-md-12">
        	<div class="highlight">
-       		<form name="settingform" id="settingform" method="post" action="${pageContext.request.contextPath}/userSetting">
+       		<form name="settingform" id="settingform" method="post" action="${pageContext.request.contextPath}/updateUserSetting">
 	       	 	<div class="heading"><h3>用户设置</h3><br></div>
 	       	 	<div class="form-group">
 	       	 		<div class="form-group">
@@ -103,6 +103,9 @@ $(function () {
 						<div class="col-md-6">
 							<input type="text" class="form-control" value="${settingUser.uProfession }" name="uProfession" id="uProfession" required>
 						</div>
+					</div>
+					<div>
+						<div class="alert " role="alert">${updateUserMessage}</div>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-1">保存</button>

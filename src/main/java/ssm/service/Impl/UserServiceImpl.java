@@ -10,16 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import ssm.mapper.UserMapper;
 import ssm.pojo.User;
 import ssm.service.UserService;
+import ssm.util.Security;
+
 
 @Service
 public class UserServiceImpl implements UserService {
-	
-	private UserMapper userMapper;
 
 	@Autowired
-	public UserServiceImpl(UserMapper userMapper) {
-		this.userMapper = userMapper;
-	}
+	//实现对User的数据库操作
+	private UserMapper userMapper;
+
+	private Security security = Security.getInstance();
 
 	@Override
 	public List<User> listUser() {
@@ -28,27 +29,39 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User isUser(String uEmail,String uPassword) {
+	//登录校验，根据uEmail获取加密后的密码，再判断用户密码是否符合
+	public User isRightUser(String uEmail,String uPassword) {
 		// TODO Auto-generated method stub
-		return userMapper.isUser(uEmail,uPassword);
+		String encodeuPassword = userMapper.queryUserPasswordByuEmail(uEmail);
+		if(null != encodeuPassword && security.match(uPassword,encodeuPassword)) {
+			return userMapper.queryUserByuEmail(uEmail);
+		}
+		return null;
 	}
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
+	//注册用户
 	public User registUser(User user) {
-		User isHasUser = userMapper.hasUEmail(user.getuEmail());
-		if(isHasUser != null)
-			return null;
-		userMapper.addUser(user);
-		User newUser = userMapper.isUser(user.getuEmail(),user.getuPassword());
-		if( newUser != null) {
-			return newUser;
-		} else {
+		//判断邮箱是否被使用
+		User isHasUser = userMapper.queryUserByuEmail(user.getuEmail());
+		if(null != isHasUser ) {
 			return null;
 		}
+		//保存原密码，并设置加密密码后往数据库新增用户
+		String rawPassword = user.getuPassword();
+		user.setuPassword(security.encrypt(rawPassword));
+		int isSuccess = userMapper.createUser(user);
+		//确定增加成功后，返回注册后的用户
+		if(isSuccess == 1) {
+			User newUser = isRightUser(user.getuPassword(),rawPassword);
+			return newUser;
+		}
+		return null;
 	}
 
 	@Override
+	//获取用户信息
 	public User getUserById(int uId) {
 		// TODO Auto-generated method stub
 		User user = userMapper.queryUserById(uId);
@@ -56,14 +69,26 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	//更新用户信息
 	public User updateUserInfo(User user) {
 		// TODO Auto-generated method stub
-		userMapper.updateUser(user);
-		User afterUpadteUser = userMapper.queryUserById(user.getuId());
-		return afterUpadteUser;
+		int isSuccess = userMapper.updateUser(user);
+		if(isSuccess == 1) {
+			User afterUpadteUser = userMapper.queryUserById(user.getuId());
+			return afterUpadteUser;
+		}
+		return null;
 	}
-	
-	
-	
+
+	@Override
+	//更新用户密码
+	public int updateUserPassword(User user) {
+		String rawPassword = user.getuPassword();
+		user.setuPassword(security.encrypt(rawPassword));
+		int isSuccess = userMapper.updateUserPassword(user);
+		return isSuccess;
+	}
+
+
 
 }

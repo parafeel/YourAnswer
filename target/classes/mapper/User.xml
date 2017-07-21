@@ -22,15 +22,11 @@
     		uId, uEmail, uRealName, uTel, uRegistDate, uName, uGender, uWord, uResidence, uProfession
   		</sql>
     	
-    	<insert id="addUser" parameterType="ssm.pojo.User" >
+    	<insert id="createUser" parameterType="ssm.pojo.User" >
             INSERT INTO user (uName ,uPassword,uEmail,uRealName,uTel,uGender) 
             	SELECT #{uName} ,#{uPassword} ,#{uEmail} ,#{uRealName},#{uTel},#{uGender}    
             	FROM DUAL WHERE NOT EXISTS(SELECT uEmail FROM user WHERE uEmail = #{uEmail}) 
         </insert>
-        
-        <select id="hasUEmail" resultMap="BaseResultMap"  parameterType="java.lang.String" >
-        	SELECT <include refid="User_Column_List" /> FROM  user WHERE uEmail = #{uEmail}
-        </select>
          
         <delete id="deleteUserById" parameterType="java.lang.Integer" >
             DELETE from user where uId= #{uId}   
@@ -68,14 +64,20 @@
 		   	WHERE uId = #{uId,jdbcType=INTEGER}   
         </update>
 
-        <select id="isUser" resultMap="BaseResultMap" parameterType="ssm.pojo.User"  >
-            SELECT  <include refid="User_Column_List" />
-            	 FROM user WHERE uEmail=#{uEmail} and uPassword=#{uPassword}
-        </select>
+		<!--查询功能块 -->
+		<select id="queryUserPasswordByuEmail" resultType="java.lang.String" parameterType="java.lang.String">
+			SELECT uPassword FROM user  WHERE uEmail= #{uEmail}
+		</select>
+
+		<select id="queryUserByuEmail" resultType="ssm.pojo.User" parameterType="java.lang.String">
+			SELECT <include refid="User_Column_List" /> FROM user  WHERE uEmail= #{uEmail}
+		</select>
 
         <select id="queryUserById" resultType="ssm.pojo.User" parameterType="java.lang.Integer">
             SELECT <include refid="User_Column_List" /> FROM user  WHERE uId= #{uId}
         </select>
+
+
  
         <select id="listUser" resultType="User">
             SELECT * FROM  user      

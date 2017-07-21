@@ -22,7 +22,7 @@ public interface AnswerMapper {
 	Answer queryAnswerById(Integer aId);
 	
 	List<Answer> queryAnswersByQuestion(@Param("aBelongToQuestionId") Integer aBelongToQuestionId);
-
+	//根据uId获取此用户回答的所有答案
 	List<Answer> queryAnswersByUserId(@Param("aMadeByUserId") Integer aMadeByUserId);
 	
 }

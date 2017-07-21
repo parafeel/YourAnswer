@@ -15,11 +15,11 @@ public interface QuestionService {
 	void deleteQuestionById(int qId);
 	
 	void updateQuestionById(Question question);
-	
+
 	Question getQuestionById(int qId);
 	
 	List<Question> getQuestionByTime();
-	
+	//根据uId获取此用户提出的所有问题
 	List<Question> getQuestionsByUserId(int uId);
 
 	List<Question> getQuestionsByTopic(Topic topic);

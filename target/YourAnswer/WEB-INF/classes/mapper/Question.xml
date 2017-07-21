@@ -57,7 +57,8 @@
 		   	</set>
 		   	where qId = #{qId,jdbcType=INTEGER}   
         </update>
-        
+
+		<!--查询功能块 -->
         <select id="queryQuestionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
             select  <include refid="Question_Column_List" />
             	 from question where qId= #{qId} 
@@ -74,7 +75,7 @@
 			ORDER BY qMadeDate DESC
         </select>
         
-        
+
         <select id="queryQuestionByUserId" resultType="ssm.pojo.Question" parameterType="java.lang.Integer"  >
             SELECT  <include refid="Question_Column_List" />
             	 FROM question where qMadeByUserId=#{qMadeByUserId}

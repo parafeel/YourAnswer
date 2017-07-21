@@ -196,6 +196,13 @@
       <artifactId>commons-codec</artifactId>
       <version>1.9</version>
     </dependency>
+
+    <!--采用Spring Security下的PasswordEncoder来对密码加密-->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>4.1.3.RELEASE</version>
+    </dependency>
   </dependencies>
 
   <build>

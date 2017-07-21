@@ -19,7 +19,7 @@ public interface QuestionMapper {
 	Question queryQuesion(Question question);
 	
 	List<Question> queryQuestionByTime();
-	
+	//根据uId获取此用户提出的所有问题
 	List<Question> queryQuestionByUserId(@Param("qMadeByUserId") Integer qMadeByUserId);
 //	
 //	public List<Question> getQuestionByTopic(Topic topic);

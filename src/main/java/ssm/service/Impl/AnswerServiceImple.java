@@ -68,6 +68,7 @@ public class AnswerServiceImple implements AnswerService{
 	}
 
 	@Override
+	//根据uId获取此用户回答的所有答案
 	public List<Answer> getAnswersByUserId(int aMadeByUserId) {
 		// TODO Auto-generated method stub
 		List<Answer> answers = answerMapper.queryAnswersByUserId(aMadeByUserId);

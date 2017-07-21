@@ -18,6 +18,7 @@ public interface AnswerService {
 
 	List<Answer> getAnswerByQuestion(int aBelongToQuestionId);
 
+	//根据uId获取此用户回答的所有答案
 	List<Answer> getAnswersByUserId(int aMadeByUserId);
 	
 }

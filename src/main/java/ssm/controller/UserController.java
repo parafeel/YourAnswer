@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import ssm.mapper.UserMapper;
 import ssm.pojo.Answer;
 import ssm.pojo.Question;
 import ssm.pojo.User;
@@ -41,31 +42,32 @@ public class UserController {
 	}
 
 	@RequestMapping("login")
+	//跳转进入登录页面
 	public ModelAndView tryLogin() {
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
 	
 	@RequestMapping("userLogin")
+	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息
 	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail,
-			@RequestParam("ulPassword") String uPassword, HttpSession session) {
+								   @RequestParam("ulPassword") String uPassword, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		User user = userService.isUser(uEmail,uPassword);
-		String loginMessage;
-		if( user != null) {
-			mav.setViewName("index");
+		User user = userService.isRightUser(uEmail,uPassword);
+		if(null != user) {
 			session.setAttribute("currentUser", user);
 			session.setAttribute("isLogin", true);
+			mav.setViewName("index");
 		} else {
-			loginMessage = "账号密码错误，请重新登录！";
-			mav.addObject("loginMessage", loginMessage);
+			mav.addObject("loginMessage", "账号或密码错误，请重新登录！");
 			mav.setViewName("login");
 		}
 		return mav;
 	}
 	
 	@RequestMapping("userLogout")
-	public ModelAndView logout(HttpSession session) {
+	//实现用户退出登录
+	public ModelAndView userLogout(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		if(session.getAttribute("currentUser") != null) {
 			session.removeAttribute("currentUser");
@@ -76,31 +78,33 @@ public class UserController {
 	}
 
 	@RequestMapping("userRegister")
-	public ModelAndView tryRegister(User user, HttpSession session) {
+	//实现用户注册功能
+	public ModelAndView userRegister(User user, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User newUser = userService.registUser(user);
-		String registerMessage;
-		if( newUser != null) { 
+		if( null != newUser) {
 			mav.setViewName("index");
 			session.setAttribute("currentUser", newUser);
 			session.setAttribute("isLogin", true);
 		} else {
+			mav.addObject("registerMessage", "账号已经存在，请重新注册！");
 			mav.setViewName("login");
-			registerMessage = "账号已经存在，请重新注册！";
-			mav.addObject("registerMessage", registerMessage);
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping("showUser/{uId}")
+	//进入用户个人主页
 	public ModelAndView showUser(@PathVariable("uId") int uId, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		//获取目标用户的信息
 		User pointUser = userService.getUserById(uId);
 		if(pointUser == null) {
 			mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
 			mav.setViewName("wrongInfo");
 			return mav;
 		} else {
+			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
 			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
 			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
 			mav.addObject("pointUser", pointUser);
@@ -110,20 +114,19 @@ public class UserController {
 			return mav;
 		}
 	}
-	
-	//userSetting
-	@RequestMapping("setting/{uId}")
-	public ModelAndView setting(@PathVariable("uId") int uId, HttpSession session) {
+
+	@RequestMapping("userSetting/{uId}")
+	//校验是否有权限设置当前用户的信息
+	public ModelAndView userSetting(@PathVariable("uId") int uId, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User currentUser = (User) session.getAttribute("currentUser");
-		if(currentUser != null) {
-			int currentuId = currentUser.getuId();
-			if(uId == currentuId) {
-				User settingUser = userService.getUserById(currentuId);
-				mav.addObject("settingUser", settingUser);
+		if(null != currentUser) {
+			if(uId == currentUser.getuId()) {
+				mav.addObject("settingUser", currentUser);
 				mav.setViewName("userSetting");
 			} else {
-				mav.setViewName("index");
+				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+				mav.setViewName("wrongInfo");
 			}
 		} else {
 			mav.setViewName("login");
@@ -131,28 +134,85 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping("userSetting")
-	public ModelAndView userSetting(User user, HttpSession session) {
+	@RequestMapping("updateUserSetting")
+	//实现用户信息的更新，预计实现用户头像照片相关,带扩展
+	public ModelAndView updateUserSetting(User user, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User currentUser = (User) session.getAttribute("currentUser");
 		if(currentUser != null) {
-			int currentuId = currentUser.getuId();
-			if(user.getuId() == currentuId) {
+			if(user.getuId() == currentUser.getuId()) {
 				//上传照片
 				
 				//
 				User afterUpadteUser = userService.updateUserInfo(user);
-				session.setAttribute("currentUser", afterUpadteUser);
-				mav.addObject("currentuId", afterUpadteUser.getuId());
-				mav.setViewName("redirect:/showUser/{currentuId}");
+				if(null != afterUpadteUser) {
+					session.setAttribute("currentUser", afterUpadteUser);
+					mav.addObject("currentuId", afterUpadteUser.getuId());
+					mav.setViewName("redirect:/showUser/{currentuId}");
+				} else {
+					mav.addObject("updateUserMessage", "未更新成功");
+					mav.addObject("currentuId", afterUpadteUser.getuId());
+					mav.setViewName("redirect:/userSetting/{currentuId}");
+				}
 			} else {
-				mav.setViewName("index");
+				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+				mav.setViewName("wrongInfo");
 			}
 		} else {
 			mav.setViewName("login");
 		}
 		return mav;
 	}
+
+	@RequestMapping("userSecurity/{uId}")
+	//校验是否有权限更改安全信息（目前仅仅密码，之后可拓展密保信息）
+	public ModelAndView userSecurity(@PathVariable("uId") int uId, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User) session.getAttribute("currentUser");
+		if(null != currentUser) {
+			if(uId == currentUser.getuId()) {
+				mav.addObject("settingUser", currentUser);
+				mav.setViewName("userSecurity");
+			} else {
+				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+				mav.setViewName("wrongInfo");
+			}
+		} else {
+			mav.setViewName("login");
+		}
+		return mav;
+	}
+
+	@RequestMapping("updateUserSecurity")
+	//实现用户信息的更新，预计实现用户头像照片相关,带扩展
+	public ModelAndView updateUserSecurity(User user, @RequestParam("uNewPassword1") String uNewPassword1, HttpSession
+			session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User) session.getAttribute("currentUser");
+		if( currentUser != null && user != null && user.getuId() == currentUser.getuId()
+				&& user.getuEmail().equals(currentUser.getuEmail())) {
+			//校验是否为当前用户
+			User canRightLogin = userService.isRightUser(currentUser.getuEmail(),user.getuPassword());
+			if(null != canRightLogin) {
+				user.setuPassword(uNewPassword1);
+				int isSuccess = userService.updateUserPassword(user);
+				if(isSuccess == 1) {
+					mav.addObject("loginMessage", "修改密码成功请重新登陆！");
+					mav.setViewName("login");
+				} else {
+					mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+					mav.setViewName("wrongInfo");
+				}
+			} else {
+				mav.addObject("uId",currentUser.getuId());
+				mav.addObject("updateUserSecurityMessage","修改密码未成功！");
+				mav.setViewName("redirect:/userSecurity/{uId}");
+			}
+		}
+		return mav;
+	}
+
+
 	
 	@RequestMapping("showAllUser")
 	public ModelAndView listUser() {
