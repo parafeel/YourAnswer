@@ -27,5 +27,6 @@ public interface UserMapper {
 
 
 	List<User> listUser();
-	
+	//根据关键字查询相关用户
+	List<User> queryUserByKeywords(String keywords);
 }

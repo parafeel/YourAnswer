@@ -67,7 +67,7 @@ public class QuestionServiceImpl implements QuestionService{
 	}
 
 	@Override
-	public List<Question> getQuestionByTime() {
+	public List<Question> getQuestionsByTime() {
 		// TODO Auto-generated method stub
 		return questionMapper.queryQuestionByTime();
 	}
@@ -86,6 +86,8 @@ public class QuestionServiceImpl implements QuestionService{
 		return null;
 	}
 
-
-
+	@Override
+	public List<Question> getQuestionsByKeywords(String keywords) {
+		return questionMapper.queryQuestionByKeywords(keywords);
+	}
 }

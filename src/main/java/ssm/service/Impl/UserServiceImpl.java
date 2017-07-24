@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
 		return userMapper.listUser();
 	}
 
+
 	@Override
 	//登录校验，根据uEmail获取加密后的密码，再判断用户密码是否符合
 	public User isRightUser(String uEmail,String uPassword) {
@@ -87,6 +88,11 @@ public class UserServiceImpl implements UserService {
 		user.setuPassword(security.encrypt(rawPassword));
 		int isSuccess = userMapper.updateUserPassword(user);
 		return isSuccess;
+	}
+
+	@Override
+	public List<User> getUsersByKeyWords(String keywords) {
+		return userMapper.queryUserByKeywords(keywords);
 	}
 
 

@@ -24,5 +24,6 @@ public interface AnswerMapper {
 	List<Answer> queryAnswersByQuestion(@Param("aBelongToQuestionId") Integer aBelongToQuestionId);
 	//根据uId获取此用户回答的所有答案
 	List<Answer> queryAnswersByUserId(@Param("aMadeByUserId") Integer aMadeByUserId);
-	
+	//根据关键字查询相关答案
+	List<Answer> queryAnswersByKeyWords(@Param("keywords") String keywords);
 }

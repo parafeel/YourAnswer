@@ -20,5 +20,6 @@ public interface AnswerService {
 
 	//根据uId获取此用户回答的所有答案
 	List<Answer> getAnswersByUserId(int aMadeByUserId);
-	
+	//根据关键字查询相关答案
+	List<Answer> getAnswersByKeyWords(String keywords);
 }

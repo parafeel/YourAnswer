@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import ssm.mapper.UserMapper;
 import ssm.pojo.Answer;
 import ssm.pojo.Question;
 import ssm.pojo.User;
@@ -47,7 +46,7 @@ public class UserController {
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
-	
+
 	@RequestMapping("userLogin")
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息
 	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail,
@@ -95,7 +94,7 @@ public class UserController {
 
 	@RequestMapping("showUser/{uId}")
 	//进入用户个人主页
-	public ModelAndView showUser(@PathVariable("uId") int uId, HttpSession session) {
+	public ModelAndView showUser(@PathVariable("uId") int uId) {
 		ModelAndView mav = new ModelAndView();
 		//获取目标用户的信息
 		User pointUser = userService.getUserById(uId);

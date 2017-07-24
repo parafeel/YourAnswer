@@ -18,5 +18,7 @@ public interface UserService {
 	int updateUserPassword(User user);
 
 	List<User> listUser();
-	
+
+	//通过关键字查询用户
+	List<User> getUsersByKeyWords(String keywords);
 }

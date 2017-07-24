@@ -17,11 +17,13 @@ public interface QuestionService {
 	void updateQuestionById(Question question);
 
 	Question getQuestionById(int qId);
-	
-	List<Question> getQuestionByTime();
-	//根据uId获取此用户提出的所有问题
+	//通过时间查询出问题列表
+	List<Question> getQuestionsByTime();
+	//根据uId获取此用户提出的问题列表
 	List<Question> getQuestionsByUserId(int uId);
 
 	List<Question> getQuestionsByTopic(Topic topic);
+	//通过关键字查询相关问题
+	List<Question> getQuestionsByKeywords(String keywords);
 	
 }

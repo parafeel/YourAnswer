@@ -74,12 +74,20 @@
 			user.uId=question.qMadeByUserId AND  qMadeDate>=DATE_SUB(NOW(),INTERVAL 30 DAY)
 			ORDER BY qMadeDate DESC
         </select>
-        
 
         <select id="queryQuestionByUserId" resultType="ssm.pojo.Question" parameterType="java.lang.Integer"  >
             SELECT  <include refid="Question_Column_List" />
             	 FROM question where qMadeByUserId=#{qMadeByUserId}
         </select>
+
+		<select id="queryQuestionByKeywords" resultType="ssm.pojo.Question" parameterType="java.lang.String"  >
+			SELECT  <include refid="Question_Column_List" />
+			FROM question WHERE true
+				<if test="keywords!=null and keywords != '' " >
+					AND qTitle like CONCAT('%',#{keywords},'%') OR qDetail like CONCAT('%',#{keywords},'%' )
+				</if>
+			Order By qMadeDate DESC
+		</select>
 
         
     </mapper>

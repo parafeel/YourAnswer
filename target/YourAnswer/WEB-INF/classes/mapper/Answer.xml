@@ -34,7 +34,7 @@
     	</resultMap>
 
 
-  		<sql id="Base_Column_List" >
+  		<sql id="Answer_Column_List" >
     		aId, aContent, aMadeByUserId, aMadeDate,aBelongToQuestionId
   		</sql>
     	
@@ -44,12 +44,12 @@
         </insert>
         
         <select id="hasAnsweredById" resultMap="AnswerResultMap" >
-        	select <include refid="Base_Column_List" /> from  answer WHERE 
+        	select <include refid="Answer_Column_List" /> from  answer WHERE 
         		aMadeByUserId=#{aMadeByUserId} and aBelongToQuestionId=#{aBelongToQuestionId}
         </select>
         
         <select id="hasAnswerd" resultMap="AnswerResultMap"  parameterType="ssm.pojo.Answer" >
-        	select <include refid="Base_Column_List" /> from  answer WHERE 
+        	select <include refid="Answer_Column_List" /> from  answer WHERE 
         		aMadeByUserId=#{aMadeByUserId} and aBelongToQuestionId=#{aBelongToQuestionId}
         </select>
          
@@ -71,7 +71,7 @@
         </update>
         
         <select id="queryAnswerById" resultMap="AnswerResultMap" parameterType="java.lang.Integer"  >
-            select  <include refid="Base_Column_List" />
+            select  <include refid="Answer_Column_List" />
             	 from answer where aid= #{aid} 
         </select>
     	
@@ -87,6 +87,14 @@
             SELECT * FROM  answer,user,question 
             	WHERE aMadeByUserId=#{aMadeByUserId} and user.uId = #{aMadeByUserId} and 
             	answer.aBelongToQuestionId = question.qId ORDER BY answer.aMadeDate DESC
-        </select>  
+        </select>
+
+		<select id="queryAnswersByKeyWords" resultMap="AnswerResultMap" parameterType="java.lang.String"  >
+			SELECT  * FROM answer,question WHERE true
+			<if test="keywords!=null and keywords != '' " >
+				AND aContent like CONCAT('%',#{keywords},'%') AND  answer.aBelongToQuestionId = question.qId
+			</if>
+			Order By aMadeDate DESC
+		</select>
         
     </mapper>

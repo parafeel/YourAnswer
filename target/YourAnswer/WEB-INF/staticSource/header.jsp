@@ -77,8 +77,9 @@
 
                 </li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" value="" placeholder="搜索">
+            <form class="navbar-form navbar-right" name="loginform" id="loginform" method="post"
+                      action="${pageContext.request.contextPath}/searchKeywords">
+                <input type="text" class="form-control" id="keywords" name="keywords" value="" placeholder="搜索">
             </form>
         </div>
     </div>

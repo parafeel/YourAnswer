@@ -40,7 +40,7 @@
 				    <li><a href="#Answer" rel="external nofollow" data-toggle="tab">回答</a></li>
 				    <li><a href="#Question" rel="external nofollow" data-toggle="tab">提问</a></li>
 			   	</ul>
-			   	<div class="tab-content"><!--选项卡的内容-->
+			   	<div class="tab-content">
 				    <div id="Profile" class="active tab-pane">
 						<div class="form-group">
 				  		</div>

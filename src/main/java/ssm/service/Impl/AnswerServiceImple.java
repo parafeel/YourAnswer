@@ -75,6 +75,9 @@ public class AnswerServiceImple implements AnswerService{
 		return answers;
 	}
 
-
-
+	@Override
+	public List<Answer> getAnswersByKeyWords(String keywords) {
+		List<Answer> answers = answerMapper.queryAnswersByKeyWords(keywords);
+		return answers;
+	}
 }

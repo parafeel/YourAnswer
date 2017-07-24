@@ -113,7 +113,7 @@ public class QuestionController {
 	@RequestMapping("listQuestion")
 	public ModelAndView listQuestions() {
 		ModelAndView mav = new ModelAndView();
-		List<Question> questions = questionService.getQuestionByTime();
+		List<Question> questions = questionService.getQuestionsByTime();
 		mav.addObject("questions", questions);
 		mav.setViewName("listQuestion");
 		return mav;
