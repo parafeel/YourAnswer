@@ -26,6 +26,7 @@
                         <li><a href="${pageContext.request.contextPath}/makeQuestion">提问</a></li>
                         <li class="divider"></li>
                         <li><a href="${pageContext.request.contextPath}/listQuestion">回答</a></li>
+                        <!--     <li><a href="/WEB-INF/html/listQuestion.html" id="listQuestion">回答</a></li>  -->
                         <li class="divider"></li>
                         <li><a href="${pageContext.request.contextPath}/makeArtile">文章</a></li>
                     </ul>
@@ -83,4 +84,7 @@
             </form>
         </div>
     </div>
+
+
+
 </nav>

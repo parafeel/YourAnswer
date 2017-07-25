@@ -15,12 +15,28 @@
 <script>
     $(document).ready( function() {
         $('#login').click(checkLogin);
+        $('#captchaImage').click(function()
+        {
+            $('#captchaImage').attr("src", "captcha.form?timestamp=" + (new Date()).valueOf());
+        });
     });
     function checkLogin() {
+        var ulEmail = $('#ulEmail').val();
         var ulPassword = $('#ulPassword').val();
+        var verificationCode = $('#VerificationCode').val();
+        if( ulEmail.length == 0 || ulPassword == 0 ) {
+            $('#loginMessage').addClass("alert-warning");
+            $('#loginMessage').html("请输入账号密码！");
+            return false;
+		}
+        if(verificationCode.length != 6 ) {
+            $('#loginMessage').addClass("alert-warning");
+            $('#loginMessage').html("验证码不正确！");
+            return false;
+		}
         if(ulPassword.length < 6) {
             $('#loginMessage').addClass("alert-warning");
-            $('#loginMessage').html("密码格式不正确");
+            $('#loginMessage').html("密码格式不正确!");
             return false;
 		}
 		return true;
@@ -52,12 +68,24 @@
 							<input type="password" class="form-control" placeholder="密码" name="ulPassword"
 								   id="ulPassword" required>
 						</div>
-						<div>
-							<div class="alert" role="alert" id="loginMessage">${loginMessage}</div>
+
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="验证码" name="VerificationCode" id="VerificationCode"
+								   required>
 						</div>
-						<button type="submit" class="btn btn-1" name="login" id="login" >
-							立即登录</button>
-						<a href="#">忘记密码 ?</a>
+						<div class="row">
+							<div class="form-group col-md-4">
+								<img id="captchaImage" src="captcha.form"/>
+							</div>
+							<div class="form-group col-md-8">
+								<div class="alert" role="alert" id="loginMessage">${loginMessage}</div>
+							</div>
+						</div>
+						<div>
+							<button type="submit" class="btn btn-1" name="login" id="login" >
+								立即登录</button>
+							<a href="#">  忘记密码 ?</a>
+						</div>
 					</form>
 				</div>
 				

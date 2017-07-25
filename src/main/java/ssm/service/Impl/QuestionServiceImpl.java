@@ -4,6 +4,7 @@ package ssm.service.Impl;
 import java.sql.Date;
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -63,7 +64,10 @@ public class QuestionServiceImpl implements QuestionService{
 	@Override
 	public Question getQuestionById(int qId) {
 		// TODO Auto-generated method stub
-		return questionMapper.queryQuestionById(qId);
+		Question question = questionMapper.queryQuestionById(qId);
+		//String jsonStrQuestion = JSON.toJSONString(question);
+		//System.out.println(jsonStrQuestion);
+		return question;
 	}
 
 	@Override

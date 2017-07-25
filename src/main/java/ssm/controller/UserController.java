@@ -1,15 +1,17 @@
 package ssm.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.Answer;
@@ -18,6 +20,7 @@ import ssm.pojo.User;
 import ssm.service.AnswerService;
 import ssm.service.QuestionService;
 import ssm.service.UserService;
+import ssm.util.CaptchaUtil;
 
 @Controller
 @RequestMapping("")
@@ -48,10 +51,17 @@ public class UserController {
 	}
 
 	@RequestMapping("userLogin")
-	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息
-	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail,
-								   @RequestParam("ulPassword") String uPassword, HttpSession session) {
+	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
+	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail, @RequestParam("ulPassword") String
+			uPassword, @RequestParam("VerificationCode") String verificationCode,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		String interRandomStr;
+		interRandomStr = (String) session.getAttribute("randomString");
+		if( ! verificationCode.toLowerCase().equals(interRandomStr.toLowerCase())){
+			mav.addObject("loginMessage", "验证码不正确！");
+			mav.setViewName("login");
+			return mav;
+		}
 		User user = userService.isRightUser(uEmail,uPassword);
 		if(null != user) {
 			session.setAttribute("currentUser", user);
@@ -62,6 +72,17 @@ public class UserController {
 			mav.setViewName("login");
 		}
 		return mav;
+	}
+
+	//增加登录验证码功能
+	@RequestMapping(value = "/captcha", method = RequestMethod.GET)
+	@ResponseBody
+	public void captcha(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		CaptchaUtil.outputCaptcha(request, response);
+		String randomString = (String)request.getSession().getAttribute("randomString");
+		System.out.println("randomString : " + randomString);
 	}
 	
 	@RequestMapping("userLogout")

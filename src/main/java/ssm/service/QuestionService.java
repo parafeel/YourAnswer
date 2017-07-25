@@ -16,7 +16,8 @@ public interface QuestionService {
 	
 	void updateQuestionById(Question question);
 
-	Question getQuestionById(int qId);
+	Question
+	getQuestionById(int qId);
 	//通过时间查询出问题列表
 	List<Question> getQuestionsByTime();
 	//根据uId获取此用户提出的问题列表

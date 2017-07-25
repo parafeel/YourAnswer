@@ -15,6 +15,8 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
 
+
+
 <title>Try To Answer --Answer</title>
 </head>
 <body>
