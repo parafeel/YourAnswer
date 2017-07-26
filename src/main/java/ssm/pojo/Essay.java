@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class Essay {
 	private int essayId;
+	private String essayTitle;
 	private String essayContent;
 	private int essayMadeByUserId;
 	private Date essayMadeDate;
@@ -19,6 +20,14 @@ public class Essay {
 
 	public void setEssayId(int essayId) {
 		this.essayId = essayId;
+	}
+
+	public String getEssayTitle() {
+		return essayTitle;
+	}
+
+	public void setEssayTitle(String essayTitle) {
+		this.essayTitle = essayTitle;
 	}
 
 	public String getEssayContent() {

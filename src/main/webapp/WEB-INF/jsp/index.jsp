@@ -21,11 +21,11 @@
 	canvas{display: block;width: 100%;height: 100%;}
 	.welcome-text{
 		position: absolute;
-		top:30%;
-		left: 20%;
+		top:10%;
+		left: 10%;
 		height: 20%;
 		width: 20%;
-		opacity: 0.8;
+		opacity: 0.6;
 	}
 </style>
 
@@ -38,9 +38,13 @@
 	<script src="${pageContext.request.contextPath}/frontResource/JS/index.js" type="text/javascript"></script>
 
 	<div class="welcome-text">
-		<p>
-			你好！${currentUser.uName}
-		</p>
+		<div>
+			<ul class="nav nav-pills">
+				<li role="presentation"><a href="${pageContext.request.contextPath}/makeQuestion">提问</a></li>
+				<li role="presentation"><a href="#">回答</a></li>
+				<li role="presentation"><a href="${pageContext.request.contextPath}/makeEssay">写随笔</a></li>
+			</ul>
+		</div>
 	</div>
 	
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>

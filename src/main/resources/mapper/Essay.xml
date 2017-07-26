@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="ssm.mapper.EssayMapper">
+    	<resultMap id="EssayResultMap" type="ssm.pojo.Essay" >
+    		<id column="essayId" property="essayId" jdbcType="INTEGER" />
+			<result column="essayTitle" property="essayTitle" jdbcType="VARCHAR" />
+    		<result column="essayContent" property="essayContent" jdbcType="VARCHAR" />
+    		<result column="essayMadeByUserId" property="essayMadeByUserId" jdbcType="INTEGER" />
+    		<result column="essayMadeDate" property="essayMadeDate" />
+  			<association property="essayMadeByUser" resultMap="UserResultMap"/>
+  		</resultMap>
+
+  		<resultMap id="UserResultMap" type="ssm.pojo.User">
+        	<id column="uId" property="uId" jdbcType="INTEGER" />
+    		<result column="uEmail" property="uEmail" jdbcType="VARCHAR" />
+    		<result column="uRealName" property="uRealName" jdbcType="VARCHAR" />
+    		<result column="uTel" property="uTel" jdbcType="VARCHAR" />
+    		
+    		<result column="uName" property="uName" jdbcType="VARCHAR" />
+    		<result column="uGender" property="uGender" jdbcType="VARCHAR" />
+    		<result column="uWord" property="uWord" jdbcType="VARCHAR" />
+    		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
+    		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
+    	</resultMap>
+
+  		<sql id="Essay_Column_List" >
+			essayId, essayTitle, essayContent, essayMadeByUserId, essayMadeDate
+  		</sql>
+
+		<sql id="List_Essay">
+			uId, uEmail, uName, uWord, essayId, essayTitle, essayContent, essayMadeByUserId, essayMadeDate
+		</sql>
+
+    	
+    	<insert id="addEssay" parameterType="ssm.pojo.Essay" >
+            INSERT into essay (essayTitle ,essayContent ,essayMadeByUserId ,essayMadeDate)
+            	values(#{essayTitle}, #{essayContent}, #{essayMadeByUserId}, #{essayMadeDate})
+        </insert>
+
+        <select id="queryEssayByEssayId" resultMap="EssayResultMap"  parameterType="java.lang.Integer" >
+        	SELECT <include refid="Essay_Column_List" /> FROM  essay WHERE essayId=#{essayId}
+        </select>
+         
+        <delete id="deleteEssayByEssayId" parameterType="java.lang.Integer" >
+            DELETE FROM essay WHERE essayId= #{essayId}
+        </delete>
+         
+        <update id="updateEssay" parameterType="ssm.pojo.Essay" >
+            UPDATE essay
+		    <set >
+				<if test="essayTitle != null" >
+					essayTitle = #{essayTitle,jdbcType=VARCHAR},
+				</if>
+		    	<if test="essayContent != null" >
+					essayContent = #{essayContent,jdbcType=VARCHAR},
+		     	</if>
+		     	<if test="essayMadeDate != null" >
+					essayMadeDate = #{essayMadeDate},
+		     	</if>
+		   	</set>
+		   	where essayId = #{essayId,jdbcType=INTEGER}
+        </update>
+
+    	
+    	<!-- 查询List的时候，mybatis会自动将查询的结果，按照resultType封装到一起 ，此处无parameterType，因为在
+    	对应mapper接口用@Param("aMadeByUserId")标注了传入的变量-->
+        
+        <select id="queryEssayByUserId" resultMap="EssayResultMap">
+            SELECT * FROM  essay,user WHERE essayMadeByUserId=#{essayMadeByUserId}
+			AND user.uId =  #{essayMadeByUserId}   ORDER BY  essay.essayMadeDate DESC
+        </select>
+
+		<select id="queryEssayByEssayTitle" resultMap="EssayResultMap" parameterType="java.lang.String"  >
+			SELECT  * FROM essay WHERE true
+			<if test="essayTitle!=null and essayTitle != '' " >
+				AND essayTitle=#{essayTitle}
+			</if>
+			Order By essayMadeDate DESC
+		</select>
+
+		<select id="queryEssayByKeyWords" resultMap="EssayResultMap" parameterType="java.lang.String"  >
+			SELECT  * FROM essay WHERE true
+			<if test="keywords!=null and keywords != '' " >
+				AND essayContent like CONCAT('%',#{keywords},'%') OR essayTitle like CONCAT('%',#{keywords},'%')
+			</if>
+			Order By essayMadeDate DESC
+		</select>
+
+		<select id="queryEssayByTime" resultMap="EssayResultMap" >
+			SELECT  <include refid="List_Essay" /> FROM essay,user  WHERE
+			user.uId=essay.essayMadeByUserId AND essayMadeDate >= DATE_SUB(NOW(),INTERVAL 30 DAY)
+			ORDER BY essayMadeDate DESC
+		</select>
+        
+    </mapper>

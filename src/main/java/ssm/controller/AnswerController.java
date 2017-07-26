@@ -90,10 +90,15 @@ public class AnswerController {
 		Question currentQuestion = questionService.getQuestionById(qId);
 		Answer currentAnswer = answerService.getAnserById(aId);
 		User theAnsweredUser = userService.getUserById(currentAnswer.getaMadeByUserId());
-		currentAnswer.setaMadeByUser(theAnsweredUser);
-		mav.addObject("currentQuestion", currentQuestion);
-		mav.addObject("currentAnswer", currentAnswer);
-		mav.setViewName("showAnswer");
+		if(currentQuestion == null || currentAnswer == null || theAnsweredUser == null) {
+			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
+			mav.setViewName("wrongInfo");
+		} else {
+			currentAnswer.setaMadeByUser(theAnsweredUser);
+			mav.addObject("currentQuestion", currentQuestion);
+			mav.addObject("currentAnswer", currentAnswer);
+			mav.setViewName("showAnswer");
+		}
 		return mav;
 	}
 }

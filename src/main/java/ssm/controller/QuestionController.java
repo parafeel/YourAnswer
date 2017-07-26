@@ -99,9 +99,9 @@ public class QuestionController {
 					mav.addObject("currentQuestion", currentQuestion);
 					mav.setViewName("redirect:/Question/{qId}");
 				} else {
-					mav.setViewName("addQuestion");
 					addQuestionMessage = "问题未提问成功！";
 					mav.addObject("addQuestionMessage", addQuestionMessage);
+					mav.setViewName("addQuestion");
 				}
 			}
 		}
@@ -123,10 +123,15 @@ public class QuestionController {
 	public ModelAndView showQuestion(@PathVariable("qId") int qId) {
 		ModelAndView mav = new ModelAndView();
 		Question currentQuestion = questionService.getQuestionById(qId);
-		List<Answer> answers = answerService.getAnswerByQuestion(currentQuestion.getqId());
-		mav.addObject("currentQuestion", currentQuestion);
-		mav.addObject("answers", answers);
-		mav.setViewName("showQuestion");
+		if(currentQuestion == null) {
+			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
+			mav.setViewName("wrongInfo");
+		} else {
+			List<Answer> answers = answerService.getAnswerByQuestion(currentQuestion.getqId());
+			mav.addObject("currentQuestion", currentQuestion);
+			mav.addObject("answers", answers);
+			mav.setViewName("showQuestion");
+		}
 		return mav;
 	}
 	
