@@ -25,7 +25,7 @@
 		<br>
        	<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
-	    		<h3 align="center">${currentQuestion.qTitle }</h3>
+	    		<h3>${currentQuestion.qTitle }</h3>
 	  		</div>
 			<hr>
 			<div style="padding: 5px 0; color:#999999">问题详情：</div>
