@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.Answer;
+import ssm.pojo.Essay;
 import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.AnswerService;
+import ssm.service.EssayService;
 import ssm.service.QuestionService;
 import ssm.service.UserService;
 import ssm.util.CaptchaUtil;
@@ -29,6 +31,7 @@ public class UserController {
 	private UserService userService;
 	private QuestionService questionService;
 	private AnswerService answerService;
+	private EssayService essayService;
 
 	@Autowired
 	public void setUserService(UserService userService) {
@@ -41,6 +44,10 @@ public class UserController {
 	@Autowired
 	public void setAnswerService(AnswerService answerService) {
 		this.answerService = answerService;
+	}
+	@Autowired
+	public void setEssayService(EssayService essayService) {
+		this.essayService = essayService;
 	}
 
 	@RequestMapping("login")
@@ -127,9 +134,11 @@ public class UserController {
 			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
 			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
 			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
+			List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
 			mav.addObject("pointUser", pointUser);
 			mav.addObject("pointUsersQuestion", pointUsersQuestion);
 			mav.addObject("pointUsersAnswer", pointUsersAnswer);
+			mav.addObject("pointUserEssay",pointUserEssay);
 			mav.setViewName("showUser");
 			return mav;
 		}

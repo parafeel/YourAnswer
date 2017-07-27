@@ -24,7 +24,7 @@
 		<br>
 		<br>
        	<div class="highlight">
-       	 	<div class="col-lg-4">
+       	 	<div class="col-lg-12">
 	       	 	<div class="form-group">
 		    		<h3>${pointUser.uName }</h3>
 		  		</div>
@@ -39,6 +39,7 @@
 	    			<li class="active"><a href="#Profile" rel="external nofollow" data-toggle="tab" >简介</a></li>
 				    <li><a href="#Answer" rel="external nofollow" data-toggle="tab">回答</a></li>
 				    <li><a href="#Question" rel="external nofollow" data-toggle="tab">提问</a></li>
+				    <li><a href="#Essay" rel="external nofollow" data-toggle="tab">随笔</a></li>
 			   	</ul>
 			   	<div class="tab-content">
 				    <div id="Profile" class="active tab-pane">
@@ -84,6 +85,19 @@
 					   		</c:forEach>
 					   	</div>
 				    </div>
+
+					<div id="Essay" class="tab-pane">
+						<div class="highlight">
+							<c:forEach items="${pointUserEssay}" var="essay" varStatus="st">
+								<h4><a href="${pageContext.request.contextPath}/Essay/${essay.essayId}"
+									   target="_blank">${essay.essayTitle }</a></h4>
+								<p>	点击标题查看随笔全部内容</p>
+								<!-- 格式化从数据库读取的时间 -->
+								<p><fmt:formatDate value="${essay.essayMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
+								<hr>
+							</c:forEach>
+						</div>
+					</div>
 			   	
 			   	</div>
 			</div>

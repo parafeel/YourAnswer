@@ -26,6 +26,7 @@ public class IndexController {
 	    return mav;
 	}
 
+	//提供url: YourAnswer/index，来检索所有问题（JSON格式）的数据接口。
 	@RequestMapping("/index")
 	public @ResponseBody List<Question> home() {
 		List<Question> questions = questionService.getQuestionsByTime();
