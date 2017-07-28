@@ -6,11 +6,11 @@ import org.apache.ibatis.annotations.Param;
 import ssm.pojo.Question;
 
 public interface QuestionMapper {
-	void addQuestion(Question question);
+	int addQuestion(Question question);
 	
 	Question hasQTitle(String qTitle);
 	
-	void deleteQuestionById(Integer qId);
+	int deleteQuestionById(Integer qId);
 	
 	int updateQuestionById(Question Question);
 	

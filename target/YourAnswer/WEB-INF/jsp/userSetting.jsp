@@ -19,6 +19,10 @@ $(function () {
 		$("#file").click();
 	});
 });
+$.ready(function() {
+
+})
+
 </script>
 
 <title>账户资料-- Answer</title>
@@ -80,14 +84,6 @@ $(function () {
 							<input type="text" class="form-control" value="${settingUser.uWord }" name="uWord" id="uWord" required>
 						</div>
 					</div>
-						<div class="form-group row">
-						<div class="col-md-2">
-							性别 ：
-						</div>
-						<div class="col-md-6">
-							<input name="uGender" id="uGender" type="radio" value="男"> 男 <input name="uGender" id="uGender"  type="radio" value="女"> 女
-						</div>
-					</div>	
 					<div class="form-group row">
 						<div class="col-md-2">
 							居住地 ：

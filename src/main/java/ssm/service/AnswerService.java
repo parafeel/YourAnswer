@@ -12,7 +12,7 @@ public interface AnswerService {
 
 	void deleteAnswerById(int aId);
 
-	void updateAnswerById(Answer answer);
+	boolean updateAnswerById(Answer answer);
 
 	Answer getAnserById(int aId);
 

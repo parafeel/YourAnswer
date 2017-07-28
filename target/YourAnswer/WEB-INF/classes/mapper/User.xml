@@ -77,6 +77,11 @@
             SELECT <include refid="User_Column_List" /> FROM user  WHERE uId= #{uId}
         </select>
 
+		<select id="queryUserAuthority" resultType="java.lang.Integer" parameterType="ssm.pojo.User">
+			SELECT authority FROM user  WHERE uId= #{uId}
+		</select>
+
+
 		<select id="queryUserByKeywords" resultType="ssm.pojo.User" parameterType="java.lang.String">
 			SELECT <include refid="User_Column_List" /> FROM user  WHERE uName like CONCAT('%',#{keywords},'%')
 				OR uRealName like CONCAT('%',#{keywords},'%')

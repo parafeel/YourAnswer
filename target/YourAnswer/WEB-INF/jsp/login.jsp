@@ -12,37 +12,7 @@
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
 
-<script>
-    $(document).ready( function() {
-        $('#login').click(checkLogin);
-        $('#captchaImage').click(function()
-        {
-            $('#captchaImage').attr("src", "captcha.form?timestamp=" + (new Date()).valueOf());
-        });
-    });
-    function checkLogin() {
-        var ulEmail = $('#ulEmail').val();
-        var ulPassword = $('#ulPassword').val();
-        var verificationCode = $('#VerificationCode').val();
-        if( ulEmail.length == 0 || ulPassword == 0 ) {
-            $('#loginMessage').addClass("alert-warning");
-            $('#loginMessage').html("请输入账号密码！");
-            return false;
-		}
-        if(verificationCode.length != 6 ) {
-            $('#loginMessage').addClass("alert-warning");
-            $('#loginMessage').html("验证码不正确！");
-            return false;
-		}
-        if(ulPassword.length < 6) {
-            $('#loginMessage').addClass("alert-warning");
-            $('#loginMessage').html("密码格式不正确!");
-            return false;
-		}
-		return true;
-    }
-</script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/loginAjax.js"></script>
 <title>Login or Regist --Answer</title>
 </head>
 <body>
@@ -106,9 +76,8 @@
 							<input type="text" class="form-control" placeholder="您的用户名称" name="uName" id="uName" required>
 						</div>
 						<div class="form-group">
-							<input name="uGender" id="umGender" type="radio" value="男"> 男 <input name="uGender"
-																								 id="ufGender"
-																								 type="radio" value="女"> 女
+							<input name="uGender" id="umGender" type="radio" value="男"> 男
+							<input name="uGender" id="ufGender" type="radio" value="女"> 女
 						</div>
 						<div class="form-group">
 							<input type="password" class="form-control" placeholder="请输入密码" name="uPassword" id="uPassword" required>

@@ -45,6 +45,8 @@ public class EssayServiceImpl implements EssayService{
 
 	@Override
 	public boolean updateEssay(Essay essay) {
+		Date insertTime= new Date(new java.util.Date().getTime());
+		essay.setEssayMadeDate(insertTime);
 		int flag = essayMapper.updateEssay(essay);
 		if(flag == 1) {
 			return true;

@@ -1,0 +1,30 @@
+html{height: 100%}
+body{margin: 0;height: 100%;
+    background: #fff;}
+canvas{display: block;width: 100%;height: 100%;}
+.welcome-text{
+    top: 60px;
+    left: 10%;
+    width: 270px;
+    height: 150px;
+    opacity: 1;
+}
+#list {
+    top: 380px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.highlight {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#footer {
+    padding: auto 15px auto 15px;
+    margin: auto 15px auto 15px;
+}

@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ssm.mapper.AnswerMapper;
 import ssm.pojo.Answer;
 import ssm.pojo.Question;
 import ssm.pojo.User;
@@ -101,4 +103,37 @@ public class AnswerController {
 		}
 		return mav;
 	}
+
+	@RequestMapping("answer/{aId}/update")
+	public ModelAndView tryUpdateAnswer(@PathVariable("aId") int aId, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User)session.getAttribute("currentUser");
+		Answer currentAnswer = answerService.getAnserById(aId);
+		if(currentUser == null || currentAnswer == null || currentUser.getuId() != currentAnswer.getaMadeByUserId()) {
+			mav.setViewName("redirect:/");
+		} else {
+			mav.addObject("currentAnswer", currentAnswer);
+			mav.setViewName("updateAnswer");
+		}
+		return mav;
+	}
+
+	@RequestMapping("updateAnswer/{aId}")
+	public ModelAndView updateAnswer(Answer answer, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		boolean isUpdate = answerService.updateAnswerById(answer);
+		if(isUpdate) {
+			Answer currentAnswer = answerService.getAnserById(answer.getaId());
+			mav.addObject("qId", currentAnswer.getaBelongToQuestionId());
+			mav.addObject("aId", currentAnswer.getaId());
+			mav.setViewName("redirect:/Question/{qId}/showAnswer/{aId}");
+		} else {
+			mav.addObject("updateAnswerMessage","问题未修改成功！");
+			mav.addObject("currentAnswer", answer);
+			mav.setViewName("updateAnswer");
+		}
+		return mav;
+	}
+
+
 }

@@ -52,7 +52,7 @@
 	<div  class="container">
 		<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
-	    		<h6><a href="${pageContext.request.contextPath}/showUser/${currentAnswer.aMadeByUser.uId}"
+	    		<h6><a href="${pageContext.request.contextPath}/user/${currentAnswer.aMadeByUser.uId}"
 					   target="_blank">${currentAnswer.aMadeByUser.uName }</a></h6>
 				<h6 style="color:#999999" >${currentAnswer.aMadeByUser.uWord }</h6>
 				<hr>

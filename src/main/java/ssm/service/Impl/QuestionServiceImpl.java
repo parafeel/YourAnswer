@@ -27,17 +27,22 @@ public class QuestionServiceImpl implements QuestionService{
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public void putQuestion(Question question) {
+	public boolean putQuestion(Question question) {
 		Question newQuestion = questionMapper.hasQTitle(question.getqTitle());
 		// TODO Auto-generated method stub
 		if(newQuestion != null) {
-			return;
+			return false;
 		}
 		//因为实体question中的时间为util.Date，而数据库存时需要sql.Date格式，故转化
 		//读取的时候则不必再转化，因为读出来的相当于sql.Date，是Util的子类，可以直接存入对象
 		Date insertTime= new Date(new java.util.Date().getTime());
 		question.setqMadeDate(insertTime);
-		questionMapper.addQuestion(question);
+		int flag = questionMapper.addQuestion(question);
+		if(flag == 1) {
+			return true;
+		} else {
+			return  false;
+		}
 	}
 	
 	@Override
@@ -49,16 +54,28 @@ public class QuestionServiceImpl implements QuestionService{
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public void deleteQuestionById(int qId) {
+	public boolean deleteQuestionById(int qId) {
 		// TODO Auto-generated method stub
-		questionMapper.deleteQuestionById(qId);
+		int flag = questionMapper.deleteQuestionById(qId);
+		if(flag == 1) {
+			return true;
+		} else {
+			return  false;
+		}
 	}
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public void updateQuestionById( Question question) {
+	public boolean updateQuestionById( Question question) {
 		// TODO Auto-generated method stub
-		questionMapper.updateQuestionById(question);
+		Date insertTime= new Date(new java.util.Date().getTime());
+		question.setqMadeDate(insertTime);
+		int flag = questionMapper.updateQuestionById(question);
+		if(flag == 1) {
+			return true;
+		} else {
+			return  false;
+		}
 	}
 	
 	@Override

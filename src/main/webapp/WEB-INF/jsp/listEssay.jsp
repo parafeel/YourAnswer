@@ -29,7 +29,7 @@
         <div class="container">
         	<div class="highlight" style="background-color: #f6f6f6;">
 				<div class="form-group smallInfo" style="color:#D0D0D0">
-					<h6><a style="color:#999999" href="${pageContext.request.contextPath}/showUser/${essay.essayMadeByUserId}"
+					<h6><a style="color:#999999" href="${pageContext.request.contextPath}/user/${essay.essayMadeByUserId}"
 						   target="_blank">${essay.essayMadeByUser.uName}</a> &nbsp;发表随笔：</h6>
 				</div>
 				<hr>
@@ -42,6 +42,10 @@
 		    	<div class="form-group"  style="color:#999999">
 		    		<!-- 格式化从数据库读取的时间 -->
 		    		<h6>发布于：<fmt:formatDate value="${essay.essayMadeDate }" pattern="yyyy-MM-dd HH:mm"/></h6>
+					<c:if test="${essay.essayMadeByUserId == currentUser.uId}">
+						<a href="${pageContext.request.contextPath}/Essay/${essay.essayId}/update"><span
+								class="glyphicon glyphicon-pencil"></span> 修改</a>
+					</c:if>
 		    	</div>
 		    </div>
 		</div>

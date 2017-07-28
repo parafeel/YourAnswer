@@ -29,7 +29,7 @@
 	  		</div>
 			<hr>
 			<div style="padding: 5px 0; color:#999999">
-				<h6><a href="${pageContext.request.contextPath}/showUser/${currentEssay.essayMadeByUser.uId}"
+				<h6><a href="${pageContext.request.contextPath}/user/${currentEssay.essayMadeByUser.uId}"
 					   target="_blank">${currentEssay.essayMadeByUser.uName}</a>发布于：</h6>
 				<h6><fmt:formatDate value="${currentEssay.essayMadeDate }" pattern="yyyy-MM-dd HH:mm"/></h6>
 			</div>

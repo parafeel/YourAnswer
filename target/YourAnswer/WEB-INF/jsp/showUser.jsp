@@ -68,7 +68,11 @@
 							    <h4><a href="${pageContext.request.contextPath}/Question/${answer.aBelongToQuestionId}/showAnswer/${answer.aId}" target="_blank">${answer.aBelongToQuestion.qTitle }</a></h4>
 							  	<p>	${answer.aContent }</p>
 							    <!-- 格式化从数据库读取的时间 -->
-							    <p><fmt:formatDate value="${answer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
+								<p><fmt:formatDate value="${answer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
+								<c:if test="${answer.aMadeByUserId == currentUser.uId}">
+									<a href="${pageContext.request.contextPath}/answer/${answer.aId}/update"><span
+											class="glyphicon glyphicon-pencil"></span> 修改</a>
+								</c:if>
 							    <hr>
 					   		</c:forEach>
 					   	</div>
@@ -94,6 +98,10 @@
 								<p>	点击标题查看随笔全部内容</p>
 								<!-- 格式化从数据库读取的时间 -->
 								<p><fmt:formatDate value="${essay.essayMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
+								<c:if test="${essay.essayMadeByUserId == currentUser.uId}">
+									<a href="${pageContext.request.contextPath}/Essay/${essay.essayId}/update"><span
+											class="glyphicon glyphicon-pencil"></span> 修改</a>
+								</c:if>
 								<hr>
 							</c:forEach>
 						</div>

@@ -29,7 +29,8 @@
         <div class="container">
         	<div class="highlight" style="background-color: #f6f6f6;">
 				<div class="form-group smallInfo" style="color:#D0D0D0">
-					<h6><a style="color:#999999" href="${pageContext.request.contextPath}/showUser/${question.qMadeByUserId}" target="_blank">${question.qMadeByUser.uName}</a> &nbsp;提出了问题：</h6>
+					<h6><a style="color:#999999" href="${pageContext.request.contextPath}/user/${question.qMadeByUserId}"
+						   target="_blank">${question.qMadeByUser.uName}</a> &nbsp;提出了问题：</h6>
 				</div>
 				<hr>
 				<div class="form-group">

@@ -91,6 +91,12 @@ public class EssayController {
 		return mav;
 	}
 
+
+	@RequestMapping("Essay/{essayId}/update")
+	public @ResponseBody Essay updateEssay(@PathVariable("essayId") int essayId) {
+		return essayService.getEssayByEssayId(essayId);
+	}
+
 	@RequestMapping("listEssay")
 	public ModelAndView listEssay() {
 		ModelAndView mav = new ModelAndView();

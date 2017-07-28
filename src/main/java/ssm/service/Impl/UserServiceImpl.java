@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 		int isSuccess = userMapper.createUser(user);
 		//确定增加成功后，返回注册后的用户
 		if(isSuccess == 1) {
-			User newUser = isRightUser(user.getuPassword(),rawPassword);
+			User newUser = isRightUser(user.getuEmail(),rawPassword);
 			return newUser;
 		}
 		return null;
@@ -89,6 +89,14 @@ public class UserServiceImpl implements UserService {
 		int isSuccess = userMapper.updateUserPassword(user);
 		return isSuccess;
 	}
+
+
+	@Override
+	public int getUserAuthority(User user) {
+		int authority = userMapper.queryUserAuthority(user);
+		return authority;
+	}
+
 
 	@Override
 	public List<User> getUsersByKeyWords(String keywords) {

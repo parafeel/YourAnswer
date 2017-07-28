@@ -16,7 +16,9 @@ public class User {
 	private String uWord;
 	private String uResidence;
 	private String uProfession;
-	
+	private int uAuthority;	//普通为0，管理员100
+
+
 	public int getuId() {
 		return uId;
 	}
@@ -83,8 +85,14 @@ public class User {
 	public void setuProfession(String uProfession) {
 		this.uProfession = uProfession;
 	}
-	
-	
-	
-	
+	public int getuAuthority() {
+		return uAuthority;
+	}
+	public void setuAuthority(int uAuthority) {
+		this.uAuthority = uAuthority;
+	}
+
+
+
+
 }

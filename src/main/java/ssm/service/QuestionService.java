@@ -8,13 +8,13 @@ import ssm.pojo.Topic;
 
 public interface QuestionService {
 	
-	void putQuestion(Question question);
+	boolean putQuestion(Question question);
 
 	Question getQuestion(String qTitle);
 	
-	void deleteQuestionById(int qId);
+	boolean deleteQuestionById(int qId);
 	
-	void updateQuestionById(Question question);
+	boolean updateQuestionById(Question question);
 
 	Question
 	getQuestionById(int qId);

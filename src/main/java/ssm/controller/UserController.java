@@ -3,6 +3,7 @@ package ssm.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -100,7 +101,7 @@ public class UserController {
 			session.removeAttribute("currentUser");
 			session.setAttribute("isLogin", false);
 		}
-		mav.setViewName("redirect:/index");
+		mav.setViewName("redirect:/");
 		return mav;
 	}
 
@@ -110,38 +111,14 @@ public class UserController {
 		ModelAndView mav = new ModelAndView();
 		User newUser = userService.registUser(user);
 		if( null != newUser) {
-			mav.setViewName("index");
 			session.setAttribute("currentUser", newUser);
 			session.setAttribute("isLogin", true);
+			mav.setViewName("index");
 		} else {
 			mav.addObject("registerMessage", "账号已经存在，请重新注册！");
 			mav.setViewName("login");
 		}
 		return mav;
-	}
-
-	@RequestMapping("showUser/{uId}")
-	//进入用户个人主页
-	public ModelAndView showUser(@PathVariable("uId") int uId) {
-		ModelAndView mav = new ModelAndView();
-		//获取目标用户的信息
-		User pointUser = userService.getUserById(uId);
-		if(pointUser == null) {
-			mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-			mav.setViewName("wrongInfo");
-			return mav;
-		} else {
-			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
-			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
-			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
-			List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
-			mav.addObject("pointUser", pointUser);
-			mav.addObject("pointUsersQuestion", pointUsersQuestion);
-			mav.addObject("pointUsersAnswer", pointUsersAnswer);
-			mav.addObject("pointUserEssay",pointUserEssay);
-			mav.setViewName("showUser");
-			return mav;
-		}
 	}
 
 	@RequestMapping("userSetting/{uId}")
@@ -242,14 +219,31 @@ public class UserController {
 	}
 
 
-	
-	@RequestMapping("showAllUser")
-	public ModelAndView listUser() {
+
+	@RequestMapping("user/{uId}")
+	//进入用户个人信息
+	public ModelAndView showUser(@PathVariable("uId") int uId) {
 		ModelAndView mav = new ModelAndView();
-		List<User> userList = userService.listUser();
-		mav.addObject("userList", userList);
-		mav.setViewName("showAllUser");
-		return mav;
+		//获取目标用户的信息
+		User pointUser = userService.getUserById(uId);
+		if(pointUser == null) {
+			mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+			mav.setViewName("wrongInfo");
+			return mav;
+		} else {
+			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
+			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
+			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
+			List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
+			mav.addObject("pointUser", pointUser);
+			mav.addObject("pointUsersQuestion", pointUsersQuestion);
+			mav.addObject("pointUsersAnswer", pointUsersAnswer);
+			mav.addObject("pointUserEssay", pointUserEssay);
+			mav.setViewName("showUser");
+			return mav;
+		}
 	}
-	
+
+
+
 }

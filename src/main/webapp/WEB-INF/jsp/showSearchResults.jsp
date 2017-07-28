@@ -72,7 +72,7 @@
 					<div id="User" class="tab-pane">
 						<div class="highlight" style="background-color: #f6f6f6;">
 				    		<c:forEach items="${relatedUsers}" var="user" varStatus="st">
-								<h4><a href="${pageContext.request.contextPath}/showUser/${user.uId}"
+								<h4><a href="${pageContext.request.contextPath}/user/${user.uId}"
 									   target="_blank">${user.uName }</a></h4>
 								<div class="form-group">
 									<p>真实姓名：${user.uRealName }</p>

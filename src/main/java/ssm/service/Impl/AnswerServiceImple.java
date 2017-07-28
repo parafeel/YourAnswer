@@ -49,9 +49,16 @@ public class AnswerServiceImple implements AnswerService{
 	}
 
 	@Override
-	public void updateAnswerById(Answer answer) {
+	public boolean updateAnswerById(Answer answer) {
 		// TODO Auto-generated method stub
-
+		Date insertTime= new Date(new java.util.Date().getTime());
+		answer.setaMadeDate(insertTime);
+		int flag = answerMapper.updateAnswerById(answer);
+		if(flag == 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override

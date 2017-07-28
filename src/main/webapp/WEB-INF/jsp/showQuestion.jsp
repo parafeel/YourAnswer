@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8" isELIgnored="false" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
@@ -54,9 +54,10 @@
 	
 	<c:forEach items="${answers}" var="answer" varStatus="st">
         <div class="container">
-        	<div class="highlight">
+        	<div class="highlight" style="background-color: #f6f6f6;">
 				<div class="form-group" >
-					<h6><a href="${pageContext.request.contextPath}/showUser/${answer.aMadeByUserId}" target="_blank">${answer.aMadeByUser.uName }</a> </h6>
+					<h6><a href="${pageContext.request.contextPath}/user/${answer.aMadeByUserId}"
+						   target="_blank">${answer.aMadeByUser.uName }</a> </h6>
 		  			<h6 style="color:#999999" >${answer.aMadeByUser.uWord }</h6>
 		  			<hr>
 		  		</div>
@@ -66,6 +67,11 @@
 	    		<hr>
 	    		<!-- 格式化从数据库读取的时间 -->
 	    		<h6 style="color:#999999">编辑于：<fmt:formatDate value="${answer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></h6>
+				<c:if test="${answer.aMadeByUserId == currentUser.uId}">
+					<a href="${pageContext.request.contextPath}/answer/${answer.aId}/update"><span
+							class="glyphicon glyphicon-pencil"></span> 修改</a>
+				</c:if>
+
 		    </div>
 		</div>
     </c:forEach>

@@ -54,6 +54,9 @@
 		     	<if test="qDetail != null" >
 		     		qDetail = #{qDetail,jdbcType=VARCHAR},
 		     	</if>
+				<if test="qMadeDate != null" >
+					qMadeDate = #{qMadeDate},
+				</if>
 		   	</set>
 		   	where qId = #{qId,jdbcType=INTEGER}   
         </update>

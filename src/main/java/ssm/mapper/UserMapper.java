@@ -24,6 +24,8 @@ public interface UserMapper {
 	User queryUserByuEmail(@Param("uEmail") String uEmail);
 	//根据uId直接查询用户信息(除密码)
 	User queryUserById(@Param("uId") Integer uId);
+	//根据用户Id查询用户权限
+	int queryUserAuthority(User user);
 
 
 	List<User> listUser();

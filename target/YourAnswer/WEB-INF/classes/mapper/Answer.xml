@@ -63,7 +63,7 @@
 		    	<if test="aContent != null" >
 		       		aContent = #{aContent,jdbcType=VARCHAR},
 		     	</if>
-		     	<if test="qMadeDate != null" >
+		     	<if test="aMadeDate != null" >
 		     		aMadeDate = #{aMadeDate},
 		     	</if>
 		   	</set>

@@ -18,6 +18,7 @@ import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.AnswerService;
 import ssm.service.QuestionService;
+import ssm.service.UserService;
 
 @Controller
 @RequestMapping("")
@@ -25,6 +26,7 @@ public class QuestionController {
 
 	private QuestionService questionService;
 	private AnswerService answerService;
+	private UserService userService;
 
 	@Autowired
 	public void setQuestionService(QuestionService questionService) {
@@ -33,6 +35,10 @@ public class QuestionController {
 	@Autowired
 	public void setAnswerService(AnswerService answerService) {
 		this.answerService = answerService;
+	}
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 
 	@RequestMapping("makeQuestion")
@@ -133,6 +139,17 @@ public class QuestionController {
 			mav.setViewName("showQuestion");
 		}
 		return mav;
+	}
+
+	@RequestMapping("deleteQuestion/{qId}")
+	public @ResponseBody boolean deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		int currentUserAuthority = userService.getUserAuthority(currentUser);
+		if(currentUserAuthority == 100 ) {
+			boolean flag = questionService.deleteQuestionById(qId);
+			return  flag;
+		}
+		return false;
 	}
 	
 }

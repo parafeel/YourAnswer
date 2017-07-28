@@ -17,6 +17,9 @@ public interface UserService {
 	//更新用户密码
 	int updateUserPassword(User user);
 
+	//获取用户权限
+	int getUserAuthority(User user);
+
 	List<User> listUser();
 
 	//通过关键字查询用户
