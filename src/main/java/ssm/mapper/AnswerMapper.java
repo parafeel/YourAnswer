@@ -7,7 +7,8 @@ import 	ssm.pojo.Answer;
 import  java.util.List;
 
 public interface AnswerMapper {
-	void addAnswer(Answer answer);
+
+	int addAnswer(Answer answer);
 	
 	//用@Param("aMadeByUserId")，来标识传入到xml的parameter的名称
 	Answer hasAnsweredById(@Param("aMadeByUserId") Integer aMadeByUserId, @Param("aBelongToQuestionId") Integer

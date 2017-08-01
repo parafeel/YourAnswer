@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="ssm.mapper.OperationMapper">
+    	<resultMap id="OperationResultMap" type="ssm.pojo.Operation" >
+    		<id column="optId" property="optId" jdbcType="INTEGER" />
+    		<result column="optId" property="uId" jdbcType="INTEGER" />
+    		<result column="operationType" property="operationType" jdbcType="TINYINT" />
+    		<result column="operationId" property="operationId" jdbcType="INTEGER" />
+			<result column="parentType" property="parentType" jdbcType="TINYINT" />
+			<result column="parentId" property="parentId" jdbcType="TINYINT" />
+			<result column="createTime" property="createTime" />
+  		</resultMap>
+
+
+  		<sql id="Operation_Column_List" >
+			optId, optId, operationType ,operationId ,parentType ,parentId ,createTime
+  		</sql>
+    	
+    	<insert id="addOperation" parameterType="ssm.pojo.Operation" >
+			INSERT INTO useroperation (uId ,operationType ,operationId ,parentType ,parentId,createTime)
+				SELECT  #{uId} ,#{operationType} ,#{operationId} ,#{parentType} ,#{parentId} ,#{createTime}
+				FROM DUAL WHERE NOT EXISTS
+			(SELECT * FROM useroperation WHERE operationType=#{operationType} AND operationId=#{operationId} )
+		</insert>
+
+    	
+    	<!-- 查询List的时候，mybatis会自动将查询的结果，按照resultType封装到一起 ，此处无parameterType，因为在
+    	对应mapper接口用@Param("aMadeByUserId")标注了传入的变量-->
+        <select id="querypOerationsByuId" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
+        	SELECT * FROM  useroperation WHERE uId = #{uId}  ORDER BY createTime DESC
+        </select>
+        
+    </mapper>

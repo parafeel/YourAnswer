@@ -9,31 +9,35 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ssm.mapper.AnswerMapper;
+import ssm.mapper.OperationMapper;
 import ssm.pojo.Answer;
+import ssm.pojo.Question;
+import ssm.pojo.User;
 import ssm.service.AnswerService;
+import ssm.util.UserOperation;
 
 @Service
 public class AnswerServiceImple implements AnswerService{
 
+	@Autowired
 	private AnswerMapper answerMapper;
 
-	@Autowired
-	public void setAnswerMapper(AnswerMapper answerMapper) {
-		this.answerMapper = answerMapper;
-	}
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public boolean putAnswer(Answer answer) {
+	public boolean putAnswer(Answer answer, Question question, User user) {
 		// TODO Auto-generated method stub
-		Answer newAnswer = answerMapper.hasAnswerd(answer);
-		if(newAnswer != null) {
+		answer.setaMadeByUserId(user.getuId());
+			answer.setaBelongToQuestionId(question.getqId());
+			answer.setaBelongToQuestionTitle(question.getqTitle());
+			Date insertTime= new Date(new java.util.Date().getTime());
+			answer.setaMadeDate(insertTime);	//插入当前时间
+			int flag = answerMapper.addAnswer(answer);
+			if(flag == 1) {
+				return true;
+		} else {
 			return false;
 		}
-		Date insertTime= new Date(new java.util.Date().getTime());
-		answer.setaMadeDate(insertTime);
-		answerMapper.addAnswer(answer);
-		return true;
 	}
 
 	@Override
@@ -87,4 +91,15 @@ public class AnswerServiceImple implements AnswerService{
 		List<Answer> answers = answerMapper.queryAnswersByKeyWords(keywords);
 		return answers;
 	}
+
+	@Override
+	public boolean putAnswerOperation(int uId, int operationType, int operationId) {
+		operationType = UserOperation.TYPE_ANSWER;
+
+		return false;
+	}
+
+
+
+
 }

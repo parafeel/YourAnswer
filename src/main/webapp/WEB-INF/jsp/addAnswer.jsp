@@ -58,11 +58,10 @@
 
 				<div class="QuestionButtonGroup" style = "text-align:left;">
 					<br>
-					<input type="hidden" name="qId" id="qId" value="${currentQuestion.qId }">
-					<button type="submit" class="btn btn-default" id="addAnswerBtn">添加回答</button>
 					<div>
 						<span class="text-left text-danger">${addAnswerMessage}</span>
 					</div>
+					<button type="submit" class="btn btn-default" id="addAnswerBtn">添加回答</button>
 				</div>
 			</div>
 		</form>

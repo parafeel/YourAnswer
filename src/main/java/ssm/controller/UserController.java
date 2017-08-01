@@ -63,13 +63,13 @@ public class UserController {
 	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail, @RequestParam("ulPassword") String
 			uPassword, @RequestParam("VerificationCode") String verificationCode,HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		String interRandomStr;
+		/*String interRandomStr;
 		interRandomStr = (String) session.getAttribute("randomString");
 		if( ! verificationCode.toLowerCase().equals(interRandomStr.toLowerCase())){
 			mav.addObject("loginMessage", "验证码不正确！");
 			mav.setViewName("login");
 			return mav;
-		}
+		}*/
 		User user = userService.isRightUser(uEmail,uPassword);
 		if(null != user) {
 			session.setAttribute("currentUser", user);

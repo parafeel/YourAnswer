@@ -10,20 +10,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import ssm.mapper.OperationMapper;
 import ssm.mapper.QuestionMapper;
+import ssm.pojo.Operation;
 import ssm.pojo.Question;
 import ssm.pojo.Topic;
 import ssm.service.QuestionService;
 
 @Service
 public class QuestionServiceImpl implements QuestionService{
-
-	QuestionMapper questionMapper;
-
 	@Autowired
-	public void setQuestionMapper(QuestionMapper questionMapper) {
-		this.questionMapper = questionMapper;
-	}
+	QuestionMapper questionMapper;
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
@@ -111,4 +108,6 @@ public class QuestionServiceImpl implements QuestionService{
 	public List<Question> getQuestionsByKeywords(String keywords) {
 		return questionMapper.queryQuestionByKeywords(keywords);
 	}
+
+
 }

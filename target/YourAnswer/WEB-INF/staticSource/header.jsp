@@ -53,6 +53,7 @@
                             <li><a href="${pageContext.request.contextPath}/login"><span class="glyphicon glyphicon-log-in"></span> 登录/注册</a></li>
                         </ul>
                     </c:if>
+
                     <c:if test="${currentUser != null}">
                         ${currentUser.uName}
                         <span class="caret "></span>

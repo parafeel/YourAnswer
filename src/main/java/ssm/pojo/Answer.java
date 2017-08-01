@@ -12,7 +12,8 @@ public class Answer {
 	
 	private Date aMadeDate;
 	private int aBelongToQuestionId;
-	
+	private String aBelongToQuestionTitle;
+
 	private Question aBelongToQuestion;
 	
 	public int getaId() {
@@ -59,7 +60,15 @@ public class Answer {
 	public void setaBelongToQuestion(Question aBelongToQuestion) {
 		this.aBelongToQuestion = aBelongToQuestion;
 	}
-	
-	
+
+	public String getaBelongToQuestionTitle() {
+		return aBelongToQuestionTitle;
+	}
+
+	public void setaBelongToQuestionTitle(String aBelongToQuestionTitle) {
+		this.aBelongToQuestionTitle = aBelongToQuestionTitle;
+	}
+
+
 
 }
