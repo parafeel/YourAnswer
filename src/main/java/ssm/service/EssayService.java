@@ -2,13 +2,14 @@ package ssm.service;
 
 import ssm.pojo.Answer;
 import ssm.pojo.Essay;
+import ssm.pojo.User;
 
 import java.util.List;
 
 public interface EssayService {
 
 	//增加新随笔
-	boolean putEssay(Essay essay);
+	Essay putEssay(Essay essay, User currentUser);
 	//查询随笔，通过id
 	Essay getEssayByEssayId(int essayId);
 	//更新随笔，通过id

@@ -34,8 +34,8 @@
 			uId, uEmail, uName, uWord, essayId, essayTitle, essayContent, essayMadeByUserId, essayMadeDate
 		</sql>
 
-    	
-    	<insert id="addEssay" parameterType="ssm.pojo.Essay" >
+	<!--实现插入，并将插入的记录的essayId传回parameter对象的对应essayId中！ -->
+    	<insert id="addEssay" parameterType="ssm.pojo.Essay" useGeneratedKeys="true" keyProperty="essayId" >
             INSERT into essay (essayTitle ,essayContent ,essayMadeByUserId ,essayMadeDate)
             	values(#{essayTitle}, #{essayContent}, #{essayMadeByUserId}, #{essayMadeDate})
         </insert>

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ssm.mapper.EssayMapper;
 import ssm.pojo.Essay;
+import ssm.pojo.User;
 import ssm.service.EssayService;
 
 import java.sql.Date;
@@ -27,14 +28,15 @@ public class EssayServiceImpl implements EssayService{
 
 	@Override
 	@Transactional(propagation= Propagation.REQUIRED,rollbackForClassName="Exception")
-	public boolean putEssay(Essay essay) {
+	public Essay putEssay(Essay essay, User currentUser) {
+		essay.setEssayMadeByUserId(currentUser.getuId());
 		Date insertTime= new Date(new java.util.Date().getTime());
 		essay.setEssayMadeDate(insertTime);
 		int flag = essayMapper.addEssay(essay);
 		if(flag == 1) {
-			return true;
+			return essay;
 		} else {
-			return  false;
+			return null;
 		}
 	}
 

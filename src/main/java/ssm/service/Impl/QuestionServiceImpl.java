@@ -24,21 +24,18 @@ public class QuestionServiceImpl implements QuestionService{
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public boolean putQuestion(Question question) {
-		Question newQuestion = questionMapper.hasQTitle(question.getqTitle());
-		// TODO Auto-generated method stub
-		if(newQuestion != null) {
-			return false;
-		}
+	public Question putQuestion(Question question,int CurrentuId) {
 		//因为实体question中的时间为util.Date，而数据库存时需要sql.Date格式，故转化
 		//读取的时候则不必再转化，因为读出来的相当于sql.Date，是Util的子类，可以直接存入对象
+		question.setqMadeByUserId(CurrentuId);
 		Date insertTime= new Date(new java.util.Date().getTime());
 		question.setqMadeDate(insertTime);
+		//修改查询语句，即可将插入后的记录的ID传回！
 		int flag = questionMapper.addQuestion(question);
 		if(flag == 1) {
-			return true;
+			return question;
 		} else {
-			return  false;
+			return  null;
 		}
 	}
 	

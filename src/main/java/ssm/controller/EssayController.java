@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import ssm.pojo.Answer;
-import ssm.pojo.Essay;
-import ssm.pojo.Question;
-import ssm.pojo.User;
+import ssm.pojo.*;
 import ssm.service.EssayService;
+import ssm.service.OperationService;
 import ssm.service.UserService;
+import ssm.util.UserOperation;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -20,17 +19,13 @@ import java.util.List;
 @RequestMapping("")
 public class EssayController {
 
+	@Autowired
 	private EssayService essayService;
+	@Autowired
 	private UserService userService;
+	@Autowired
+	private OperationService operationService;
 
-	@Autowired
-	public void setEssayService(EssayService essayService) {
-		this.essayService = essayService;
-	}
-	@Autowired
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 	//此处使用rest风格的URL
 	@RequestMapping("makeEssay")
@@ -44,26 +39,25 @@ public class EssayController {
 	public ModelAndView addEssay(Essay essay, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String addEssayMessage;
-		boolean flag;
 		User currentUser = (User)session.getAttribute("currentUser");
 		if(currentUser == null) {
 			addEssayMessage = "您还未登陆，登陆后才可回答！";
 			mav.addObject("addEssayMessage", addEssayMessage);
-			mav.addObject("essay",essay);
+			mav.addObject("currentEssay",essay);
 			mav.setViewName("addEssay");
 			return mav;
 		} else {
 			if(essayService.getEssayByEssayTitle(essay.getEssayTitle()) != null) {
 				addEssayMessage = "随笔标题重复！";
 				mav.addObject("addEssayMessage", addEssayMessage);
-				mav.addObject("essay",essay);
+				mav.addObject("currentEssay",essay);
 				mav.setViewName("addEssay");
 			} else {
-				essay.setEssayMadeByUserId(currentUser.getuId());
-				flag = essayService.putEssay(essay);
+				Essay currentEssay  = essayService.putEssay(essay,currentUser);
 				//添加回答成功
-				if(flag) {
-					Essay currentEssay = essayService.getEssayByEssayTitle(essay.getEssayTitle());
+				if(currentEssay != null) {
+					operationService.putOperation(new Operation(currentEssay.getEssayMadeByUserId(), UserOperation.TYPE_ESSAY,
+							currentEssay.getEssayId()) );
 					mav.addObject("essayId",currentEssay.getEssayId());
 					mav.setViewName("redirect:/Essay/{essayId}");
 				} else {
@@ -93,8 +87,32 @@ public class EssayController {
 
 
 	@RequestMapping("Essay/{essayId}/update")
-	public @ResponseBody Essay updateEssay(@PathVariable("essayId") int essayId) {
-		return essayService.getEssayByEssayId(essayId);
+	public ModelAndView tryUpdateEssay(@PathVariable("essayId") int essayId, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User)session.getAttribute("currentUser");
+		Essay currentEssay = essayService.getEssayByEssayId(essayId);
+		if(currentUser == null || currentEssay == null || currentUser.getuId() != currentEssay.getEssayMadeByUserId()) {
+			mav.setViewName("redirect:/");
+		} else {
+			mav.addObject("currentEssay", currentEssay);
+			mav.setViewName("updateEssay");
+		}
+		return mav;
+	}
+
+	@RequestMapping("updateEssay/{essayId}")
+	public ModelAndView updateEssay(Essay essay, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		boolean isUpdate = essayService.updateEssay(essay);
+		if(isUpdate) {
+			mav.addObject("essayId", essay.getEssayId());
+			mav.setViewName("redirect:/Essay/{essayId}");
+		} else {
+			mav.addObject("updateEssayMessage","随笔未修改成功！");
+			mav.addObject("currentEssay", essay);
+			mav.setViewName("updateEssay");
+		}
+		return mav;
 	}
 
 	@RequestMapping("listEssay")

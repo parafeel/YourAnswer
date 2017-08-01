@@ -32,10 +32,12 @@
 		<sql id="List_Questions">
 			uId, uEmail, uName, uWord, qId, qTitle, qDetail, qMadeByUserId,qMadeDate
 		</sql>
-    	
-    	<insert id="addQuestion" parameterType="ssm.pojo.Question" >
-            insert into question (qTitle ,qDetail ,qMadeByUserId,qMadeDate) 
-            	values( #{qTitle},#{qDetail},#{qMadeByUserId},#{qMadeDate}) 
+
+		<!--实现插入，并将插入的记录的uId传回parameter对象的对应uId中！ -->
+    	<insert id="addQuestion" parameterType="ssm.pojo.Question" useGeneratedKeys="true" keyProperty="qId">
+			INSERT INTO question (qTitle ,qDetail ,qMadeByUserId,qMadeDate)
+				SELECT #{qTitle},#{qDetail},#{qMadeByUserId},#{qMadeDate}
+					FROM DUAL WHERE NOT EXISTS (SELECT * FROM question WHERE qTitle = #{qTitle} )
         </insert>
         <select id="hasQTitle" resultMap="QuestionResultMap"  parameterType="java.lang.String" >
         	select <include refid="Question_Column_List" /> from  question WHERE qTitle = #{qTitle}

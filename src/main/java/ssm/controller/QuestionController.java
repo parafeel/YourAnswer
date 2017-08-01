@@ -14,32 +14,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.Answer;
+import ssm.pojo.Operation;
 import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.AnswerService;
+import ssm.service.OperationService;
 import ssm.service.QuestionService;
 import ssm.service.UserService;
+import ssm.util.UserOperation;
 
 @Controller
 @RequestMapping("")
 public class QuestionController {
 
+	@Autowired
 	private QuestionService questionService;
+	@Autowired
 	private AnswerService answerService;
+	@Autowired
 	private UserService userService;
+	@Autowired
+	private OperationService operationService;
 
-	@Autowired
-	public void setQuestionService(QuestionService questionService) {
-		this.questionService = questionService;
-	}
-	@Autowired
-	public void setAnswerService(AnswerService answerService) {
-		this.answerService = answerService;
-	}
-	@Autowired
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
 
 	@RequestMapping("makeQuestion")
 	public ModelAndView tryQuestion() {
@@ -92,23 +88,17 @@ public class QuestionController {
 			mav.setViewName("addQuestion");
 			return mav;
 		} else {
-			if(questionService.getQuestion(question.getqTitle()) != null) {
-				addQuestionMessage = "已存在相同问题！";
+			Question currentQuestion = questionService.putQuestion(question,currentUser.getuId());
+			if(currentQuestion != null) {
+				operationService.putOperation(new Operation(currentQuestion.getqMadeByUserId(), UserOperation.TYPE_QUESTION,
+						currentQuestion.getqId()));
+				mav.addObject("qId", currentQuestion.getqId());
+				mav.addObject("currentQuestion", currentQuestion);
+				mav.setViewName("redirect:/Question/{qId}");
+			} else {
+				addQuestionMessage = "未提问成功，似乎已有相同问题存在！";
 				mav.addObject("addQuestionMessage", addQuestionMessage);
 				mav.setViewName("addQuestion");
-			} else {
-				question.setqMadeByUserId(currentUser.getuId());
-				questionService.putQuestion(question);
-				Question currentQuestion = questionService.getQuestion(question.getqTitle());
-				if(currentQuestion != null) {
-					mav.addObject("qId", currentQuestion.getqId());
-					mav.addObject("currentQuestion", currentQuestion);
-					mav.setViewName("redirect:/Question/{qId}");
-				} else {
-					addQuestionMessage = "问题未提问成功！";
-					mav.addObject("addQuestionMessage", addQuestionMessage);
-					mav.setViewName("addQuestion");
-				}
 			}
 		}
 		return mav;

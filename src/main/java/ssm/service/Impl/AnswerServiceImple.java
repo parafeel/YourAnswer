@@ -25,18 +25,18 @@ public class AnswerServiceImple implements AnswerService{
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public boolean putAnswer(Answer answer, Question question, User user) {
+	public Answer putAnswer(Answer answer, Question question, User user) {
 		// TODO Auto-generated method stub
 		answer.setaMadeByUserId(user.getuId());
-			answer.setaBelongToQuestionId(question.getqId());
-			answer.setaBelongToQuestionTitle(question.getqTitle());
-			Date insertTime= new Date(new java.util.Date().getTime());
-			answer.setaMadeDate(insertTime);	//插入当前时间
-			int flag = answerMapper.addAnswer(answer);
-			if(flag == 1) {
-				return true;
+		answer.setaBelongToQuestionId(question.getqId());
+		answer.setaBelongToQuestionTitle(question.getqTitle());
+		Date insertTime= new Date(new java.util.Date().getTime());
+		answer.setaMadeDate(insertTime);	//插入当前时间
+		int flag = answerMapper.addAnswer(answer);
+		if(flag == 1) {
+			return answer;
 		} else {
-			return false;
+			return null;
 		}
 	}
 

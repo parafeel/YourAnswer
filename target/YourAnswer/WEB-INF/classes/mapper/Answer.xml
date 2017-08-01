@@ -38,8 +38,9 @@
   		<sql id="Answer_Column_List" >
     		aId, aContent, aMadeByUserId, aMadeDate,aBelongToQuestionId
   		</sql>
-    	
-    	<insert id="addAnswer" parameterType="ssm.pojo.Answer" >
+
+		<!--实现插入，并将插入的记录的aId传回parameter对象的对应aId中！ -->
+    	<insert id="addAnswer" parameterType="ssm.pojo.Answer" useGeneratedKeys="true" keyProperty="aId">
 			INSERT INTO answer (aContent ,aMadeByUserId ,aMadeDate ,aBelongToQuestionId ,aBelongToQuestionTitle)
 				SELECT  #{aContent},#{aMadeByUserId},#{aMadeDate},#{aBelongToQuestionId},#{aBelongToQuestionTitle}
 				FROM DUAL WHERE NOT EXISTS

@@ -20,7 +20,7 @@
 	}
 </style>
 
-<title>Add Essay --Answer</title>
+<title>Update Essay --Answer</title>
 </head>
 <body>
 
@@ -32,10 +32,11 @@
 		<br>
        	<div class="highlight">
 		<form name="addEssayForm" id="addEssayForm" method="post"
-			  action="${pageContext.request.contextPath}/addEssay">
+			  action="${pageContext.request.contextPath}/updateEssay/${currentEssay.essayId}">
 	  		<div class="form-group">
 	    		<%--@declare id="inputtile"--%><label for="InputTile">随笔标题：</label>
-	    		<input type="text" class="form-control" name="essayTitle" id="essayTitle" placeholder="标题" value="${currentEssay.essayTitle}"
+	    		<input type="text" class="form-control" name="essayTitle" id="essayTitle" placeholder="标题"
+					   value="${currentEssay.essayTitle}"
 					   required>
 	  		</div>
 	  		<div class="form-group">
@@ -58,7 +59,7 @@
 	    		<input type="text" class="form-control" name="essayTopic" id="essayTopic" placeholder="标签">
 	  		</div>
 	  		<div>
-				<span class="text-left text-danger">${addEssayMessage}</span>
+				<span class="text-left text-danger">${updateEssayMessage}</span>
 			</div>
 	  		<button id="submitBtn" type="submit" class="btn btn-default">提交</button>
 		</form>

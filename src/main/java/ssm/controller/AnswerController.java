@@ -61,17 +61,16 @@ public class AnswerController {
 			mav.setViewName("addAnswer");
 			return mav;
 		} else {
-			flag = answerService.putAnswer(answer,currentQuesstion,currentUser);
+			Answer currentAnswer = answerService.putAnswer(answer,currentQuesstion,currentUser);
 			//添加回答成功
-			if(flag) {
-				Answer currentAnswer = answerService.getAnswerByUser(currentUser.getuId(), qId);
+			if(currentAnswer != null) {
 				operationService.putOperation(new Operation(currentAnswer.getaMadeByUserId(), UserOperation.TYPE_ANSWER,
 						currentAnswer.getaId()));
 				mav.addObject("aId", currentAnswer.getaId());
 				mav.addObject("qId", qId);
 				mav.setViewName("redirect:/Question/{qId}/showAnswer/{aId}");
 			} else {
-				addAnswerMessage = "您已回答过此问题！";
+				addAnswerMessage = "未回答成功，似乎您已回答过此问题！";
 				mav.addObject("currentQuestion", currentQuesstion);
 				mav.addObject("addAnswerMessage", addAnswerMessage);
 				mav.addObject("qId", qId);
@@ -114,7 +113,7 @@ public class AnswerController {
 	}
 
 	@RequestMapping("updateAnswer/{aId}")
-	public ModelAndView updateAnswer(Answer answer, HttpSession session) {
+	public ModelAndView updateAnswer(Answer answer) {
 		ModelAndView mav = new ModelAndView();
 		boolean isUpdate = answerService.updateAnswerById(answer);
 		if(isUpdate) {

@@ -8,8 +8,8 @@ import ssm.pojo.Question;
 import ssm.pojo.User;
 
 public interface AnswerService {
-	
-	boolean putAnswer(Answer answer, Question question, User user);
+
+	Answer putAnswer(Answer answer, Question question, User user);
 
 	Answer getAnswerByUser(int uId, int qId);
 
