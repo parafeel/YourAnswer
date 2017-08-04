@@ -91,5 +91,37 @@
  
         <select id="listUser" resultType="User">
             SELECT * FROM  user      
-        </select>     
+        </select>
+
+
+
+		<!--关于parameterType，三种方式，1.包装类，2.使用map传入，3.使用@Param传入 -->
+		<insert id="follow">
+			INSERT INTO user_relation (fromUserId ,toUserId ,relationType)
+			SELECT #{fromUserId} ,#{toUserId} ,#{relationType}
+			FROM DUAL WHERE NOT EXISTS(SELECT * FROM user_relation WHERE fromUserId = #{fromUserId} AND toUserId =
+			#{toUserId} AND relationType = #{relationType})
+		</insert>
+
+		<update id="updateRelation" >
+			UPDATE user_relation
+			<set >
+				<if test="relationType != null" >
+					relationType = #{relationType},
+				</if>
+			</set>
+			WHERE fromUserId = #{fromUserId} AND toUserId = #{toUserId}
+		</update>
+
+		<select id="queryRelation" resultType="java.lang.Integer">
+			SELECT IFNULL( MAX(relationType) ,-10) FROM user_relation  WHERE fromUserId = #{fromUserId} AND toUserId =
+			#{toUserId}
+		</select>
+
+		<select id="queryFollowing" resultType="java.lang.Integer">
+			SELECT count(*) FROM user_relation  WHERE fromUserId = #{uId} AND relationType = #{relationType}
+		</select>
+		<select id="queryFollowed" resultType="java.lang.Integer">
+			SELECT count(*) FROM user_relation  WHERE toUserId = #{uId} AND relationType = #{relationType}
+		</select>
     </mapper>

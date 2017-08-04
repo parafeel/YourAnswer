@@ -1,4 +1,5 @@
 $(document).ready( function() {
+
     $('#captchaImage').click(function()
     {
         $('#captchaImage').attr("src", "captcha.form?timestamp=" + (new Date()).valueOf());
@@ -6,25 +7,67 @@ $(document).ready( function() {
 
 
     $('#login').on("click",function(event) {
-
-        $('#login').click(checkLogin);
-        /**
+        var flag = checkLogin();
         event.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'userLogin',
-            data: {
-                "uEmail": $('#ulEmail').val(),
-                "uPassword": $('#ulPassword').val(),
-                "verificationCode": $('#VerificationCode').val()
-            },
-            success: function (data) {
-
-            }, error: function (e) {
-                alert('Error: ' + e);
-            }
-        }) **/
+        if(flag) {
+            $.ajax({
+                type: 'POST',
+                url: '/YourAnswer/userLogin',
+                data: {
+                    "uEmail": $('#ulEmail').val(),
+                    "uPassword": $('#ulPassword').val(),
+                    "verificationCode": $('#VerificationCode').val()
+                },
+                success: function (data) {
+                    if (data === true) {
+                        window.location.href = "/YourAnswer/index";
+                    }
+                    if (data === false) {
+                        $('#loginMessage').addClass("alert-warning");
+                        $('#loginMessage').text("账号或密码错误！");
+                    }
+                },
+                error: function (e) {
+                    alert('Error: ' + e);
+                }
+            })
+        }
     });
+
+
+    $('#register').on("click",function(event) {
+        var flag = checkRegister();
+        event.preventDefault();
+        if(flag == true) {
+            $.ajax({
+                type: 'POST',
+                url: '/YourAnswer/userRegister',
+                data: {
+                    "uEmail": $('#urEmail').val(),
+                    "uPassword": $('#urPassword').val(),
+                    "uRealName": $('#uRealName').val(),
+                    "uTel": $('#uTel').val(),
+                    "uName": $('#uName').val(),
+                    "uGender": $('#uGender').val()
+                },
+                success: function (data) {
+                    if (data === true) {
+                        window.location.href = "/YourAnswer/topicCenter";
+                    }
+                    if (data === false) {
+                        $('#registerMessage').addClass("alert-warning");
+                        $('#registerMessage').text("未注册成功，账号可能已存在！");
+                    }
+                },
+                error: function (e) {
+                    alert('Error: ' + e);
+                }
+            })
+        }
+
+    });
+
+
 });
 
 function checkLogin() {
@@ -49,10 +92,20 @@ function checkLogin() {
     return true;
 }
 
-function loadData(data) {
-    $.each(data, function (index, item) {
-        //循环获取数据
-
-        alert(item);
-    });
+function checkRegister() {
+    if($('#urEmail').val().length < 6 || $('#urPassword').val().length <6 || $('#uRealName').val().length < 6 ||
+        $('#uTel').val().length < 11 || $('#uName').val().length < 6 || $('#uGender').val().length < 1) {
+        $('#registerMessage').addClass("alert-warning");
+        $('#registerMessage').text("请完整输入数据！");
+        return false;
+    }
+    var password1 = $('#urPassword').val();
+    var password2 = $('#urPassword1').val();
+    if(password1.equal(password2)) {
+        return true;
+    } else {
+        $('#registerMessage').addClass("alert-warning");
+        $('#registerMessage').text("两次输入的密码不一致！");
+        return false;
+    }
 }

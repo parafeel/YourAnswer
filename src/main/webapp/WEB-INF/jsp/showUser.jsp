@@ -25,16 +25,35 @@
 		<br>
        	<div class="highlight">
        	 	<div class="col-lg-12">
-	       	 	<div class="form-group">
-		    		<h3>${pointUser.uName }</h3>
-		  		</div>
-		  		<div class="form-group">
-		    		<h6>${pointUser.uWord }</h6> 
-		    	</div>
-		  		<div class="form-group">
-		    		<span class="glyphicon glyphicon-briefcase"> ${pointUser.uResidence } ${pointUser.uProfession }</span>
-		    	</div>
-	    	
+				<div class="form-group">
+					<h3>${pointUser.uName }</h3>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group">
+							<h6>${pointUser.uWord }</h6>
+							<h6 style="display: none" id="pointUserId">${pointUser.uId}</h6>
+						</div>
+						<div class="form-group">
+							<span class="glyphicon glyphicon-briefcase"> ${pointUser.uResidence } ${pointUser.uProfession }</span>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="row" align="center">
+							<div class="form-group col-lg-2">
+								<strong>关注了</strong>
+								<h6 id="following">0</h6>
+							</div>
+							<div class="form-group col-lg-2">
+								<strong>关注者</strong>
+								<h6 id="followed">0</h6>
+							</div>
+							<div class="form-group col-lg-2">
+								<button id="followBtn" class="btn btn-default" type="button">关注</button>
+							</div>
+						</div>
+					</div>
+				</div>
 	       		<ul class="nav nav-tabs">
 	    			<li class="active"><a href="#Profile" rel="external nofollow" data-toggle="tab" >简介</a></li>
 				    <li><a href="#Answer" rel="external nofollow" data-toggle="tab">回答</a></li>
@@ -114,5 +133,8 @@
 	
 	
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/follow.js">
+</script>
 </body>
 </html>

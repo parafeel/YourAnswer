@@ -26,4 +26,5 @@ public interface QuestionMapper {
 
 	List<Question> queryQuestionByKeywords(@Param("keywords") String keywords);
 
+
 }

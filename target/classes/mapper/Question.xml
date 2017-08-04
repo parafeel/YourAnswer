@@ -65,9 +65,9 @@
 
 		<!--查询功能块 -->
         <select id="queryQuestionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
-            select  <include refid="Question_Column_List" />
-            	 from question where qId= #{qId} 
-        </select>
+			SELECT  <include refid="List_Questions" /> FROM user,question  WHERE qId= #{qId} AND
+			user.uId=question.qMadeByUserId
+		</select>
         
         <select id="queryQuesion" resultMap="QuestionResultMap" parameterType="ssm.pojo.Question"  >
             select  <include refid="Question_Column_List" />
@@ -82,7 +82,7 @@
 
         <select id="queryQuestionByUserId" resultType="ssm.pojo.Question" parameterType="java.lang.Integer"  >
             SELECT  <include refid="Question_Column_List" />
-            	 FROM question where qMadeByUserId=#{qMadeByUserId}
+            	 FROM question where qMadeByUserId=#{qMadeByUserId} ORDER BY question.qMadeDate DESC
         </select>
 
 		<select id="queryQuestionByKeywords" resultType="ssm.pojo.Question" parameterType="java.lang.String"  >

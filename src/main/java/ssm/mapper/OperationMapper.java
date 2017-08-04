@@ -10,5 +10,7 @@ public interface OperationMapper {
 
 	int addOperation(Operation operation);
 	
-	List<Operation> querypOerationsByuId(@Param("uId") Integer uId);
+	List<Operation> queryOperationsByuId(@Param("uId") Integer uId);
+
+	List<Operation> queryFollowingOperations(@Param("myuId") int myuId,@Param("nDay") int nDay);
 }

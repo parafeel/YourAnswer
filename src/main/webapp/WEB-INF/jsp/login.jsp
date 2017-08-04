@@ -29,7 +29,6 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div class="heading"><h2>登录</h2></div>
-					<form name="loginform" id="loginform" method="post" action="${pageContext.request.contextPath}/userLogin">
 						<div class="form-group">
 							<input type="email" class="form-control" placeholder="邮箱" name="ulEmail" id="ulEmail"
 								   required>
@@ -48,29 +47,28 @@
 								<img id="captchaImage" src="captcha.form"/>
 							</div>
 							<div class="form-group col-md-8">
-								<div class="alert" role="alert" id="loginMessage">${loginMessage}</div>
+								<div class="alert" role="alert" id="loginMessage"></div>
 							</div>
 						</div>
 						<div>
-							<button type="submit" class="btn btn-1" name="login" id="login" >
+							<button class="btn btn-1" name="login" id="login" >
 								立即登录</button>
 							<a href="#">  忘记密码 ?</a>
 						</div>
-					</form>
 				</div>
 				
 				<div class="col-md-6">
 					<div class="heading"><h2>新用户？创建一个账号</h2></div>
-					
-					<form name="registform" id="registform" method="post" action="userRegister">
+
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="您的真实姓名" name="uRealName" id="realName" >
+							<input type="text" class="form-control" placeholder="您的真实姓名" name="uRealName" id="uRealName" required>
 						</div>
 						<div class="form-group">
-							<input type="email" class="form-control" placeholder="您的邮箱地址" name="uEmail" id="uEmail" required>
+							<input type="email" class="form-control" placeholder="您的邮箱地址" name="urEmail" id="urEmail"
+								   required>
 						</div>
 						<div class="form-group">
-							<input type="tel" class="form-control" placeholder="您的电话号码" name="uTel" id="uTel" >
+							<input type="tel" class="form-control" placeholder="您的电话号码" name="uTel" id="uTel" required>
 						</div>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="您的用户名称" name="uName" id="uName" required>
@@ -80,19 +78,20 @@
 							<input name="uGender" id="ufGender" type="radio" value="女"> 女
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="请输入密码" name="uPassword" id="uPassword" required>
+							<input type="password" class="form-control" placeholder="请输入密码" name="urPassword"
+								   id="urPassword" required>
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" placeholder="重复输入密码" name="uPassword1" id="uPassword1" required>
+							<input type="password" class="form-control" placeholder="重复输入密码" name="urPassword1"
+								   id="urPassword1" required>
 						</div>
 						<div class="form-group">
 							<input name="agree" id="agree" type="checkbox" required> 我同意用户协议
 						</div>
 						<div>
-							<div class="alert " role="alert">${registerMessage}</div>
+							<div class="alert " role="alert" id="registerMessage"></div>
 						</div>
-						<button type="submit" class="btn btn-1">立即注册</button>
-					</form>
+						<button class="btn btn-1" name="register" id="register">立即注册</button>
 					
 				</div>
 			</div>

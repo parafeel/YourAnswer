@@ -2,8 +2,10 @@ package ssm.controller;
 
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,50 +21,37 @@ import ssm.pojo.Answer;
 import ssm.pojo.Essay;
 import ssm.pojo.Question;
 import ssm.pojo.User;
-import ssm.service.AnswerService;
-import ssm.service.EssayService;
-import ssm.service.QuestionService;
-import ssm.service.UserService;
+import ssm.service.*;
 import ssm.util.CaptchaUtil;
+import ssm.util.UserRelation;
 
 @Controller
 @RequestMapping("")
 public class UserController {
 
+	@Autowired
 	private UserService userService;
+	@Autowired
 	private QuestionService questionService;
+	@Autowired
 	private AnswerService answerService;
+	@Autowired
 	private EssayService essayService;
+	@Autowired
+	private UserRelationService userRelationService;
 
-	@Autowired
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
-	@Autowired
-	public void setQuestionService(QuestionService questionService) {
-		this.questionService = questionService;
-	}
-	@Autowired
-	public void setAnswerService(AnswerService answerService) {
-		this.answerService = answerService;
-	}
-	@Autowired
-	public void setEssayService(EssayService essayService) {
-		this.essayService = essayService;
-	}
 
 	@RequestMapping("login")
 	//跳转进入登录页面
-	public ModelAndView tryLogin() {
-		ModelAndView mav = new ModelAndView("login");
-		return mav;
+	public String  tryLogin() {
+		return "login";
 	}
 
 	@RequestMapping("userLogin")
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
-	public ModelAndView userLogin(@RequestParam("ulEmail") String uEmail, @RequestParam("ulPassword") String
-			uPassword, @RequestParam("VerificationCode") String verificationCode,HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public @ResponseBody boolean userLogin(@RequestParam("uEmail") String uEmail, @RequestParam
+			("uPassword") String
+			uPassword, @RequestParam("verificationCode") String verificationCode,HttpSession session) {
 		/*String interRandomStr;
 		interRandomStr = (String) session.getAttribute("randomString");
 		if( ! verificationCode.toLowerCase().equals(interRandomStr.toLowerCase())){
@@ -71,15 +60,15 @@ public class UserController {
 			return mav;
 		}*/
 		User user = userService.isRightUser(uEmail,uPassword);
+		boolean isLoginSuccess;
 		if(null != user) {
 			session.setAttribute("currentUser", user);
 			session.setAttribute("isLogin", true);
-			mav.setViewName("index");
+			isLoginSuccess = true;
 		} else {
-			mav.addObject("loginMessage", "账号或密码错误，请重新登录！");
-			mav.setViewName("login");
+			isLoginSuccess = false;
 		}
-		return mav;
+		return isLoginSuccess;
 	}
 
 	//增加登录验证码功能
@@ -107,18 +96,17 @@ public class UserController {
 
 	@RequestMapping("userRegister")
 	//实现用户注册功能
-	public ModelAndView userRegister(User user, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public @ResponseBody boolean userRegister(User user, HttpSession session) {
 		User newUser = userService.registUser(user);
-		if( null != newUser) {
-			session.setAttribute("currentUser", newUser);
+		boolean isRegisterSuccess;
+		if( newUser != null ) {
 			session.setAttribute("isLogin", true);
-			mav.setViewName("index");
+			session.setAttribute("currentUser", newUser);
+			isRegisterSuccess = true;
 		} else {
-			mav.addObject("registerMessage", "账号已经存在，请重新注册！");
-			mav.setViewName("login");
+			isRegisterSuccess = false;
 		}
-		return mav;
+		return isRegisterSuccess;
 	}
 
 	@RequestMapping("userSetting/{uId}")
@@ -242,6 +230,80 @@ public class UserController {
 			mav.setViewName("showUser");
 			return mav;
 		}
+	}
+
+	@RequestMapping(value = "UserRelation/{pointUserId}",method = RequestMethod.POST)
+	//用户关注功能，前端使用Ajax发出Post请求，进入此方法。方法最后返回一个关系值给前台。
+	public @ResponseBody
+	byte setUserRelation(@PathVariable("pointUserId")String pointUserId, HttpSession session) {
+		User currentUser = (User) session.getAttribute("currentUser");
+		int toUserId = Integer.parseInt(pointUserId);
+		if(currentUser == null) {
+			return UserRelation.RELATION_UNLOAD;	//-5
+		} else if(currentUser.getuId()==toUserId) {
+			return UserRelation.RELATION_ISSELF;	//-1
+		} else {
+			int fromUserId = currentUser.getuId();
+			byte userRelationType = userRelationService.getRelationType(fromUserId,toUserId);
+			boolean flag;
+			if(userRelationType == UserRelation.RELATION_NONE) {	//-10
+				flag = userRelationService.follow(fromUserId, toUserId);
+				if(flag) return UserRelation.RELATION_FOLLOW;
+				else return UserRelation.RELATION_NONE;
+			} else if(userRelationType == UserRelation.RELATION_FOLLOW) {	//10
+				flag = userRelationService.changeRelation(fromUserId, toUserId,UserRelation.RELATION_UNFOLLOW);
+				if(flag) return UserRelation.RELATION_UNFOLLOW;
+				else return UserRelation.RELATION_FOLLOW;
+			} else if(userRelationType == UserRelation.RELATION_UNFOLLOW) {	//00
+				flag = userRelationService.changeRelation(fromUserId, toUserId,UserRelation.RELATION_FOLLOW);
+				if(flag) return UserRelation.RELATION_FOLLOW;
+				else return UserRelation.RELATION_UNFOLLOW;
+			}
+			return UserRelation.RELATION_NONE;
+		}
+	}
+
+	@RequestMapping(value = "UserRelation/{pointUserId}" ,method = RequestMethod.GET)
+	//@Pathvariable传的是路径上的值，@RequestParam传的是data数据里的值
+	//打开个人信息页面后，Ajax自动发出GET请求，进入此方法。方法最后返回该用户的关注数、被关注数，以及和当前用户的关系值给前台。
+	public @ResponseBody
+	Map<String ,Integer> getUserRelation(@PathVariable("pointUserId")String pointUserId, HttpSession session) {
+		User currentUser = (User) session.getAttribute("currentUser");
+		int toUserId = Integer.parseInt(pointUserId);
+		int following = userRelationService.getFollowing(toUserId,UserRelation.RELATION_FOLLOW);
+		int followed = userRelationService.getFollowed(toUserId,UserRelation.RELATION_FOLLOW);
+		Map<String ,Integer> map = new HashMap<>();
+		if(currentUser == null) {
+			map.put("userRelationType",(int)UserRelation.RELATION_NONE);
+			map.put("following",following);
+			map.put("followed",followed);
+			return map;
+		} else {
+			int fromUserId = currentUser.getuId();
+			if(fromUserId == toUserId) {
+				map.put("userRelationType",(int)UserRelation.RELATION_ISSELF);
+				map.put("following",following);
+				map.put("followed",followed);
+				return map;
+			}
+			byte userRelationType = userRelationService.getRelationType(fromUserId, toUserId);
+			map.put("userRelationType",(int)userRelationType);
+			map.put("following",following);
+			map.put("followed",followed);
+			return map;
+		}
+	}
+
+	@RequestMapping("userOpt/{uId}")
+	//显示用户动态
+	public @ResponseBody
+	Map<String, ? > showUserOpt(@PathVariable("uId") int uId) {
+		Map<String, List<Question>> map = new LinkedHashMap<>();
+		List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
+		List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
+		List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
+		map.put("pointUsersQuestion",pointUsersQuestion);
+		return map;
 	}
 
 

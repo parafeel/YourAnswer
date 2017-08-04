@@ -106,5 +106,4 @@ public class QuestionServiceImpl implements QuestionService{
 		return questionMapper.queryQuestionByKeywords(keywords);
 	}
 
-
 }

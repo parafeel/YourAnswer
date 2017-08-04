@@ -6,7 +6,7 @@
     <mapper namespace="ssm.mapper.OperationMapper">
     	<resultMap id="OperationResultMap" type="ssm.pojo.Operation" >
     		<id column="optId" property="optId" jdbcType="INTEGER" />
-    		<result column="optId" property="uId" jdbcType="INTEGER" />
+    		<result column="uId" property="uId" jdbcType="INTEGER" />
     		<result column="operationType" property="operationType" jdbcType="TINYINT" />
     		<result column="operationId" property="operationId" jdbcType="INTEGER" />
 			<result column="parentType" property="parentType" jdbcType="TINYINT" />
@@ -32,5 +32,11 @@
         <select id="querypOerationsByuId" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
         	SELECT * FROM  useroperation WHERE uId = #{uId}  ORDER BY createTime DESC
         </select>
+
+		<select id="queryFollowingOperations" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
+			SELECT opt.* FROM useroperation opt WHERE DATE_SUB(CURDATE(), INTERVAL #{nDay} DAY) &lt;= createTime AND
+				opt.uId IN(SELECT user_relation.toUserId FROM user_relation WHERE user_relation.fromUserId=#{myuId} AND
+					user_relation.relationType=10  ) ORDER BY createTime DESC
+		</select>
         
     </mapper>

@@ -15,7 +15,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
 
-<title>${currentQuestion.qTitle } --Answer</title>
+<title>${currentAnswer.aBelongToQuestion.qTitle } --Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
@@ -26,10 +26,10 @@
 		<br>
        	<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
-	    		<h2>${currentQuestion.qTitle }</h2>
+	    		<h2>${currentAnswer.aBelongToQuestion.qTitle }</h2>
 	  		</div>
 	  		<div class="form-group">
-	    		<p>	${currentQuestion.qDetail }</p>
+	    		<p>	${currentAnswer.aBelongToQuestion.qDetail }</p>
 	    	</div>
 	  		<div>
 	    		<p>问题标签：</p>
@@ -37,14 +37,14 @@
 	    	</div>
 	    	
 	    	<div class="QuestionButtonGroup" style = "text-align:right;">
-	    		<form method="post" action="${pageContext.request.contextPath}/tryAnswer/${currentQuestion.qId }" target="_blank">
-	    			<input type="hidden" name="qId" id="qId" value="${currentQuestion.qId }">
+	    		<form method="post" action="${pageContext.request.contextPath}/tryAnswer/${currentAnswer.aBelongToQuestion.qId }" target="_blank">
+	    			<input type="hidden" name="qId" id="qId" value="${currentAnswer.aBelongToQuestion.qId }">
 	    			<button type="submit" class="btn btn-default">回答</button>
 	    		</form>
 	    	</div>
 	    	
 	    	<div>
-				<div class="alert alert-warning" role="alert"><a href="${pageContext.request.contextPath}/Question/${currentQuestion.qId }">查看的全部答案</a></div>
+				<div class="alert alert-warning" role="alert"><a href="${pageContext.request.contextPath}/Question/${currentAnswer.aBelongToQuestion.qId }">查看的全部答案</a></div>
 			</div>
 		</div>
 	</div>

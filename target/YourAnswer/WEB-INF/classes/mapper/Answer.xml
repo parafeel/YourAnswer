@@ -39,6 +39,11 @@
     		aId, aContent, aMadeByUserId, aMadeDate,aBelongToQuestionId
   		</sql>
 
+		<sql id="List_Answer">
+			aId, aContent, aMadeByUserId, aMadeDate, aBelongToQuestionId, uId, uEmail, uName, uWord, qId, qTitle,
+			qDetail, qMadeByUserId,qMadeDate
+		</sql>
+
 		<!--实现插入，并将插入的记录的aId传回parameter对象的对应aId中！ -->
     	<insert id="addAnswer" parameterType="ssm.pojo.Answer" useGeneratedKeys="true" keyProperty="aId">
 			INSERT INTO answer (aContent ,aMadeByUserId ,aMadeDate ,aBelongToQuestionId ,aBelongToQuestionTitle)
@@ -78,8 +83,8 @@
         </update>
         
         <select id="queryAnswerById" resultMap="AnswerResultMap" parameterType="java.lang.Integer"  >
-            select  <include refid="Answer_Column_List" />
-            	 from answer where aid= #{aid} 
+            SELECT  <include refid="List_Answer" /> FROM answer,user,question WHERE answer.aid= #{aid} AND
+				answer.aBelongToQuestionId=question.qId AND answer.aMadeByUserId = user.uId
         </select>
     	
     	<!-- 查询List的时候，mybatis会自动将查询的结果，按照resultType封装到一起 ，此处无parameterType，因为在

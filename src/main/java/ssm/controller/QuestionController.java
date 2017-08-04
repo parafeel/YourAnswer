@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -131,7 +132,17 @@ public class QuestionController {
 		return mav;
 	}
 
-	@RequestMapping("deleteQuestion/{qId}")
+	@RequestMapping(value = "feedQuestion/{qId}", method = RequestMethod.GET)
+	public @ResponseBody Question getQuestion(@PathVariable("qId") int qId) {
+		Question currentQuestion = questionService.getQuestionById(qId);
+		if(currentQuestion == null) {
+			return null;
+		} else {
+			return currentQuestion;
+		}
+	}
+
+	@RequestMapping(value = "Question/{qId}",method = RequestMethod.DELETE)
 	public @ResponseBody boolean deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		int currentUserAuthority = userService.getUserAuthority(currentUser);

@@ -26,7 +26,6 @@ public interface AnswerService {
 	//根据关键字查询相关答案
 	List<Answer> getAnswersByKeyWords(String keywords);
 
-	boolean putAnswerOperation(int uId, int operationType ,int operationId);
 
 
 }

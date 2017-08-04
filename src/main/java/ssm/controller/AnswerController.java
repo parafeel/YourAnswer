@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,7 +52,6 @@ public class AnswerController {
 	public ModelAndView addAnswer(@PathVariable("qId") Integer qId, Answer answer, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String addAnswerMessage;
-		boolean flag;
 		User currentUser = (User)session.getAttribute("currentUser");
 		Question currentQuesstion = questionService.getQuestionById(qId);
 		if(currentUser == null) {
@@ -83,15 +83,11 @@ public class AnswerController {
 	@RequestMapping("Question/{qId}/showAnswer/{aId}")
 	public ModelAndView showAnswer(@PathVariable("qId") int qId,@PathVariable("aId") int aId) {
 		ModelAndView mav = new ModelAndView();
-		Question currentQuestion = questionService.getQuestionById(qId);
 		Answer currentAnswer = answerService.getAnserById(aId);
-		User theAnsweredUser = userService.getUserById(currentAnswer.getaMadeByUserId());
-		if(currentQuestion == null || currentAnswer == null || theAnsweredUser == null) {
+		if(currentAnswer == null ) {
 			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
 			mav.setViewName("wrongInfo");
 		} else {
-			currentAnswer.setaMadeByUser(theAnsweredUser);
-			mav.addObject("currentQuestion", currentQuestion);
 			mav.addObject("currentAnswer", currentAnswer);
 			mav.setViewName("showAnswer");
 		}
@@ -127,6 +123,16 @@ public class AnswerController {
 			mav.setViewName("updateAnswer");
 		}
 		return mav;
+	}
+
+	@RequestMapping(value = "feedAnswer/{aId}", method = RequestMethod.GET)
+	public @ResponseBody Answer getAnswer(@PathVariable("aId") int aId) {
+		Answer currentAnswer = answerService.getAnserById(aId);
+		if(currentAnswer == null) {
+			return null;
+		} else {
+			return currentAnswer;
+		}
 	}
 
 

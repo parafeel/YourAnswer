@@ -6,9 +6,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ssm.mapper.OperationMapper;
 import ssm.pojo.Operation;
+import ssm.pojo.Question;
 import ssm.service.OperationService;
 
 import java.sql.Date;
+import java.util.List;
 
 /**
  * Created by wh-pc on 2017/8/1.
@@ -30,5 +32,11 @@ public class OperationServiceImpl implements OperationService {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public List<Operation> getFollowingOperations(int myuId, int nDay) {
+		List<Operation> operations = operationMapper.queryFollowingOperations(myuId,nDay);
+		return operations;
 	}
 }

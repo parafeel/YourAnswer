@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import org.springframework.security.access.method.P;
 import ssm.pojo.User;
 
 //绑定user.xml实现Create、Retrieve(query)、Update、Delete
 public interface UserMapper {
 
-	
+//1.User表
 	int createUser(User user);
 	
 	void deleteUserById(Integer id);
@@ -31,4 +32,17 @@ public interface UserMapper {
 	List<User> listUser();
 	//根据关键字查询相关用户
 	List<User> queryUserByKeywords(String keywords);
+
+
+//2.userRelation表
+	int follow(@Param("fromUserId") int fromUserId, @Param("toUserId") int toUserId, @Param("relationType") Byte relationType);
+
+	int updateRelation(@Param("fromUserId") int fromUserId, @Param("toUserId") int toUserId, @Param("relationType") Byte
+			relationType);
+
+	int queryRelation(@Param("fromUserId") int fromUserId, @Param("toUserId") int toUserId);
+
+	int queryFollowing(@Param("uId") int uId, @Param("relationType") Byte relationType);
+
+	int queryFollowed(@Param("uId") int uId, @Param("relationType") Byte relationType);
 }

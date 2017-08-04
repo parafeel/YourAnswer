@@ -14,6 +14,9 @@ public class Operation {
 	private int parentId;
 	private Date createTime;
 
+	public Operation() {
+	}
+
 	public Operation(int uId, byte operationType, int operationId) {
 		this.uId = uId;
 		this.operationType = operationType;

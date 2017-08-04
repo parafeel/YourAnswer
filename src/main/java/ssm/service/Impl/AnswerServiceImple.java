@@ -92,12 +92,6 @@ public class AnswerServiceImple implements AnswerService{
 		return answers;
 	}
 
-	@Override
-	public boolean putAnswerOperation(int uId, int operationType, int operationId) {
-		operationType = UserOperation.TYPE_ANSWER;
-
-		return false;
-	}
 
 
 

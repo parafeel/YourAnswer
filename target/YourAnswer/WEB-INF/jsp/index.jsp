@@ -46,7 +46,6 @@
 	</div>
 
 
-
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/index.js"></script>

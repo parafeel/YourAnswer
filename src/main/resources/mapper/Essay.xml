@@ -41,7 +41,8 @@
         </insert>
 
         <select id="queryEssayByEssayId" resultMap="EssayResultMap"  parameterType="java.lang.Integer" >
-        	SELECT <include refid="Essay_Column_List" /> FROM  essay WHERE essayId=#{essayId}
+        	SELECT <include refid="List_Essay" /> FROM  essay,user WHERE essay.essayId=#{essayId} AND
+				essay.essayMadeByUserId = user.uId
         </select>
          
         <delete id="deleteEssayByEssayId" parameterType="java.lang.Integer" >
