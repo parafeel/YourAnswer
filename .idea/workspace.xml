@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020997d5-73eb-4b56-8e36-09fd7282b43a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_2_4_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_2_1_Final.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/util/UserRelation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/follow.js" />
+    <list default="true" id="020997d5-73eb-4b56-8e36-09fd7282b43a" name="Default" comment="&quot;部分功能改用Ajax异步读取数据，实现首页简单feed流显示，修改LOG日志，预备加入redis&quot;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" />
@@ -24,37 +16,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/AnswerService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/AnswerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/AnswerServiceImple.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/AnswerServiceImple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/YourAnswer_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/YourAnswer_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YourAnswer.iml" afterPath="$PROJECT_DIR$/YourAnswer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/QuestionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/QuestionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/QuestionService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/QuestionService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/log4j.properties" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Answer.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Answer.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" />
@@ -1187,7 +1149,8 @@
     <MESSAGE value="&quot;实现各模块的修改功能&quot;" />
     <MESSAGE value="&quot;新增动态操作类，以实现保存用户的动态&quot;" />
     <MESSAGE value="&quot;实现修改功能&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;实现修改功能&quot;" />
+    <MESSAGE value="&quot;部分功能改用Ajax异步读取数据，实现首页简单feed流显示，修改LOG日志，预备加入redis&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;部分功能改用Ajax异步读取数据，实现首页简单feed流显示，修改LOG日志，预备加入redis&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
