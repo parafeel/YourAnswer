@@ -20,12 +20,24 @@ import java.util.List;
 @RequestMapping("")
 public class EssayController {
 
-	@Autowired
 	private EssayService essayService;
-	@Autowired
+
 	private UserService userService;
-	@Autowired
+
 	private OperationService operationService;
+
+	@Autowired
+	public void setEssayService(EssayService essayService) {
+		this.essayService = essayService;
+	}
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	@Autowired
+	public void setOperationService(OperationService operationService) {
+		this.operationService = operationService;
+	}
 
 
 	//此处使用rest风格的URL
@@ -114,14 +126,17 @@ public class EssayController {
 	@RequestMapping("updateEssay/{essayId}")
 	public ModelAndView updateEssay(Essay essay, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		boolean isUpdate = essayService.updateEssay(essay);
-		if(isUpdate) {
-			mav.addObject("essayId", essay.getEssayId());
-			mav.setViewName("redirect:/Essay/{essayId}");
-		} else {
+		User currentUser = (User)session.getAttribute("currentUser");
+		if(essay.getEssayMadeByUserId() != currentUser.getuId()) {
 			mav.addObject("updateEssayMessage","随笔未修改成功！");
 			mav.addObject("currentEssay", essay);
 			mav.setViewName("updateEssay");
+		} else {
+			boolean isUpdate = essayService.updateEssay(essay);
+			if(isUpdate) {
+				mav.addObject("essayId", essay.getEssayId());
+				mav.setViewName("redirect:/Essay/{essayId}");
+			}
 		}
 		return mav;
 	}

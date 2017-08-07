@@ -5,12 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import ssm.pojo.Operation;
-import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.OperationService;
-import ssm.service.QuestionService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -19,30 +16,29 @@ import java.util.List;
 @RequestMapping("")
 public class IndexController {
 
-	@Autowired
-	private QuestionService questionService;
-
-	@Autowired
 	private OperationService operationService;
 
+	@Autowired
+	public void setOperationService(OperationService operationService) {
+		this.operationService = operationService;
+	}
 
 	@RequestMapping("")
-	public ModelAndView toHome() {
-		ModelAndView mav = new ModelAndView("index");
-		return mav;
+	public String toHome() {
+		return "index";
 	}
 	@RequestMapping("index")
-	public ModelAndView indexHome() {
-		ModelAndView mav = new ModelAndView("index");
-		return mav;
+	public String indexHome() {
+		return "index";
 	}
 
 	//首页显示的数据接口，返回用户关注的人的动态数据
 	@RequestMapping(value = "/FollowingFeed", method = RequestMethod.GET)
 	public @ResponseBody List<Operation> indexFeed(HttpSession session) {
 		User currentUser = (User) session.getAttribute("currentUser");
+		List<Operation> operations;
 		if(currentUser != null) {
-			List<Operation> operations = operationService.getFollowingOperations(currentUser.getuId() , 7);
+			operations = operationService.getFollowingOperations(currentUser.getuId() , 7);
 			return operations;
 		} else {
 			return null;

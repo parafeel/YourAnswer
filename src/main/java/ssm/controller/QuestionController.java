@@ -1,8 +1,6 @@
 package ssm.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,20 +26,34 @@ import ssm.util.UserOperation;
 @RequestMapping("")
 public class QuestionController {
 
-	@Autowired
 	private QuestionService questionService;
-	@Autowired
+
 	private AnswerService answerService;
-	@Autowired
+
 	private UserService userService;
-	@Autowired
+
 	private OperationService operationService;
 
+	@Autowired
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+	@Autowired
+	public void setAnswerService(AnswerService answerService) {
+		this.answerService = answerService;
+	}
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	@Autowired
+	public void setOperationService(OperationService operationService) {
+		this.operationService = operationService;
+	}
 
 	@RequestMapping("makeQuestion")
-	public ModelAndView tryQuestion() {
-		ModelAndView mav = new ModelAndView("addQuestion");
-		return mav;
+	public String tryQuestion() {
+		return "addQuestion";
 	}
 
 	/**	//试着用Ajax实现提问功能，之后发现只要Ajax发来数据成功，返回都进入了success回调，还需要解析Json来实现跳转，
@@ -119,12 +131,12 @@ public class QuestionController {
 	@RequestMapping("Question/{qId}")
 	public ModelAndView showQuestion(@PathVariable("qId") int qId) {
 		ModelAndView mav = new ModelAndView();
-		Question currentQuestion = questionService.getQuestionById(qId);
-		if(currentQuestion == null) {
+		List<Answer> answers = answerService.getAnswerByQuestion(qId);
+		if(answers.size()==0) {
 			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
 			mav.setViewName("wrongInfo");
 		} else {
-			List<Answer> answers = answerService.getAnswerByQuestion(currentQuestion.getqId());
+			Question currentQuestion = answers.get(0).getaBelongToQuestion();
 			mav.addObject("currentQuestion", currentQuestion);
 			mav.addObject("answers", answers);
 			mav.setViewName("showQuestion");
@@ -137,17 +149,16 @@ public class QuestionController {
 		Question currentQuestion = questionService.getQuestionById(qId);
 		if(currentQuestion == null) {
 			return null;
-		} else {
-			return currentQuestion;
-		}
+		} else return currentQuestion;
 	}
 
 	@RequestMapping(value = "Question/{qId}",method = RequestMethod.DELETE)
 	public @ResponseBody boolean deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		int currentUserAuthority = userService.getUserAuthority(currentUser);
+		boolean flag;
 		if(currentUserAuthority == 100 ) {
-			boolean flag = questionService.deleteQuestionById(qId);
+			flag = questionService.deleteQuestionById(qId);
 			return  flag;
 		}
 		return false;

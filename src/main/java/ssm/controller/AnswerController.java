@@ -1,18 +1,15 @@
 package ssm.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import ssm.mapper.AnswerMapper;
 import ssm.pojo.Answer;
 import ssm.pojo.Operation;
 import ssm.pojo.Question;
@@ -20,23 +17,33 @@ import ssm.pojo.User;
 import ssm.service.AnswerService;
 import ssm.service.OperationService;
 import ssm.service.QuestionService;
-import ssm.service.UserService;
 import ssm.util.UserOperation;
 
+/**
+ * 回答控制器
+ */
 @Controller
 @RequestMapping("")
 public class AnswerController {
 
-	@Autowired
 	private QuestionService questionService;
-	@Autowired
+
 	private AnswerService answerService;
-	@Autowired
-	private UserService userService;
-	@Autowired
+
 	private OperationService operationService;
 
-
+	@Autowired
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+	@Autowired
+	public void setAnswerService(AnswerService answerService) {
+		this.answerService = answerService;
+	}
+	@Autowired
+	public void setOperationService(OperationService operationService) {
+		this.operationService = operationService;
+	}
 	//此处使用rest风格的URL
 	@RequestMapping("makeAnswer/{qId}")
 	public ModelAndView makeAnswer(@PathVariable ("qId") Integer qId) {
@@ -81,7 +88,7 @@ public class AnswerController {
 	}
 	
 	@RequestMapping("Question/{qId}/showAnswer/{aId}")
-	public ModelAndView showAnswer(@PathVariable("qId") int qId,@PathVariable("aId") int aId) {
+	public ModelAndView showAnswer(@PathVariable("aId") int aId) {
 		ModelAndView mav = new ModelAndView();
 		Answer currentAnswer = answerService.getAnserById(aId);
 		if(currentAnswer == null ) {

@@ -1,9 +1,12 @@
 package ssm.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Question {
-	
+public class Question implements Serializable{
+
+	private static final long serialVersionUID = -841603625012928460L;
+
 	private int qId;
 	private String qTitle;
 	private String qDetail;

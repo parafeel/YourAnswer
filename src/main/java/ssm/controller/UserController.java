@@ -29,17 +29,36 @@ import ssm.util.UserRelation;
 @RequestMapping("")
 public class UserController {
 
-	@Autowired
 	private UserService userService;
-	@Autowired
+
 	private QuestionService questionService;
-	@Autowired
+
 	private AnswerService answerService;
-	@Autowired
+
 	private EssayService essayService;
-	@Autowired
+
 	private UserRelationService userRelationService;
 
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	@Autowired
+	public void setQuestionService(QuestionService questionService) {
+		this.questionService = questionService;
+	}
+	@Autowired
+	public void setAnswerService(AnswerService answerService) {
+		this.answerService = answerService;
+	}
+	@Autowired
+	public void setEssayService(EssayService essayService) {
+		this.essayService = essayService;
+	}
+	@Autowired
+	public void setUserRelationService(UserRelationService userRelationService) {
+		this.userRelationService = userRelationService;
+	}
 
 	@RequestMapping("login")
 	//跳转进入登录页面
@@ -51,8 +70,9 @@ public class UserController {
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
 	public @ResponseBody boolean userLogin(@RequestParam("uEmail") String uEmail, @RequestParam
 			("uPassword") String
-			uPassword, @RequestParam("verificationCode") String verificationCode,HttpSession session) {
-		/*String interRandomStr;
+			uPassword,HttpSession session) {
+		/*	 @RequestParam("verificationCode") String verificationCode,
+		String interRandomStr;
 		interRandomStr = (String) session.getAttribute("randomString");
 		if( ! verificationCode.toLowerCase().equals(interRandomStr.toLowerCase())){
 			mav.addObject("loginMessage", "验证码不正确！");
@@ -145,7 +165,7 @@ public class UserController {
 					mav.setViewName("redirect:/showUser/{currentuId}");
 				} else {
 					mav.addObject("updateUserMessage", "未更新成功");
-					mav.addObject("currentuId", afterUpadteUser.getuId());
+					mav.addObject("currentuId", user.getuId());
 					mav.setViewName("redirect:/userSetting/{currentuId}");
 				}
 			} else {
@@ -300,8 +320,6 @@ public class UserController {
 	Map<String, ? > showUserOpt(@PathVariable("uId") int uId) {
 		Map<String, List<Question>> map = new LinkedHashMap<>();
 		List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
-		List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
-		List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
 		map.put("pointUsersQuestion",pointUsersQuestion);
 		return map;
 	}

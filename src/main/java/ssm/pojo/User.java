@@ -1,9 +1,12 @@
 package ssm.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
-	
+public class User implements Serializable{
+
+	private static final long serialVersionUID = 190776250851641700L;
+
 	private int uId;
 	private String uPassword;
 	private String uEmail;

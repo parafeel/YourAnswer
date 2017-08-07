@@ -13,6 +13,7 @@
 
     <context:annotation-config/>
 
+    <!--自动扫描controller -->
     <context:component-scan base-package="ssm.controller">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
@@ -35,4 +36,7 @@
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+
+
 </beans>

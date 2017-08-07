@@ -10,17 +10,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import ssm.mapper.OperationMapper;
 import ssm.mapper.QuestionMapper;
-import ssm.pojo.Operation;
 import ssm.pojo.Question;
 import ssm.pojo.Topic;
 import ssm.service.QuestionService;
+import ssm.service.RedisCacheUtil;
 
 @Service
 public class QuestionServiceImpl implements QuestionService{
 	@Autowired
 	QuestionMapper questionMapper;
+
+	@Autowired
+	private RedisCacheUtil<Object> redisCache;
 
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
@@ -76,15 +78,22 @@ public class QuestionServiceImpl implements QuestionService{
 	public Question getQuestionById(int qId) {
 		// TODO Auto-generated method stub
 		Question question = questionMapper.queryQuestionById(qId);
-		//String jsonStrQuestion = JSON.toJSONString(question);
-		//System.out.println(jsonStrQuestion);
+		String jsonStrQuestion = JSON.toJSONString(question);
+		System.out.println(jsonStrQuestion);
 		return question;
 	}
 
 	@Override
 	public List<Question> getQuestionsByTime() {
 		// TODO Auto-generated method stub
-		return questionMapper.queryQuestionByTime();
+		List<Question> questions = redisCache.getCacheList("listQuestion");
+		if(questions.size() == 0) {
+			questions = questionMapper.queryQuestionByTime();
+			redisCache.setCacheList("listQuestion",questions);
+			return questions;
+		} else {
+			return questions;
+		}
 	}
 
 	@Override

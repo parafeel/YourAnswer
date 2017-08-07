@@ -3,19 +3,19 @@ var pointUserId = $('#pointUserId').text();
 
 $(document).ready(
     $.get('/YourAnswer/UserRelation/' + pointUserId,
-        function(data,status){
-            if(status ==="success" && data.userRelationType === -1) {
-                $('#followBtn').hide();
-            } else if(status ==="success" && data.userRelationType === 10) {
-                $('#followBtn').text("已关注");
-                $('#followBtn').addClass(" active");
-            } else if(status ==="success") {
-                $('#followBtn').text("关注");
-                $('#followBtn').removeClass(" active");
-            }
-            $('#following').text(data.following);
-            $('#followed').text(data.followed);
+    function(data,status){
+        if(status ==="success" && data.userRelationType === -1) {
+            $('#followBtn').hide();
+        } else if(status ==="success" && data.userRelationType === 10) {
+            $('#followBtn').text("已关注");
+            $('#followBtn').addClass(" active");
+        } else if(status ==="success") {
+            $('#followBtn').text("关注");
+            $('#followBtn').removeClass(" active");
         }
+        $('#following').text(data.following);
+        $('#followed').text(data.followed);
+    }
     ),
 
     $('#followBtn').on("click",function (event) {
