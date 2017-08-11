@@ -12,6 +12,7 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8" type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/index.css">
 
 
@@ -44,6 +45,32 @@
 	</div>
 	<div id="list">
 	</div>
+
+	<%--<div id="app1">--%>
+		<%--<template>--%>
+			<%--<div class="container">--%>
+				<%--<div class="highlight" style="background-color: #f6f6f6;">--%>
+					<%--<div class="form-group smallInfo" style="color:#D0D0D0">--%>
+						<%--<h6><a style="color:#999999" :href="'${pageContext.request.contextPath}/user/' +--%>
+							   <%--currentQuestion.qMadeByUserId "--%>
+							   <%--target="_blank"></a> &nbsp;提出了问题：</h6>--%>
+					<%--</div>--%>
+					<%--<hr>--%>
+					<%--<div class="form-group">--%>
+						<%--<h3><a :href="'${pageContext.request.contextPath}/Question/' + currentQuestion.qId ">--%>
+							<%--{{currentQuestion.qTitle}}</a></h3>--%>
+					<%--</div>--%>
+					<%--<div class="form-group" v-html="currentQuestion.qDetail">--%>
+					<%--</div>--%>
+					<%--<div class="form-group"  style="color:#999999">--%>
+						<%--<!-- 格式化从数据库读取的时间 -->--%>
+						<%--<h6>发布于：{{ new Date(currentQuestion.qMadeDate).toLocaleString() }}</h6>--%>
+					<%--</div>--%>
+				<%--</div>--%>
+			<%--</div>--%>
+		<%--</template>--%>
+	<%--</div>--%>
+
 
 
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>

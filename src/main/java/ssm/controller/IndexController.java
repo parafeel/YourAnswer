@@ -23,6 +23,7 @@ public class IndexController {
 		this.operationService = operationService;
 	}
 
+	//进入首页
 	@RequestMapping("")
 	public String toHome() {
 		return "index";
@@ -33,7 +34,7 @@ public class IndexController {
 	}
 
 	//首页显示的数据接口，返回用户关注的人的动态数据
-	@RequestMapping(value = "/FollowingFeed", method = RequestMethod.GET)
+	@RequestMapping(value = "api/FollowingFeed", method = RequestMethod.GET)
 	public @ResponseBody List<Operation> indexFeed(HttpSession session) {
 		User currentUser = (User) session.getAttribute("currentUser");
 		List<Operation> operations;

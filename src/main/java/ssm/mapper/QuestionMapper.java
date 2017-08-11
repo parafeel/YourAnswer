@@ -15,6 +15,8 @@ public interface QuestionMapper {
 	int updateQuestionById(Question Question);
 	
 	Question queryQuestionById(Integer qId);
+
+	Question queryCompleteQuesionById(int qId);
 	
 	Question queryQuesion(Question question);
 	

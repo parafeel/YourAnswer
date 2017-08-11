@@ -2,6 +2,7 @@ package ssm.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Question implements Serializable{
 
@@ -13,9 +14,11 @@ public class Question implements Serializable{
 	private int qMadeByUserId;
 	
 	private User qMadeByUser;
-	
 	private Date qMadeDate;
-	
+	private List<Answer> qAnswers;
+
+
+
 	public int getqId() {
 		return qId;
 	}
@@ -47,14 +50,18 @@ public class Question implements Serializable{
 	public void setqMadeByUser(User qMadeByUser) {
 		this.qMadeByUser = qMadeByUser;
 	}
-	
 	public Date getqMadeDate() {
 		return qMadeDate;
 	}
 	public void setqMadeDate(Date qMadeDate) {
 		this.qMadeDate = qMadeDate;
 	}
-	
+	public List<Answer> getqAnswers() {
+		return qAnswers;
+	}
+	public void setqAnswers(List<Answer> qAnswers) {
+		this.qAnswers = qAnswers;
+	}
 	
 	
 }

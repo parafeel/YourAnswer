@@ -1,9 +1,12 @@
 package ssm.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Answer {
-	
+public class Answer implements Serializable{
+
+	private static final long serialVersionUID = -1916693914525855911L;
+
 	private int aId;
 	private String aContent;
 	private int aMadeByUserId;
@@ -15,7 +18,8 @@ public class Answer {
 	private String aBelongToQuestionTitle;
 
 	private Question aBelongToQuestion;
-	
+	private boolean canUpdate;
+
 	public int getaId() {
 		return aId;
 	}
@@ -67,6 +71,14 @@ public class Answer {
 
 	public void setaBelongToQuestionTitle(String aBelongToQuestionTitle) {
 		this.aBelongToQuestionTitle = aBelongToQuestionTitle;
+	}
+
+	public boolean isCanUpdate() {
+		return canUpdate;
+	}
+
+	public void setCanUpdate(boolean canUpdate) {
+		this.canUpdate = canUpdate;
 	}
 
 

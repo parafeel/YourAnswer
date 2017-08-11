@@ -98,7 +98,7 @@ public class EssayController {
 		return mav;
 	}
 
-	@RequestMapping(value = "feedEssay/{essayId}", method = RequestMethod.GET)
+	@RequestMapping(value = "api/onlyEssay/{essayId}", method = RequestMethod.GET)
 	public @ResponseBody Essay getEssay(@PathVariable("essayId") int essayId) {
 		Essay currentEssay = essayService.getEssayByEssayId(essayId);
 		if(currentEssay == null) {

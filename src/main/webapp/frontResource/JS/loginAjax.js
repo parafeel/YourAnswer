@@ -1,5 +1,9 @@
 $(document).ready( function() {
 
+    $('#loginMessage').addClass("alert-info");
+    $('#loginMessage').text("请先登录！");
+
+
     $('#captchaImage').click(function()
     {
         $('#captchaImage').attr("src", "captcha.form?timestamp=" + (new Date()).valueOf());
@@ -12,7 +16,7 @@ $(document).ready( function() {
         if(flag) {
             $.ajax({
                 type: 'POST',
-                url: '/YourAnswer/userLogin',
+                url: '/YourAnswer/api/userLogin',
                 data: {
                     "uEmail": $('#ulEmail').val(),
                     "uPassword": $('#ulPassword').val(),
@@ -41,7 +45,7 @@ $(document).ready( function() {
         if(flag == true) {
             $.ajax({
                 type: 'POST',
-                url: '/YourAnswer/userRegister',
+                url: '/YourAnswer/api/userRegister',
                 data: {
                     "uEmail": $('#urEmail').val(),
                     "uPassword": $('#urPassword').val(),

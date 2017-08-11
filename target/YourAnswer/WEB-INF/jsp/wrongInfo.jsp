@@ -25,7 +25,7 @@
 		<br>
 		<br>
 		<br>
-       	<div class="alert alert-info" role="alert">
+       	<div class="alert alert-info" role="alert" id="wrongInfoMessage">
 			<p>
 				${wrongInfoMessage}
 			</p>

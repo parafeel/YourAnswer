@@ -67,7 +67,7 @@
                             <li><a href="${pageContext.request.contextPath}/userSecurity/${currentUser.uId}">
                                 <span class="glyphicon glyphicon-wrench"></span> 安全设置</a>
                             </li>
-                            <li><a href="${pageContext.request.contextPath}/userLogout">
+                            <li><a href="javascript:void(0);" id="userLogout">
                                 <span class="glyphicon glyphicon-off"></span> 退出登录</a>
                             </li>
                         </ul>
@@ -82,6 +82,6 @@
         </div>
     </div>
 
-
+    <script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/userAjax.js"></script>
 
 </nav>

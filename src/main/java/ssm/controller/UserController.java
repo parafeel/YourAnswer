@@ -66,11 +66,22 @@ public class UserController {
 		return "login";
 	}
 
-	@RequestMapping("userLogin")
+	//增加登录验证码功能
+	@RequestMapping(value = "/captcha", method = RequestMethod.GET)
+	@ResponseBody
+	public void captcha(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		CaptchaUtil.outputCaptcha(request, response);
+		String randomString = (String)request.getSession().getAttribute("randomString");
+		System.out.println("randomString : " + randomString);
+	}
+
+//用户相关API
+	@RequestMapping("api/userLogin")
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
 	public @ResponseBody boolean userLogin(@RequestParam("uEmail") String uEmail, @RequestParam
-			("uPassword") String
-			uPassword,HttpSession session) {
+			("uPassword") String uPassword,HttpSession session) {
 		/*	 @RequestParam("verificationCode") String verificationCode,
 		String interRandomStr;
 		interRandomStr = (String) session.getAttribute("randomString");
@@ -91,30 +102,18 @@ public class UserController {
 		return isLoginSuccess;
 	}
 
-	//增加登录验证码功能
-	@RequestMapping(value = "/captcha", method = RequestMethod.GET)
-	@ResponseBody
-	public void captcha(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
-	{
-		CaptchaUtil.outputCaptcha(request, response);
-		String randomString = (String)request.getSession().getAttribute("randomString");
-		System.out.println("randomString : " + randomString);
-	}
-	
-	@RequestMapping("userLogout")
+	@RequestMapping("api/userLogout")
 	//实现用户退出登录
-	public ModelAndView userLogout(HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public @ResponseBody boolean userLogout(HttpSession session) {
 		if(session.getAttribute("currentUser") != null) {
 			session.removeAttribute("currentUser");
 			session.setAttribute("isLogin", false);
+			return true;
 		}
-		mav.setViewName("redirect:/");
-		return mav;
+		return false;
 	}
 
-	@RequestMapping("userRegister")
+	@RequestMapping("api/userRegister")
 	//实现用户注册功能
 	public @ResponseBody boolean userRegister(User user, HttpSession session) {
 		User newUser = userService.registUser(user);

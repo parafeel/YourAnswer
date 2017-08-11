@@ -1,6 +1,7 @@
 package ssm.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -51,108 +52,53 @@ public class QuestionController {
 		this.operationService = operationService;
 	}
 
+	//提问
 	@RequestMapping("makeQuestion")
-	public String tryQuestion() {
-		return "addQuestion";
+	public ModelAndView tryQuestion(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User)session.getAttribute("currentUser");
+		if(currentUser == null) {
+			mav.setViewName("redirect:/login");
+			return mav;
+		}
+		mav.setViewName("addQuestion");
+		return mav;
+	}
+	//查看
+	@RequestMapping("Question/{qId}")
+	public ModelAndView showQuestion(@PathVariable("qId") int qId) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("qId",qId);
+		mav.setViewName("showQuestion");
+		return mav;
+	}
+	//列表查看
+	@RequestMapping("listQuestion")
+	public String listQuestions() {
+		return "listQuestion";
 	}
 
-	/**	//试着用Ajax实现提问功能，之后发现只要Ajax发来数据成功，返回都进入了success回调，还需要解析Json来实现跳转，
-	 * //还不如单纯用form
-	@RequestMapping("addQuestion")
-	@ResponseBody	//使用Ajax必须要有
-	public Map<String,Object> addQuestion(Question question, HttpSession session) {
-		Map<String,Object> resultMap = new HashMap<String, Object>();
-		String addQuestionMessage;
+//相关API
+	//增加问题API
+	@RequestMapping(value = "api/Question",method = RequestMethod.POST)
+	public @ResponseBody int  addQuestion(Question question, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		if(currentUser == null) {
-			addQuestionMessage = "您还未登陆，登陆后才可提问！";
-			resultMap.put("addQuestionMessage", addQuestionMessage);
-			return resultMap;
-		} else {
-			if(questionService.getQuestion(question.getqTitle()) != null) {
-				addQuestionMessage = "已存在相同问题！";
-				resultMap.put("addQuestionMessage", addQuestionMessage);
-				return resultMap;
-			} else {
-				question.setqMadeByUserId(currentUser.getuId());
-				questionService.putQuestion(question);
-				Question currentQuestion = questionService.getQuestion(question.getqTitle());
-				if(currentQuestion != null) {
-					resultMap.put("qId", currentQuestion.getqId());
-					addQuestionMessage = "提问成功！";
-					resultMap.put("addQuestionMessage", addQuestionMessage);
-				} else {
-					addQuestionMessage = "似乎出现了问题！";
-					resultMap.put("addQuestionMessage", addQuestionMessage);
-				}
-			}
-		}
-		return resultMap;
-	}**/
-
-	@RequestMapping("addQuestion")
-	public ModelAndView addQuestion(Question question, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		String addQuestionMessage;
-		User currentUser = (User)session.getAttribute("currentUser");
-		if(currentUser == null) {
-			addQuestionMessage = "您还未登陆，登陆后才可提问！";
-			mav.addObject("addQuestionMessage", addQuestionMessage);
-			mav.setViewName("addQuestion");
-			return mav;
+			return -1;	//表示未登录
 		} else {
 			Question currentQuestion = questionService.putQuestion(question,currentUser.getuId());
 			if(currentQuestion != null) {
 				operationService.putOperation(new Operation(currentQuestion.getqMadeByUserId(), UserOperation.TYPE_QUESTION,
 						currentQuestion.getqId()));
-				mav.addObject("qId", currentQuestion.getqId());
-				mav.addObject("currentQuestion", currentQuestion);
-				mav.setViewName("redirect:/Question/{qId}");
+				return currentQuestion.getqId();	//提问成功，返回问题qId
 			} else {
-				addQuestionMessage = "未提问成功，似乎已有相同问题存在！";
-				mav.addObject("addQuestionMessage", addQuestionMessage);
-				mav.setViewName("addQuestion");
+				return 0;	//表示未提问成功
 			}
 		}
-		return mav;
-	}
-	
-	
-	
-	@RequestMapping("listQuestion")
-	public ModelAndView listQuestions() {
-		ModelAndView mav = new ModelAndView();
-		List<Question> questions = questionService.getQuestionsByTime();
-		mav.addObject("questions", questions);
-		mav.setViewName("listQuestion");
-		return mav;
-	}
-	
-	@RequestMapping("Question/{qId}")
-	public ModelAndView showQuestion(@PathVariable("qId") int qId) {
-		ModelAndView mav = new ModelAndView();
-		List<Answer> answers = answerService.getAnswerByQuestion(qId);
-		if(answers.size()==0) {
-			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
-			mav.setViewName("wrongInfo");
-		} else {
-			Question currentQuestion = answers.get(0).getaBelongToQuestion();
-			mav.addObject("currentQuestion", currentQuestion);
-			mav.addObject("answers", answers);
-			mav.setViewName("showQuestion");
-		}
-		return mav;
 	}
 
-	@RequestMapping(value = "feedQuestion/{qId}", method = RequestMethod.GET)
-	public @ResponseBody Question getQuestion(@PathVariable("qId") int qId) {
-		Question currentQuestion = questionService.getQuestionById(qId);
-		if(currentQuestion == null) {
-			return null;
-		} else return currentQuestion;
-	}
-
-	@RequestMapping(value = "Question/{qId}",method = RequestMethod.DELETE)
+	//删除问题API
+	@RequestMapping(value = "api/Question/{qId}",method = RequestMethod.DELETE)
 	public @ResponseBody boolean deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		int currentUserAuthority = userService.getUserAuthority(currentUser);
@@ -163,5 +109,48 @@ public class QuestionController {
 		}
 		return false;
 	}
+
+	//查询问题API
+	@RequestMapping(value = "api/Question/{qId}", method = RequestMethod.GET)
+	public @ResponseBody Question getQuestion(@PathVariable("qId") int qId, HttpSession session) {
+		Question currentQuestion = questionService.getQuestionById(qId);
+		if(currentQuestion == null) {
+			return null;
+		}
+		List<Answer> answers = answerService.getAnswerByQuestion(qId);
+		User currentUser = (User)session.getAttribute("currentUser");
+		if(currentUser == null) {
+			currentQuestion.setqAnswers(answers);
+			return currentQuestion;
+		}
+		//此处是为了强行实现在页面中可以增加判断，是否能修改，写的极差
+		for (int i = 0; i < answers.size(); i++) {
+			if (answers.get(i).getaMadeByUserId() == currentUser.getuId()) {
+				answers.get(i).setCanUpdate(true);
+				break;
+			}
+		}
+		//Question currentQuestion = questionService.getCompleteQuesionById(qId);
+		currentQuestion.setqAnswers(answers);
+		return currentQuestion;
+	}
+
+	//列表查询问题
+	@RequestMapping(value = "api/Questions",method = RequestMethod.GET)
+	public @ResponseBody List<Question> Questions() {
+		List<Question> questions = questionService.getQuestionsByTime();
+		return questions;
+	}
+
+	//获取Question的feed流
+	@RequestMapping(value = "api/onlyQuestion/{qId}", method = RequestMethod.GET)
+	public @ResponseBody Question feedQuestion(@PathVariable("qId") int qId) {
+		Question currentQuestion = questionService.getQuestionById(qId);
+		if(currentQuestion == null) {
+			return null;
+		} else return currentQuestion;
+	}
+
+
 	
 }

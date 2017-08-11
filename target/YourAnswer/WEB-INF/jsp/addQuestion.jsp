@@ -31,7 +31,6 @@
 		<br>
 		<br>
        	<div class="highlight">
-		<form name="addQuestionForm" id="addQuestionForm" method="post" action="${pageContext.request.contextPath}/addQuestion">
 	  		<div class="form-group">
 	    		<%--@declare id="inputtile"--%><label for="InputTile">写下你的问题：</label>
 	    		<input type="text" class="form-control" name="qTitle" id="qTitle" placeholder="标题" required>
@@ -74,10 +73,9 @@
 	    		<input type="text" class="form-control" name="qTopic" id="qTopic" placeholder="标签">
 	  		</div>
 	  		<div>
-				<span class="text-left text-danger">${addQuestionMessage}</span>
+				<span class="text-left text-danger" id="addQuestionMessage"></span>
 			</div>
-	  		<button id="submitBtn" type="submit" class="btn btn-default">提交</button>
-		</form>
+	  		<button id="submitBtn" class="btn btn-default">提交</button>
 		</div>
 	</div>
 	

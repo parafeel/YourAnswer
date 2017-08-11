@@ -24,6 +24,7 @@ public class QuestionServiceImpl implements QuestionService{
 	@Autowired
 	private RedisCacheUtil<Object> redisCache;
 
+	//增
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
 	public Question putQuestion(Question question,int CurrentuId) {
@@ -40,7 +41,8 @@ public class QuestionServiceImpl implements QuestionService{
 			return  null;
 		}
 	}
-	
+
+	//根据Title获取Question
 	@Override
 	public Question getQuestion(String qTitle) {
 		// TODO Auto-generated method stub
@@ -48,6 +50,7 @@ public class QuestionServiceImpl implements QuestionService{
 		return currentQuestion;
 	}
 
+	//根据qId删除Question
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
 	public boolean deleteQuestionById(int qId) {
@@ -60,6 +63,7 @@ public class QuestionServiceImpl implements QuestionService{
 		}
 	}
 
+	//更新Question
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
 	public boolean updateQuestionById( Question question) {
@@ -84,6 +88,16 @@ public class QuestionServiceImpl implements QuestionService{
 	}
 
 	@Override
+	public Question getCompleteQuesionById(int qId) {
+		Question question = questionMapper.queryCompleteQuesionById(qId);
+		if(question == null) {
+			return null;
+		} else return question;
+	}
+
+
+	//根据时间获取问题列表
+	@Override
 	public List<Question> getQuestionsByTime() {
 		// TODO Auto-generated method stub
 		List<Question> questions = redisCache.getCacheList("listQuestion");
@@ -104,12 +118,13 @@ public class QuestionServiceImpl implements QuestionService{
 		return questionMapper.queryQuestionByUserId(uId);
 	}
 
+	//根据主题获取相应问题
 	@Override
 	public List<Question> getQuestionsByTopic(Topic topic) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	//根据关键字获取相应问题
 	@Override
 	public List<Question> getQuestionsByKeywords(String keywords) {
 		return questionMapper.queryQuestionByKeywords(keywords);

@@ -10,8 +10,15 @@
     		<result column="qDetail" property="qDetail" jdbcType="VARCHAR" />
     		<result column="qMadeByUserId" property="qMadeByUserId" jdbcType="INTEGER" />
     		<result column="qMadeDate" property="qMadeDate" />
-    		<association property="qMadeByUser" resultMap="UserResultMap"/>  
-  		</resultMap>
+    		<association property="qMadeByUser" resultMap="UserResultMap"/>
+			<collection  property="qAnswers" ofType="ssm.pojo.Answer">
+				<id column="aId" property="aId" jdbcType="INTEGER" />
+				<result column="aContent" property="aContent" jdbcType="VARCHAR" />
+				<result column="aMadeByUserId" property="aMadeByUserId" jdbcType="INTEGER" />
+				<result column="aMadeDate" property="aMadeDate" />
+				<result column="aBelongToQuestionId" property="aBelongToQuestionId" jdbcType="INTEGER" />
+			</collection>
+		</resultMap>
   		<resultMap id="UserResultMap" type="ssm.pojo.User">
         	<id column="uId" property="uId" jdbcType="INTEGER" />
     		<result column="uEmail" property="uEmail" jdbcType="VARCHAR" />
@@ -24,6 +31,7 @@
     		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
     		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
     	</resultMap>
+
 
   		<sql id="Question_Column_List" >
     		qId, qTitle, qDetail, qMadeByUserId,qMadeDate
@@ -67,6 +75,11 @@
         <select id="queryQuestionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
 			SELECT  <include refid="List_Questions" /> FROM user,question  WHERE qId= #{qId} AND
 			user.uId=question.qMadeByUserId
+		</select>
+		<!--查询完整的问题，包含其答案 -->
+		<select id="queryCompleteQuesionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
+			SELECT  * FROM user,question,answer  WHERE question.qId= #{qId} AND
+			user.uId=question.qMadeByUserId  AND answer.aBelongToQuestionId = #{qId}
 		</select>
         
         <select id="queryQuesion" resultMap="QuestionResultMap" parameterType="ssm.pojo.Question"  >

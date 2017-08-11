@@ -1,7 +1,7 @@
 "use strict";
 
 $(document).ready(function () {
-    $.get('/YourAnswer/FollowingFeed',
+    $.get('/YourAnswer/api/FollowingFeed',
         function(data,status){
             if(status) {
                 showData(data);
@@ -15,9 +15,15 @@ function showData(data) {
         var operationType = operation.operationType;
         var operationId = operation.operationId;
         if(operationType == 100) {
-            $.get('/YourAnswer/feedQuestion/' + operationId,
+            $.get('/YourAnswer/api/onlyQuestion/' + operationId,
                 function(currentQuestion,status){
                     if(status ==="success") {
+                        // new Vue({
+                        //     el: '#app1',
+                        //     data: {
+                        //         currentQuestion
+                        //     }
+                        // });
                         var date=new Date(currentQuestion.qMadeDate).toLocaleString();
                         var list = $('#list');
                         list.append(
@@ -36,7 +42,7 @@ function showData(data) {
             );
         }
         if(operationType == 101) {
-            $.get('/YourAnswer/feedAnswer/' + operationId,
+            $.get('/YourAnswer/api/onlyAnswer/' + operationId,
                 function(currentAnswer,status){
                     if(status ==="success") {
                         var date=new Date(currentAnswer.aMadeDate).toLocaleString();
@@ -47,7 +53,7 @@ function showData(data) {
                             '<h6 style="color:#999999"><a href="user/' + currentAnswer.aMadeByUserId +
                             '" target="_blank">' + currentAnswer.aMadeByUser.uName + '</a> &nbsp;回答了问题：</h6>' +
                             '</div> <hr> <div class="form-group">' +
-                            '<h3><a href="Question/'+currentAnswer.aBelongToQuestionId+'/showAnswer/'+currentAnswer.aId+' "> '
+                            '<h3><a href="Question/'+currentAnswer.aBelongToQuestionId+'/Answer/'+currentAnswer.aId+' "> '
                             + currentAnswer.aBelongToQuestion.qTitle + '</a></h3>' +
                             '</div> <div class="form-group"> <p>' + currentAnswer.aContent + '</p> </div> <div' +
                             ' class="form-group"  style="color:#999999">' +
@@ -58,7 +64,7 @@ function showData(data) {
             );
         }
         if(operationType == 102) {
-            $.get('/YourAnswer/feedEssay/' + operationId,
+            $.get('/YourAnswer/api/onlyEssay/' + operationId,
                 function(currentEssay,status){
                     if(status ==="success") {
                         var date=new Date(currentEssay.essayMadeDate).toLocaleString();
