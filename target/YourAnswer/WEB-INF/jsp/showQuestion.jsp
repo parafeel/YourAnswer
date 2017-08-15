@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/list.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
@@ -27,7 +28,7 @@
 		<br>
 		<br>
 		<br>
-		<div id="app1">
+		<div id="app1" v-cloak>
        	<div class="highlight" style="background-color: #f6f6f6;">
 			<div class="form-group">
 	    		<h3>{{question.qTitle}}</h3>

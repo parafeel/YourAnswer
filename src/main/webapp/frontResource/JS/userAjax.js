@@ -6,13 +6,12 @@ $(document).ready( function() {
             type: 'POST',
             url: '/YourAnswer/api/userLogout',
             success: function (data) {
-                if (data === true) {
-                    alert("true");
+                var rs = eval(data);
+                if (rs.resultCode === 200) {
                     window.location.href = "/YourAnswer/index";
                 }
-                if (data === false) {
-                    alert("您并未登录！");
-                    window.location.href = "/YourAnswer/index";
+                if (rs.resultCode === 400) {
+                    window.location.href = "/YourAnswer/login";
                 }
             },
             error: function (e) {
@@ -22,7 +21,7 @@ $(document).ready( function() {
 
     });
 
-
-
 });
+
+
 

@@ -6,8 +6,10 @@ import java.util.List;
 
 
 public interface UserService {
+
 	//用户登录
-	User isRightUser(String uEmail, String uPassword);
+	boolean isRightUser(String uEmail, String uPassword);
+	User getUserByuEmail(String uEmail);
 	//注册用户
 	User registUser(User user);
 	//根据uId获取用户信息

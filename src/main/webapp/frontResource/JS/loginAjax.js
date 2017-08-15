@@ -23,10 +23,10 @@ $(document).ready( function() {
                     "verificationCode": $('#VerificationCode').val()
                 },
                 success: function (data) {
-                    if (data === true) {
-                        window.location.href = "/YourAnswer/index";
+                    if (data.resultCode === 200) {
+                         window.location.href = "/YourAnswer/index";
                     }
-                    if (data === false) {
+                    if (data.resultCode === 400) {
                         $('#loginMessage').addClass("alert-warning");
                         $('#loginMessage').text("账号或密码错误！");
                     }
@@ -45,7 +45,7 @@ $(document).ready( function() {
         if(flag == true) {
             $.ajax({
                 type: 'POST',
-                url: '/YourAnswer/api/userRegister',
+                url: '/YourAnswer/api/user',
                 data: {
                     "uEmail": $('#urEmail').val(),
                     "uPassword": $('#urPassword').val(),
@@ -55,10 +55,10 @@ $(document).ready( function() {
                     "uGender": $('#uGender').val()
                 },
                 success: function (data) {
-                    if (data === true) {
+                    if (data.resultCode === 200) {
                         window.location.href = "/YourAnswer/topicCenter";
                     }
-                    if (data === false) {
+                    if (data.resultCode === 400) {
                         $('#registerMessage').addClass("alert-warning");
                         $('#registerMessage').text("未注册成功，账号可能已存在！");
                     }
@@ -97,15 +97,15 @@ function checkLogin() {
 }
 
 function checkRegister() {
-    if($('#urEmail').val().length < 6 || $('#urPassword').val().length <6 || $('#uRealName').val().length < 6 ||
-        $('#uTel').val().length < 11 || $('#uName').val().length < 6 || $('#uGender').val().length < 1) {
+    if($('#urEmail').val().length < 6 || $('#urPassword').val().length <6 || $('#uRealName').val().length < 1 ||
+        $('#uTel').val().length < 11 || $('#uName').val().length < 1) {
         $('#registerMessage').addClass("alert-warning");
         $('#registerMessage').text("请完整输入数据！");
         return false;
     }
     var password1 = $('#urPassword').val();
     var password2 = $('#urPassword1').val();
-    if(password1.equal(password2)) {
+    if(password1 === password2) {
         return true;
     } else {
         $('#registerMessage').addClass("alert-warning");

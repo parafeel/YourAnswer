@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/style.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/jquery-3.2.1.min.js"></script>
-
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/loginAjax.js"></script>
 <title>Login or Regist --Answer</title>
@@ -19,7 +20,7 @@
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
 
 
-
+	<div class="container">
 	<div id="page-content" class="single-page">
 		<div class="container">
 			<div class="row">
@@ -97,7 +98,7 @@
 			</div>
 		</div>
 	</div>
-
+	<div class="container">
 	
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 </body>

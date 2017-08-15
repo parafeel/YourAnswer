@@ -1,7 +1,6 @@
 package ssm.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +20,7 @@ import ssm.service.AnswerService;
 import ssm.service.OperationService;
 import ssm.service.QuestionService;
 import ssm.service.UserService;
-import ssm.util.UserOperation;
+import ssm.util.StatusCode;
 
 @Controller
 @RequestMapping("")
@@ -88,7 +87,7 @@ public class QuestionController {
 		} else {
 			Question currentQuestion = questionService.putQuestion(question,currentUser.getuId());
 			if(currentQuestion != null) {
-				operationService.putOperation(new Operation(currentQuestion.getqMadeByUserId(), UserOperation.TYPE_QUESTION,
+				operationService.putOperation(new Operation(currentQuestion.getqMadeByUserId(), StatusCode.TYPE_QUESTION,
 						currentQuestion.getqId()));
 				return currentQuestion.getqId();	//提问成功，返回问题qId
 			} else {

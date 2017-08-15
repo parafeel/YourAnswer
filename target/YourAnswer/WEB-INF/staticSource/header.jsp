@@ -42,11 +42,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user">
                     <c:if test="${currentUser == null}">
-                        未登录
-                        </span>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user">
+                                未登录
+                            </span>
                             <span class="caret "></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
@@ -55,17 +55,18 @@
                     </c:if>
 
                     <c:if test="${currentUser != null}">
-                        ${currentUser.uName}
-                        <span class="caret "></span>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user">
+                                ${currentUser.uName}
+                            </span>
+                            <span class="caret "></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="${pageContext.request.contextPath}/user/${currentUser.uId}">
                                 <span class="glyphicon glyphicon-stats"></span> 个人主页</a>
                             </li>
                             <li><a href="${pageContext.request.contextPath}/userSetting/${currentUser.uId}">
                                 <span class="glyphicon glyphicon-repeat"></span> 账号资料</a>
-                            </li>
-                            <li><a href="${pageContext.request.contextPath}/userSecurity/${currentUser.uId}">
-                                <span class="glyphicon glyphicon-wrench"></span> 安全设置</a>
                             </li>
                             <li><a href="javascript:void(0);" id="userLogout">
                                 <span class="glyphicon glyphicon-off"></span> 退出登录</a>

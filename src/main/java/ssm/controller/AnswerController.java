@@ -17,10 +17,7 @@ import ssm.pojo.User;
 import ssm.service.AnswerService;
 import ssm.service.OperationService;
 import ssm.service.QuestionService;
-import ssm.util.UserOperation;
-
-import java.util.HashMap;
-import java.util.Map;
+import ssm.util.StatusCode;
 
 /**
  * 回答控制器
@@ -48,9 +45,9 @@ public class AnswerController {
 		this.operationService = operationService;
 	}
 
-	//此处使用rest风格的URL
+//此处使用rest风格的URL
 
-	
+	//增加Answer
 	@RequestMapping(value = "api/Answer/{qId}",method = RequestMethod.POST)
 	public @ResponseBody int addAnswer(@PathVariable("qId") Integer qId, Answer answer, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
@@ -60,7 +57,7 @@ public class AnswerController {
 			Question currentQuesstion = questionService.getQuestionById(qId);
 			Answer currentAnswer = answerService.putAnswer(answer,currentQuesstion,currentUser);	//添加回答
 			if(currentAnswer != null) {
-				operationService.putOperation(new Operation(currentAnswer.getaMadeByUserId(), UserOperation.TYPE_ANSWER,
+				operationService.putOperation(new Operation(currentAnswer.getaMadeByUserId(), StatusCode.TYPE_ANSWER,
 						currentAnswer.getaId()));
 				int aId =currentAnswer.getaId();
 				return aId;

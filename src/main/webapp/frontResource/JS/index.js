@@ -51,7 +51,7 @@ function showData(data) {
                             '<div><div class="highlight" style="background-color: #f6f6f6;">' +
                             '<div class="form-group smallInfo" style="color:#D0D0D0">' +
                             '<h6 style="color:#999999"><a href="user/' + currentAnswer.aMadeByUserId +
-                            '" target="_blank">' + currentAnswer.aMadeByUser.uName + '</a> &nbsp;回答了问题：</h6>' +
+                            '" target="_blank">' + currentAnswer.aMadeByUser[uName] + '</a> &nbsp;回答了问题：</h6>' +
                             '</div> <hr> <div class="form-group">' +
                             '<h3><a href="Question/'+currentAnswer.aBelongToQuestionId+'/Answer/'+currentAnswer.aId+' "> '
                             + currentAnswer.aBelongToQuestion.qTitle + '</a></h3>' +

@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,31 +21,21 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
-	<div class="row">
-		<div class="welcome-text col-md-9">
-			<div class="alert alert-info">
-				<ul class="nav nav-pills">
-					<li role="presentation"><a href="${pageContext.request.contextPath}/makeQuestion">提问</a></li>
-					<li role="presentation"><a href="#">回答</a></li>
-					<li role="presentation"><a href="${pageContext.request.contextPath}/makeEssay">写随笔</a></li>
-				</ul>
+	<div class="container">
+		<div class="row">
+			<div class="welcome-text col-md-9">
+				<div class="alert alert-info">
+					<ul class="nav nav-pills">
+						<li role="presentation"><a href="${pageContext.request.contextPath}/makeQuestion">提问</a></li>
+						<li role="presentation"><a href="#">回答</a></li>
+						<li role="presentation"><a href="${pageContext.request.contextPath}/makeEssay">写随笔</a></li>
+					</ul>
+				</div>
 			</div>
 			<hr>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-
-	</div>
-	<div id="list">
-	</div>
+		<div id="list">
+		</div>
 
 	<%--<div id="app1">--%>
 		<%--<template>--%>
@@ -72,6 +63,7 @@
 	<%--</div>--%>
 
 
+	</div>
 
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 

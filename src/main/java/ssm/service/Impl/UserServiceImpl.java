@@ -30,14 +30,19 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	//登录校验，根据uEmail获取加密后的密码，再判断用户密码是否符合
-	public User isRightUser(String uEmail,String uPassword) {
+	//登录校验，根据uEmail获取加密后的密码，再判断用户密码是否符合.
+	//再加上下面一个方法，合起来返回已登录用户
+	public boolean isRightUser(String uEmail,String uPassword) {
 		// TODO Auto-generated method stub
 		String encodeuPassword = userMapper.queryUserPasswordByuEmail(uEmail);
-		if(null != encodeuPassword && security.match(uPassword,encodeuPassword)) {
-			return userMapper.queryUserByuEmail(uEmail);
+		if(encodeuPassword != null && security.match(uPassword,encodeuPassword)) {
+			return true;
 		}
-		return null;
+		return false;
+	}
+	@Override
+	public User getUserByuEmail(String uEmail) {
+		return userMapper.queryUserByuEmail(uEmail);
 	}
 
 	@Override
@@ -55,7 +60,7 @@ public class UserServiceImpl implements UserService {
 		int isSuccess = userMapper.createUser(user);
 		//确定增加成功后，返回注册后的用户
 		if(isSuccess == 1) {
-			User newUser = isRightUser(user.getuEmail(),rawPassword);
+			User newUser = userMapper.queryUserByuEmail(user.getuEmail());
 			return newUser;
 		}
 		return null;

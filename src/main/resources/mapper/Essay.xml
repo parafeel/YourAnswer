@@ -52,9 +52,6 @@
         <update id="updateEssay" parameterType="ssm.pojo.Essay" >
             UPDATE essay
 		    <set >
-				<if test="essayTitle != null" >
-					essayTitle = #{essayTitle,jdbcType=VARCHAR},
-				</if>
 		    	<if test="essayContent != null" >
 					essayContent = #{essayContent,jdbcType=VARCHAR},
 		     	</if>

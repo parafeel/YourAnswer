@@ -10,8 +10,7 @@
     		<result column="aMadeByUserId" property="aMadeByUserId" jdbcType="INTEGER" />
     		<result column="aMadeDate" property="aMadeDate" />
     		<result column="aBelongToQuestionId" property="aBelongToQuestionId" jdbcType="INTEGER" />
-			<result column="aBelongToQuestionTitle" property="aBelongToQuestionTitle" jdbcType="VARCHAR" />
-  			<association property="aMadeByUser" resultMap="UserResultMap"/>  
+			<association property="aMadeByUser" resultMap="UserResultMap"/>
         	<association property="aBelongToQuestion" resultMap="QuestionResultMap"/>  
   		</resultMap>
   		<resultMap id="UserResultMap" type="ssm.pojo.User">
@@ -46,8 +45,8 @@
 
 		<!--实现插入，并将插入的记录的aId传回parameter对象的对应aId中！ -->
     	<insert id="addAnswer" parameterType="ssm.pojo.Answer" useGeneratedKeys="true" keyProperty="aId">
-			INSERT INTO answer (aContent ,aMadeByUserId ,aMadeDate ,aBelongToQuestionId ,aBelongToQuestionTitle)
-				SELECT  #{aContent},#{aMadeByUserId},#{aMadeDate},#{aBelongToQuestionId},#{aBelongToQuestionTitle}
+			INSERT INTO answer (aContent ,aMadeByUserId ,aMadeDate ,aBelongToQuestionId )
+				SELECT  #{aContent},#{aMadeByUserId},#{aMadeDate},#{aBelongToQuestionId}
 				FROM DUAL WHERE NOT EXISTS
 			(SELECT * FROM answer WHERE aMadeByUserId=#{aMadeByUserId} AND aBelongToQuestionId=#{aBelongToQuestionId} )
 		</insert>
@@ -75,9 +74,6 @@
 		     	<if test="aMadeDate != null" >
 		     		aMadeDate = #{aMadeDate},
 		     	</if>
-				<if test="aBelongToQuestionTitle != null" >
-					aBelongToQuestionTitle = #{aBelongToQuestionTitle},
-				</if>
 		   	</set>
 		   	where aId = #{aId,jdbcType=INTEGER}   
         </update>

@@ -2,10 +2,7 @@ package ssm.controller;
 
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +20,7 @@ import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.*;
 import ssm.util.CaptchaUtil;
+import ssm.util.StatusCode;
 import ssm.util.UserRelation;
 
 @Controller
@@ -39,49 +37,59 @@ public class UserController {
 
 	private UserRelationService userRelationService;
 
+	private JsonService jsonService;
+
 	@Autowired
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
+
 	@Autowired
 	public void setQuestionService(QuestionService questionService) {
 		this.questionService = questionService;
 	}
+
 	@Autowired
 	public void setAnswerService(AnswerService answerService) {
 		this.answerService = answerService;
 	}
+
 	@Autowired
 	public void setEssayService(EssayService essayService) {
 		this.essayService = essayService;
 	}
+
 	@Autowired
 	public void setUserRelationService(UserRelationService userRelationService) {
 		this.userRelationService = userRelationService;
 	}
 
+	@Autowired
+	public void setJsonService(JsonService jsonService) {
+		this.jsonService = jsonService;
+	}
+
 	@RequestMapping("login")
 	//跳转进入登录页面
-	public String  tryLogin() {
+	public String tryLogin() {
 		return "login";
 	}
 
 	//增加登录验证码功能
 	@RequestMapping(value = "/captcha", method = RequestMethod.GET)
 	@ResponseBody
-	public void captcha(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
-	{
+	public void captcha(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CaptchaUtil.outputCaptcha(request, response);
-		String randomString = (String)request.getSession().getAttribute("randomString");
+		String randomString = (String) request.getSession().getAttribute("randomString");
 		System.out.println("randomString : " + randomString);
 	}
 
-//用户相关API
-	@RequestMapping("api/userLogin")
+	//用户相关API
+	@RequestMapping(value = "api/userLogin", produces = "application/json;charset=UTF-8" )
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
-	public @ResponseBody boolean userLogin(@RequestParam("uEmail") String uEmail, @RequestParam
-			("uPassword") String uPassword,HttpSession session) {
+	public @ResponseBody
+	String userLogin(@RequestParam("uEmail") String uEmail, @RequestParam("uPassword") String uPassword, HttpSession
+			session) {
 		/*	 @RequestParam("verificationCode") String verificationCode,
 		String interRandomStr;
 		interRandomStr = (String) session.getAttribute("randomString");
@@ -90,51 +98,70 @@ public class UserController {
 			mav.setViewName("login");
 			return mav;
 		}*/
-		User user = userService.isRightUser(uEmail,uPassword);
-		boolean isLoginSuccess;
-		if(null != user) {
-			session.setAttribute("currentUser", user);
-			session.setAttribute("isLogin", true);
-			isLoginSuccess = true;
+		boolean canLogin = userService.isRightUser(uEmail, uPassword);
+		String rs ;
+		if(canLogin) {
+			User currentUser = userService.getUserByuEmail(uEmail);
+			session.setAttribute("currentUser",currentUser);
+			rs = jsonService.toJsonString(currentUser, StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
 		} else {
-			isLoginSuccess = false;
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		}
-		return isLoginSuccess;
+		return rs;	//返回JSON字符串，包含登录的结果信息
 	}
 
-	@RequestMapping("api/userLogout")
+	@RequestMapping(value = "api/userLogout", produces = "application/json;charset=UTF-8")
 	//实现用户退出登录
-	public @ResponseBody boolean userLogout(HttpSession session) {
-		if(session.getAttribute("currentUser") != null) {
+	public @ResponseBody
+	String userLogout(HttpSession session) {
+		String rs;
+		if (session.getAttribute("currentUser") != null) {
 			session.removeAttribute("currentUser");
-			session.setAttribute("isLogin", false);
-			return true;
-		}
-		return false;
-	}
-
-	@RequestMapping("api/userRegister")
-	//实现用户注册功能
-	public @ResponseBody boolean userRegister(User user, HttpSession session) {
-		User newUser = userService.registUser(user);
-		boolean isRegisterSuccess;
-		if( newUser != null ) {
-			session.setAttribute("isLogin", true);
-			session.setAttribute("currentUser", newUser);
-			isRegisterSuccess = true;
+			rs = jsonService.toJsonString(null,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
 		} else {
-			isRegisterSuccess = false;
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		}
-		return isRegisterSuccess;
+		return rs;
 	}
 
-	@RequestMapping("userSetting/{uId}")
+	@RequestMapping(value = "api/user", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	//实现用户注册功能
+	public @ResponseBody
+	String userRegister(User user, HttpSession session) {
+		User newUser = userService.registUser(user);
+		String rs;
+		if (newUser != null) {
+			session.setAttribute("currentUser", newUser);
+			rs = jsonService.toJsonString(newUser,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		} else {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		}
+		return rs;
+	}
+
+	@RequestMapping(value = "api/isLogin", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	//是否登录
+	public @ResponseBody
+	String isLogin(HttpSession session) {
+		//获取目标用户的信息
+		User user = (User) session.getAttribute("currentUser");
+		String rs;
+		if (user != null) {
+			rs = jsonService.toJsonString(user,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		} else {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		}
+		return rs;
+	}
+
+
+	@RequestMapping(value = "userSetting/{uId}")
 	//校验是否有权限设置当前用户的信息
 	public ModelAndView userSetting(@PathVariable("uId") int uId, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User currentUser = (User) session.getAttribute("currentUser");
-		if(null != currentUser) {
-			if(uId == currentUser.getuId()) {
+		if (null != currentUser) {
+			if (uId == currentUser.getuId()) {
 				mav.addObject("settingUser", currentUser);
 				mav.setViewName("userSetting");
 			} else {
@@ -147,82 +174,46 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping("updateUserSetting")
+	@RequestMapping(value = "api/userSetting", method = RequestMethod.POST)
 	//实现用户信息的更新，预计实现用户头像照片相关,带扩展
-	public ModelAndView updateUserSetting(User user, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	public @ResponseBody String updateUserSetting(User user, HttpSession session) {
 		User currentUser = (User) session.getAttribute("currentUser");
-		if(currentUser != null) {
-			if(user.getuId() == currentUser.getuId()) {
-				//上传照片
-				
-				//
-				User afterUpadteUser = userService.updateUserInfo(user);
-				if(null != afterUpadteUser) {
-					session.setAttribute("currentUser", afterUpadteUser);
-					mav.addObject("currentuId", afterUpadteUser.getuId());
-					mav.setViewName("redirect:/showUser/{currentuId}");
-				} else {
-					mav.addObject("updateUserMessage", "未更新成功");
-					mav.addObject("currentuId", user.getuId());
-					mav.setViewName("redirect:/userSetting/{currentuId}");
-				}
-			} else {
-				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-				mav.setViewName("wrongInfo");
+		String rs;
+		if (currentUser != null && user.getuId() == currentUser.getuId()) {
+			//上传照片
+			//
+			User afterUpadteUser = userService.updateUserInfo(user);
+			if (afterUpadteUser != null) {
+				session.setAttribute("currentUser", afterUpadteUser);
+				rs = jsonService.toJsonString(afterUpadteUser,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+				return rs;
 			}
-		} else {
-			mav.setViewName("login");
 		}
-		return mav;
+		rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		return rs;
 	}
 
-	@RequestMapping("userSecurity/{uId}")
-	//校验是否有权限更改安全信息（目前仅仅密码，之后可拓展密保信息）
-	public ModelAndView userSecurity(@PathVariable("uId") int uId, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		User currentUser = (User) session.getAttribute("currentUser");
-		if(null != currentUser) {
-			if(uId == currentUser.getuId()) {
-				mav.addObject("settingUser", currentUser);
-				mav.setViewName("userSecurity");
-			} else {
-				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-				mav.setViewName("wrongInfo");
-			}
-		} else {
-			mav.setViewName("login");
-		}
-		return mav;
-	}
-
-	@RequestMapping("updateUserSecurity")
-	//实现用户信息的更新，预计实现用户头像照片相关,带扩展
-	public ModelAndView updateUserSecurity(User user, @RequestParam("uNewPassword1") String uNewPassword1, HttpSession
+	@RequestMapping(value = "api/userPwd",method = RequestMethod.POST)
+	//实现用户密码修改
+	public @ResponseBody String updateUserSecurity(User user, @RequestParam("uNewPassword1") String uNewPassword1, HttpSession
 			session) {
-		ModelAndView mav = new ModelAndView();
 		User currentUser = (User) session.getAttribute("currentUser");
+		String rs;
 		if( currentUser != null && user != null && user.getuId() == currentUser.getuId()
 				&& user.getuEmail().equals(currentUser.getuEmail())) {
 			//校验是否为当前用户
-			User canRightLogin = userService.isRightUser(currentUser.getuEmail(),user.getuPassword());
-			if(null != canRightLogin) {
+			boolean canRightLogin = userService.isRightUser(currentUser.getuEmail(),user.getuPassword());
+			if(canRightLogin) {
 				user.setuPassword(uNewPassword1);
 				int isSuccess = userService.updateUserPassword(user);
 				if(isSuccess == 1) {
-					mav.addObject("loginMessage", "修改密码成功请重新登陆！");
-					mav.setViewName("login");
-				} else {
-					mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-					mav.setViewName("wrongInfo");
+					rs = jsonService.toJsonString(null,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+					return rs;
 				}
-			} else {
-				mav.addObject("uId",currentUser.getuId());
-				mav.addObject("updateUserSecurityMessage","修改密码未成功！");
-				mav.setViewName("redirect:/userSecurity/{uId}");
 			}
 		}
-		return mav;
+		rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		return rs;
 	}
 
 

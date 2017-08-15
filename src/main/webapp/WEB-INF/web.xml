@@ -37,6 +37,7 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
+
   <!-- 配置编码过滤器 -->
   <filter>
     <filter-name>characterEncodingFilter</filter-name>
@@ -55,6 +56,16 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+  <!-- 配置springmvc，使其能接受PUT和DELETTE请求-->
+  <filter>
+    <filter-name>HiddenHttpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>HiddenHttpMethodFilter</filter-name>
+    <!-- 备注，这边的名称必须和配置'springmvc'的servlet名称一样 -->
+    <servlet-name>Springmvc-dispatcher</servlet-name>
+  </filter-mapping>
 
   <welcome-file-list>
     <welcome-file>index</welcome-file>

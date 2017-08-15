@@ -29,7 +29,6 @@ public class AnswerServiceImple implements AnswerService{
 		// TODO Auto-generated method stub
 		answer.setaMadeByUserId(user.getuId());
 		answer.setaBelongToQuestionId(question.getqId());
-		answer.setaBelongToQuestionTitle(question.getqTitle());
 		Date insertTime= new Date(new java.util.Date().getTime());
 		answer.setaMadeDate(insertTime);	//插入当前时间
 		int flag = answerMapper.addAnswer(answer);

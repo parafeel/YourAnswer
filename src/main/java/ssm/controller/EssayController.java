@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import ssm.pojo.*;
 import ssm.service.EssayService;
+import ssm.service.JsonService;
 import ssm.service.OperationService;
 import ssm.service.UserService;
-import ssm.util.UserOperation;
+import ssm.util.StatusCode;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -26,6 +27,8 @@ public class EssayController {
 
 	private OperationService operationService;
 
+	private JsonService jsonService;
+
 	@Autowired
 	public void setEssayService(EssayService essayService) {
 		this.essayService = essayService;
@@ -38,51 +41,22 @@ public class EssayController {
 	public void setOperationService(OperationService operationService) {
 		this.operationService = operationService;
 	}
+	@Autowired
+	public void setJsonService(JsonService jsonService) {
+		this.jsonService = jsonService;
+	}
 
 
-	//此处使用rest风格的URL
+//此处使用rest风格的URL
+	//新建essay
 	@RequestMapping("makeEssay")
 	public ModelAndView makeEssay() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("addEssay");
 		return mav;
 	}
-	
-	@RequestMapping("addEssay")
-	public ModelAndView addEssay(Essay essay, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		String addEssayMessage;
-		User currentUser = (User)session.getAttribute("currentUser");
-		if(currentUser == null) {
-			addEssayMessage = "您还未登陆，登陆后才可回答！";
-			mav.addObject("addEssayMessage", addEssayMessage);
-			mav.addObject("currentEssay",essay);
-			mav.setViewName("addEssay");
-			return mav;
-		} else {
-			if(essayService.getEssayByEssayTitle(essay.getEssayTitle()) != null) {
-				addEssayMessage = "随笔标题重复！";
-				mav.addObject("addEssayMessage", addEssayMessage);
-				mav.addObject("currentEssay",essay);
-				mav.setViewName("addEssay");
-			} else {
-				Essay currentEssay  = essayService.putEssay(essay,currentUser);
-				//添加回答成功
-				if(currentEssay != null) {
-					operationService.putOperation(new Operation(currentEssay.getEssayMadeByUserId(), UserOperation.TYPE_ESSAY,
-							currentEssay.getEssayId()) );
-					mav.addObject("essayId",currentEssay.getEssayId());
-					mav.setViewName("redirect:/Essay/{essayId}");
-				} else {
-					addEssayMessage = "似乎出现了什么问题！";
-					mav.addObject("addEssayMessage", addEssayMessage);
-					mav.setViewName("addEssay");
-				}
-			}
-		}
-		return mav;
-	}
-	
+
+	//查看essay
 	@RequestMapping("Essay/{essayId}")
 	public ModelAndView showEssay(@PathVariable("essayId") int essayId) {
 		ModelAndView mav = new ModelAndView();
@@ -98,17 +72,7 @@ public class EssayController {
 		return mav;
 	}
 
-	@RequestMapping(value = "api/onlyEssay/{essayId}", method = RequestMethod.GET)
-	public @ResponseBody Essay getEssay(@PathVariable("essayId") int essayId) {
-		Essay currentEssay = essayService.getEssayByEssayId(essayId);
-		if(currentEssay == null) {
-			return null;
-		} else {
-			return currentEssay;
-		}
-	}
-
-
+	//修改essay
 	@RequestMapping("Essay/{essayId}/update")
 	public ModelAndView tryUpdateEssay(@PathVariable("essayId") int essayId, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
@@ -123,30 +87,92 @@ public class EssayController {
 		return mav;
 	}
 
-	@RequestMapping("updateEssay/{essayId}")
-	public ModelAndView updateEssay(Essay essay, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
+	//列表查看essay
+	@RequestMapping("listEssay")
+	public String listEssays() {
+		return "listEssay";
+	}
+
+//相关API
+	//增加随笔API
+	@RequestMapping(value = "api/Essay",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String addEssay(Essay essay, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
-		if(essay.getEssayMadeByUserId() != currentUser.getuId()) {
-			mav.addObject("updateEssayMessage","随笔未修改成功！");
-			mav.addObject("currentEssay", essay);
-			mav.setViewName("updateEssay");
+		String rs;
+		if(currentUser == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			if(essayService.getEssayByEssayTitle(essay.getEssayTitle()) != null) {
+				rs = jsonService.toJsonString(null,StatusCode.CODE_DUPLICATE,StatusCode.REASON_FAILURE);
+			} else {
+				Essay currentEssay = essayService.putEssay(essay, currentUser);
+				//添加回答成功
+				if (currentEssay != null) {
+					operationService.putOperation(new Operation(currentEssay.getEssayMadeByUserId(), StatusCode.TYPE_ESSAY, currentEssay.getEssayId()));
+					rs = jsonService.toJsonString(currentEssay, StatusCode.CODE_SUCCESS, StatusCode.REASON_SUCCESS);
+				} else {
+					rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+				}
+			}
+		}
+		return rs;
+	}
+
+	//删除随笔API
+	@RequestMapping(value = "api/Essay/{essayId}", method = RequestMethod.DELETE, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String deleteEssay(@PathVariable("essayId") int essayId, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		Essay currentEssay = essayService.getEssayByEssayId(essayId);
+		String rs;
+		if(currentUser != null || currentEssay != null || currentEssay.getEssayMadeByUserId() == currentUser.getuId()) {
+			rs = jsonService.toJsonString(currentEssay,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		} else {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		}
+		return rs;
+	}
+
+	//更新随笔API
+	@RequestMapping(value = "api/Essay/{essayId}",method = RequestMethod.PUT,produces = "application/json;" + "charset=UTF-8" )
+	public @ResponseBody String updateEssay(@PathVariable("essayId") int essayId, Essay essay, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		Essay currentEssay = essayService.getEssayByEssayId(essayId);
+		String rs;
+		if(currentUser == null || currentEssay == null || essay.getEssayId() != essayId ||
+				currentEssay.getEssayMadeByUserId() != currentUser.getuId()) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		} else {
 			boolean isUpdate = essayService.updateEssay(essay);
 			if(isUpdate) {
-				mav.addObject("essayId", essay.getEssayId());
-				mav.setViewName("redirect:/Essay/{essayId}");
+				rs = jsonService.toJsonString(essayService.getEssayByEssayId(essayId),StatusCode.CODE_SUCCESS,
+						StatusCode.REASON_SUCCESS);
+			} else {
+				rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 			}
 		}
-		return mav;
+		return rs;
 	}
 
-	@RequestMapping("listEssay")
-	public ModelAndView listEssay() {
-		ModelAndView mav = new ModelAndView();
-		List<Essay> essays = essayService.getEssayByTime();
-		mav.addObject("essays",essays);
-		mav.setViewName("listEssay");
-		return  mav;
+	//获取随笔API
+	@RequestMapping(value = "api/onlyEssay/{essayId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String getEssay(@PathVariable("essayId") int essayId) {
+		String rs;
+		Essay currentEssay = essayService.getEssayByEssayId(essayId);
+		if(currentEssay == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);;
+		} else {
+			rs = jsonService.toJsonString(currentEssay,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		}
+		return rs;
 	}
+
+	//列表查看essays
+	@RequestMapping(value = "api/Essays",method = RequestMethod.GET, produces = "application/json;charset=UTF-8" )
+	public @ResponseBody String Essays() {
+		List<Essay> essays = essayService.getEssayByTime();
+		String rs = jsonService.toJsonString(essays,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		return  rs;
+	}
+
+
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import org.springframework.security.access.method.P;
 import ssm.pojo.User;
 
 //绑定user.xml实现Create、Retrieve(query)、Update、Delete

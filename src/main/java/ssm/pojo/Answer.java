@@ -15,7 +15,6 @@ public class Answer implements Serializable{
 	
 	private Date aMadeDate;
 	private int aBelongToQuestionId;
-	private String aBelongToQuestionTitle;
 
 	private Question aBelongToQuestion;
 	private boolean canUpdate;
@@ -63,14 +62,6 @@ public class Answer implements Serializable{
 	}
 	public void setaBelongToQuestion(Question aBelongToQuestion) {
 		this.aBelongToQuestion = aBelongToQuestion;
-	}
-
-	public String getaBelongToQuestionTitle() {
-		return aBelongToQuestionTitle;
-	}
-
-	public void setaBelongToQuestionTitle(String aBelongToQuestionTitle) {
-		this.aBelongToQuestionTitle = aBelongToQuestionTitle;
 	}
 
 	public boolean isCanUpdate() {
