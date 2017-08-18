@@ -7,17 +7,16 @@ public class Answer implements Serializable{
 
 	private static final long serialVersionUID = -1916693914525855911L;
 
+	//五个基本内容，对应DB
 	private int aId;
 	private String aContent;
 	private int aMadeByUserId;
-	
-	private User aMadeByUser;
-	
-	private Date aMadeDate;
 	private int aBelongToQuestionId;
+	private Date aMadeDate;
 
+	//额外关联信息，可以查询填充
+	private User aMadeByUser;
 	private Question aBelongToQuestion;
-	private boolean canUpdate;
 
 	public int getaId() {
 		return aId;
@@ -37,13 +36,11 @@ public class Answer implements Serializable{
 	public void setaMadeByUserId(int aMadeByUserId) {
 		this.aMadeByUserId = aMadeByUserId;
 	}
-	
-	
-	public User getaMadeByUser() {
-		return aMadeByUser;
+	public int getaBelongToQuestionId() {
+		return aBelongToQuestionId;
 	}
-	public void setaMadeByUser(User aMadeByUser) {
-		this.aMadeByUser = aMadeByUser;
+	public void setaBelongToQuestionId(int aBelongToQuestionId) {
+		this.aBelongToQuestionId = aBelongToQuestionId;
 	}
 	public Date getaMadeDate() {
 		return aMadeDate;
@@ -51,11 +48,13 @@ public class Answer implements Serializable{
 	public void setaMadeDate(Date aMadeDate) {
 		this.aMadeDate = aMadeDate;
 	}
-	public int getaBelongToQuestionId() {
-		return aBelongToQuestionId;
+
+
+	public User getaMadeByUser() {
+		return aMadeByUser;
 	}
-	public void setaBelongToQuestionId(int aBelongToQuestionId) {
-		this.aBelongToQuestionId = aBelongToQuestionId;
+	public void setaMadeByUser(User aMadeByUser) {
+		this.aMadeByUser = aMadeByUser;
 	}
 	public Question getaBelongToQuestion() {
 		return aBelongToQuestion;
@@ -64,13 +63,6 @@ public class Answer implements Serializable{
 		this.aBelongToQuestion = aBelongToQuestion;
 	}
 
-	public boolean isCanUpdate() {
-		return canUpdate;
-	}
-
-	public void setCanUpdate(boolean canUpdate) {
-		this.canUpdate = canUpdate;
-	}
 
 
 

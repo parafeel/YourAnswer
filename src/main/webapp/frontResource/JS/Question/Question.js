@@ -1,31 +1,37 @@
-
-var qId = $('#qId').text();
+'use strict';
 
 $(document).ready( function() {
 
-    $.get('/YourAnswer/api/Question/' + qId,
-        function(data,status){
-            if(status) {
-                // var question = data;
-                // var qAnswers = question.qAnswers[0];
-                showQuesion(data);
+    var qId = $('#qId').text();
+    $.ajax({
+        type: 'GET',
+        url: '/YourAnswer/api/Question/' + qId,
+        success: function (data) {
+            if (data.resultCode === 200) {
+                var question = data.value;
+                showQuesion(question);
             } else {
-                alert("failed");
+                window.location.href = "/YourAnswer/wrongInfo";
             }
+        },
+        error: function (e) {
+            alert('Error: ' + e);
         }
-    );
+    });
 
-    function showQuesion(data) {
-        document.title = data.qTitle;
+    function showQuesion(question) {
+        document.title = question.qTitle + "---YourAnswer";
         new Vue({
             el: '#app1',
             data: {
-                question : data,
-                answerList: data.qAnswers
+                question : question,
+                answerList: question.qAnswers
             }
         });
     }
 
+
+    //Ajax添加Answer
     $('#addAnswerBtn').on("click",function(event) {
         var aContent = editoraContent.txt.html();
         if(aContent.length > 1) {
@@ -37,15 +43,15 @@ $(document).ready( function() {
                     "aBelongToQuestionId": qId
                 },
                 success: function (data) {
-                    alert("success:" + data);
-                    if(data == -1) {
-                        window.location.href = "/YourAnswer/login";
-                    } else if(data == 0) {
+                    if(data.resultCode === 200) {
+                        var answer = data.value;
+                        window.location.href="/YourAnswer/Question/" + answer.aBelongToQuestionId + "/Answer/" + answer.aId;
+                    } else if(data.resultCode === 222) {
                         $('#addAnswerMessage').addClass("alert-warning");
                         $('#addAnswerMessage').text("您已回答过此问题！");
-                    } else {
-                        var aId = data;
-                        window.location.href="/YourAnswer/Question/" + qId + "/Answer/" + aId;
+                    } else if(data.resultCode === 400){
+                        $('#addAnswerMessage').addClass("alert-warning");
+                        $('#addAnswerMessage').text("您似乎未登录！");
                     }
                 },
                 error: function (e) {

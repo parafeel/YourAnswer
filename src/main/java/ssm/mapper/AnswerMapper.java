@@ -4,6 +4,8 @@ package ssm.mapper;
 import 	org.apache.ibatis.annotations.Param;
 
 import 	ssm.pojo.Answer;
+import ssm.pojo.Question;
+
 import  java.util.List;
 
 public interface AnswerMapper {
@@ -27,4 +29,7 @@ public interface AnswerMapper {
 	List<Answer> queryAnswersByUserId(@Param("aMadeByUserId") Integer aMadeByUserId);
 	//根据关键字查询相关答案
 	List<Answer> queryAnswersByKeyWords(@Param("keywords") String keywords);
+
+	//queryFeedQuestionById
+	Answer queryFeedAnswerById(Integer aId);
 }

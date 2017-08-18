@@ -9,27 +9,30 @@
     		<result column="uId" property="uId" jdbcType="INTEGER" />
     		<result column="operationType" property="operationType" jdbcType="TINYINT" />
     		<result column="operationId" property="operationId" jdbcType="INTEGER" />
-			<result column="parentType" property="parentType" jdbcType="TINYINT" />
-			<result column="parentId" property="parentId" jdbcType="TINYINT" />
+			<result column="realAction" property="realAction" jdbcType="VARCHAR" />
 			<result column="createTime" property="createTime" />
   		</resultMap>
 
 
   		<sql id="Operation_Column_List" >
-			optId, optId, operationType ,operationId ,parentType ,parentId ,createTime
+			optId, optId, operationType ,operationId , realAction ,createTime
   		</sql>
     	
     	<insert id="addOperation" parameterType="ssm.pojo.Operation" >
-			INSERT INTO useroperation (uId ,operationType ,operationId ,parentType ,parentId,createTime)
-				SELECT  #{uId} ,#{operationType} ,#{operationId} ,#{parentType} ,#{parentId} ,#{createTime}
+			INSERT INTO useroperation (uId ,operationType ,operationId , realAction ,createTime)
+				SELECT  #{uId} ,#{operationType} ,#{operationId} ,#{realAction} ,#{createTime}
 				FROM DUAL WHERE NOT EXISTS
 			(SELECT * FROM useroperation WHERE operationType=#{operationType} AND operationId=#{operationId} )
 		</insert>
 
+		<select id="queryOperationById" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
+			SELECT * FROM  useroperation WHERE optId = #{optId}
+		</select>
+
     	
     	<!-- 查询List的时候，mybatis会自动将查询的结果，按照resultType封装到一起 ，此处无parameterType，因为在
     	对应mapper接口用@Param("aMadeByUserId")标注了传入的变量-->
-        <select id="querypOerationsByuId" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
+        <select id="queryOperationsByuId" resultMap="OperationResultMap" parameterType="java.lang.Integer" >
         	SELECT * FROM  useroperation WHERE uId = #{uId}  ORDER BY createTime DESC
         </select>
 

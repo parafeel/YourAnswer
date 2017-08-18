@@ -44,4 +44,12 @@ public interface UserMapper {
 	int queryFollowing(@Param("uId") int uId, @Param("relationType") Byte relationType);
 
 	int queryFollowed(@Param("uId") int uId, @Param("relationType") Byte relationType);
+
+	List<User> queryFollowingUsers(@Param("uId") int uId, @Param("relationType") Byte relationType);
+
+	List<User> queryFollowedUsers(@Param("uId") int uId, @Param("relationType") Byte relationType);
+
+
+	//queryFeedUserById
+	User queryFeedUserById(@Param("uId") Integer uId);
 }

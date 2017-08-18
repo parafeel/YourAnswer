@@ -66,6 +66,6 @@
 
     <%@ include file="/WEB-INF/staticSource/footer.jsp"%>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/Essays.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/Essay/Essays.js"></script>
 </body>
 </html>

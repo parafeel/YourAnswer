@@ -34,6 +34,10 @@
 			uId, uEmail, uName, uWord, essayId, essayTitle, essayContent, essayMadeByUserId, essayMadeDate
 		</sql>
 
+		<sql id="Feed_List_Essay">
+			uId, uEmail, uName, uWord, essayId, essayTitle, essayContent, essayMadeByUserId, essayMadeDate
+		</sql>
+
 	<!--实现插入，并将插入的记录的essayId传回parameter对象的对应essayId中！ -->
     	<insert id="addEssay" parameterType="ssm.pojo.Essay" useGeneratedKeys="true" keyProperty="essayId" >
             INSERT into essay (essayTitle ,essayContent ,essayMadeByUserId ,essayMadeDate)
@@ -92,5 +96,11 @@
 			user.uId=essay.essayMadeByUserId AND essayMadeDate >= DATE_SUB(NOW(),INTERVAL 30 DAY)
 			ORDER BY essayMadeDate DESC
 		</select>
-        
-    </mapper>
+
+<!--查询feed流的目标随笔信息- -->
+		<select id="queryFeedEssayById" resultMap="EssayResultMap"  parameterType="java.lang.Integer" >
+			SELECT <include refid="Feed_List_Essay" /> FROM  essay,user WHERE essay.essayId=#{essayId} AND
+			essay.essayMadeByUserId = user.uId
+		</select>
+
+</mapper>

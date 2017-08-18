@@ -7,16 +7,16 @@ import java.util.List;
 public class Question implements Serializable{
 
 	private static final long serialVersionUID = -841603625012928460L;
-
+	//五个基本内容，对应DB
 	private int qId;
 	private String qTitle;
 	private String qDetail;
 	private int qMadeByUserId;
-	
-	private User qMadeByUser;
 	private Date qMadeDate;
-	private List<Answer> qAnswers;
 
+	//额外关联信息，可以查询填充
+	private User qMadeByUser;
+	private List<Answer> qAnswers;
 
 
 	public int getqId() {
@@ -43,18 +43,18 @@ public class Question implements Serializable{
 	public void setqMadeByUserId(int qMadeByUserId) {
 		this.qMadeByUserId = qMadeByUserId;
 	}
+	public Date getqMadeDate() {
+		return qMadeDate;
+	}
+	public void setqMadeDate(Date qMadeDate) {
+		this.qMadeDate = qMadeDate;
+	}
 	
 	public User getqMadeByUser() {
 		return qMadeByUser;
 	}
 	public void setqMadeByUser(User qMadeByUser) {
 		this.qMadeByUser = qMadeByUser;
-	}
-	public Date getqMadeDate() {
-		return qMadeDate;
-	}
-	public void setqMadeDate(Date qMadeDate) {
-		this.qMadeDate = qMadeDate;
 	}
 	public List<Answer> getqAnswers() {
 		return qAnswers;

@@ -4,6 +4,7 @@ package ssm.mapper;
 import org.apache.ibatis.annotations.Param;
 import ssm.pojo.Answer;
 import ssm.pojo.Essay;
+import ssm.pojo.Question;
 
 import java.util.List;
 
@@ -26,4 +27,7 @@ public interface EssayMapper {
 	List<Essay> queryEssayByKeyWords(@Param("keywords") String keywords);
 
 	List<Essay> queryEssayByTime();
+
+	//queryFeedQuestionById
+	Essay queryFeedEssayById(@Param("essayId") Integer essayId);
 }

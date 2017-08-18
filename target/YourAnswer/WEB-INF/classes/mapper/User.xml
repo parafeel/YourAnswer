@@ -21,6 +21,9 @@
   		<sql id="User_Column_List" >
     		uId, uEmail, uRealName, uTel, uRegistDate, uName, uGender, uWord, uResidence, uProfession
   		</sql>
+		<sql id="User_Sample_List" >
+			uId, uEmail, uName, uWord
+		</sql>
     	
     	<insert id="createUser" parameterType="ssm.pojo.User" >
             INSERT INTO user (uName ,uPassword,uEmail,uRealName,uTel,uGender) 
@@ -76,6 +79,11 @@
         <select id="queryUserById" resultType="ssm.pojo.User" parameterType="java.lang.Integer">
             SELECT <include refid="User_Column_List" /> FROM user  WHERE uId= #{uId}
         </select>
+<!--查询feed流的目标用户信息-->
+		<select id="queryFeedUserById" resultType="ssm.pojo.User" parameterType="java.lang.Integer">
+			SELECT <include refid="User_Sample_List" /> FROM user  WHERE uId= #{uId}
+		</select>
+
 
 		<select id="queryUserAuthority" resultType="java.lang.Integer" parameterType="ssm.pojo.User">
 			SELECT authority FROM user  WHERE uId= #{uId}
@@ -124,4 +132,15 @@
 		<select id="queryFollowed" resultType="java.lang.Integer">
 			SELECT count(*) FROM user_relation  WHERE toUserId = #{uId} AND relationType = #{relationType}
 		</select>
+
+		<select id="queryFollowingUsers" resultType="ssm.pojo.User">
+			SELECT <include refid="User_Column_List" /> FROM user WHERE uId IN (
+				SELECT toUserId FROM user_relation  WHERE fromUserId = #{uId} AND relationType = #{relationType})
+		</select>
+		<select id="queryFollowedUsers" resultType="ssm.pojo.User">
+			SELECT <include refid="User_Column_List" /> FROM user WHERE uId IN (
+				SELECT fromUserId FROM user_relation  WHERE toUserId = #{uId} AND relationType = #{relationType})
+		</select>
+
+
     </mapper>

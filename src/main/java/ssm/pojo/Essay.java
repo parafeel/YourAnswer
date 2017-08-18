@@ -6,12 +6,14 @@ import java.util.Date;
  * Created by wh-pc on 2017/7/25.
  */
 public class Essay {
+	//五个基本内容，对应DB
 	private int essayId;
 	private String essayTitle;
 	private String essayContent;
 	private int essayMadeByUserId;
 	private Date essayMadeDate;
 
+	//额外关联信息，可以查询填充
 	private User essayMadeByUser;
 
 	public int getEssayId() {

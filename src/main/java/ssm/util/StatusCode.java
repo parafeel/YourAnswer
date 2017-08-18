@@ -8,6 +8,16 @@ public class StatusCode {
 	public final static byte TYPE_QUESTION = 100;	//问题
 	public final static byte TYPE_ANSWER = 101;		//答案
 	public final static byte TYPE_ESSAY = 102;		//随笔
+	public final static byte TYPE_SHARE = 103;		//分享
+
+	public final static String  FOCUS_QUESTION = "关注了问题";		//下级动作
+	public final static String  ANSWER_QUESTION = "回答了问题";
+	public final static String  AGREE_ANSWER = "赞同了回答";
+	public final static String  PUBLISH_ESSAY = "发表了随笔";
+	public final static String  AGREE_ESSAY = "赞了随笔";
+	public final static String  PUBLISH_SHARE = "分享了";
+	public final static String  AGREE_SHARE = "赞了分享";
+
 
 	//Json状态码
 	public final static int CODE_SUCCESS=200;	//成功

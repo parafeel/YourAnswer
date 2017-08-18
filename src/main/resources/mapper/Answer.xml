@@ -43,6 +43,10 @@
 			qDetail, qMadeByUserId,qMadeDate
 		</sql>
 
+		<sql id="Feed_List_Answer">
+			aId, aContent, aMadeDate, uId, uEmail, uName, uWord, qId, qTitle
+		</sql>
+
 		<!--实现插入，并将插入的记录的aId传回parameter对象的对应aId中！ -->
     	<insert id="addAnswer" parameterType="ssm.pojo.Answer" useGeneratedKeys="true" keyProperty="aId">
 			INSERT INTO answer (aContent ,aMadeByUserId ,aMadeDate ,aBelongToQuestionId )
@@ -103,6 +107,12 @@
 				AND aContent like CONCAT('%',#{keywords},'%') AND  answer.aBelongToQuestionId = question.qId
 			</if>
 			Order By aMadeDate DESC
+		</select>
+
+<!--查询feed流的目标答案信息- -->
+		<select id="queryFeedAnswerById" resultMap="AnswerResultMap" parameterType="java.lang.Integer"  >
+			SELECT  <include refid="Feed_List_Answer" /> FROM answer,user,question WHERE answer.aid= #{aid} AND
+			answer.aBelongToQuestionId=question.qId AND answer.aMadeByUserId = user.uId
 		</select>
         
     </mapper>

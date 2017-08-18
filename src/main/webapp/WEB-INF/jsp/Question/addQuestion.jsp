@@ -11,10 +11,11 @@
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/wangEditor.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/other/wangEditor.min.js"></script>
 
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/addQuestionAjax.js"></script>
+<script type="text/javascript"
+		src="${pageContext.request.contextPath}/frontResource/JS/Question/addQuestionAjax.js"></script>
 <style type="text/css">
 	#editor {
 		background-color: #fff;
@@ -76,7 +77,7 @@
 	  		<div>
 				<span class="text-left text-danger" id="addQuestionMessage"></span>
 			</div>
-	  		<button id="submitBtn" class="btn btn-default">提交</button>
+	  		<button id="addQuestionBtn" class="btn btn-default">提交</button>
 		</div>
 	</div>
 	

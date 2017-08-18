@@ -51,6 +51,10 @@
 				</div>
 			</div>
 			<div class="col-md-4">
+				<div class="jumbotron" align="center">
+					<h4 >全部话题</h4>
+					<p><a class="btn btn-primary btn-lg" href="#" role="button">进入话题广场</a></p>
+				</div>
 			</div>
 		</div>
 	</div>

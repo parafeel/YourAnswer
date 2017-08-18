@@ -21,7 +21,7 @@ public class TopicController {
 		this.topicService = topicService;
 	}
 
-	@RequestMapping("/topicCenter")
+	@RequestMapping("/topic")
 	public ModelAndView showTopic() {
 		ModelAndView mav = new ModelAndView();
 		List<Topic> topics = topicService.getTopic();

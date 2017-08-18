@@ -11,13 +11,13 @@
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/wangEditor.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/other/wangEditor.min.js"></script>
 
 <!--富文本编辑器	 -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/EssayAjax.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/Essay/EssayAjax.js"></script>
 <style type="text/css">
 	#editor {
 		background-color: #fff;

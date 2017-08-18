@@ -19,7 +19,7 @@ public interface AnswerService {
 
 	Answer getAnserById(int aId);
 
-	List<Answer> getAnswerByQuestion(int aBelongToQuestionId);
+	List<Answer> getAnswersByQuestion(int aBelongToQuestionId);
 
 	//根据uId获取此用户回答的所有答案
 	List<Answer> getAnswersByUserId(int aMadeByUserId);

@@ -9,12 +9,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ssm.mapper.AnswerMapper;
-import ssm.mapper.OperationMapper;
 import ssm.pojo.Answer;
 import ssm.pojo.Question;
 import ssm.pojo.User;
 import ssm.service.AnswerService;
-import ssm.util.UserOperation;
 
 @Service
 public class AnswerServiceImple implements AnswerService{
@@ -71,7 +69,7 @@ public class AnswerServiceImple implements AnswerService{
 	}
 
 	@Override
-	public List<Answer> getAnswerByQuestion(int aBelongToQuestionId) {
+	public List<Answer> getAnswersByQuestion(int aBelongToQuestionId) {
 		// TODO Auto-generated method stub
 		List<Answer> answers = answerMapper.queryAnswersByQuestion(aBelongToQuestionId);
 		return answers;

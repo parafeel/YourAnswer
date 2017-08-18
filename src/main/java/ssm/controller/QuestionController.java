@@ -12,14 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import ssm.pojo.Answer;
-import ssm.pojo.Operation;
-import ssm.pojo.Question;
-import ssm.pojo.User;
-import ssm.service.AnswerService;
-import ssm.service.OperationService;
-import ssm.service.QuestionService;
-import ssm.service.UserService;
+import ssm.pojo.*;
+import ssm.service.*;
 import ssm.util.StatusCode;
 
 @Controller
@@ -33,6 +27,8 @@ public class QuestionController {
 	private UserService userService;
 
 	private OperationService operationService;
+
+	private JsonService jsonService;
 
 	@Autowired
 	public void setQuestionService(QuestionService questionService) {
@@ -50,6 +46,10 @@ public class QuestionController {
 	public void setOperationService(OperationService operationService) {
 		this.operationService = operationService;
 	}
+	@Autowired
+	public void setJsonService(JsonService jsonService) {
+		this.jsonService = jsonService;
+	}
 
 	//提问
 	@RequestMapping("makeQuestion")
@@ -57,97 +57,100 @@ public class QuestionController {
 		ModelAndView mav = new ModelAndView();
 		User currentUser = (User)session.getAttribute("currentUser");
 		if(currentUser == null) {
-			mav.setViewName("redirect:/login");
+			mav.addObject("loginMessage","登录后才能提问！");
+			mav.setViewName("login");
 			return mav;
 		}
-		mav.setViewName("addQuestion");
+		mav.setViewName("Question/addQuestion");
 		return mav;
 	}
+
 	//查看
 	@RequestMapping("Question/{qId}")
 	public ModelAndView showQuestion(@PathVariable("qId") int qId) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("qId",qId);
-		mav.setViewName("showQuestion");
+		mav.setViewName("Question/showQuestion");
 		return mav;
 	}
+
 	//列表查看
 	@RequestMapping("listQuestion")
 	public String listQuestions() {
-		return "listQuestion";
+		return "Question/listQuestion";
 	}
 
 //相关API
 	//增加问题API
-	@RequestMapping(value = "api/Question",method = RequestMethod.POST)
-	public @ResponseBody int  addQuestion(Question question, HttpSession session) {
+	@RequestMapping(value = "api/Question",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String  addQuestion(Question question, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
-		if(currentUser == null) {
-			return -1;	//表示未登录
-		} else {
-			Question currentQuestion = questionService.putQuestion(question,currentUser.getuId());
-			if(currentQuestion != null) {
-				operationService.putOperation(new Operation(currentQuestion.getqMadeByUserId(), StatusCode.TYPE_QUESTION,
-						currentQuestion.getqId()));
-				return currentQuestion.getqId();	//提问成功，返回问题qId
+		String rs;
+		if(currentUser != null) {
+			Question currentQuestion = questionService.putQuestion(question, currentUser.getuId());
+			if (currentQuestion != null) {
+				Operation operation = new Operation(currentQuestion.getqMadeByUserId(), StatusCode.TYPE_QUESTION,
+						currentQuestion.getqId() , StatusCode.FOCUS_QUESTION);
+				operationService.putOperation(operation);
+				rs = jsonService.toJsonString(currentQuestion, StatusCode.CODE_SUCCESS, StatusCode.REASON_SUCCESS);
 			} else {
-				return 0;	//表示未提问成功
+				rs = jsonService.toJsonString(null, StatusCode.CODE_FAILURE, StatusCode.REASON_FAILURE);
 			}
+		} else {
+			rs = jsonService.toJsonString(null, StatusCode.CODE_FAILURE, StatusCode.REASON_FAILURE);
 		}
+		return rs;
 	}
 
 	//删除问题API
-	@RequestMapping(value = "api/Question/{qId}",method = RequestMethod.DELETE)
-	public @ResponseBody boolean deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
+	@RequestMapping(value = "api/Question/{qId}",method = RequestMethod.DELETE, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String deleteQuestion(@PathVariable("qId") int qId, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		int currentUserAuthority = userService.getUserAuthority(currentUser);
-		boolean flag;
+		String rs;
 		if(currentUserAuthority == 100 ) {
-			flag = questionService.deleteQuestionById(qId);
-			return  flag;
+			rs = jsonService.toJsonString(null,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		} else {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		}
-		return false;
+		return rs;
 	}
 
 	//查询问题API
-	@RequestMapping(value = "api/Question/{qId}", method = RequestMethod.GET)
-	public @ResponseBody Question getQuestion(@PathVariable("qId") int qId, HttpSession session) {
+	@RequestMapping(value = "api/Question/{qId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String getQuestion(@PathVariable("qId") int qId, HttpSession session) {
 		Question currentQuestion = questionService.getQuestionById(qId);
+		String rs;
 		if(currentQuestion == null) {
-			return null;
-		}
-		List<Answer> answers = answerService.getAnswerByQuestion(qId);
-		User currentUser = (User)session.getAttribute("currentUser");
-		if(currentUser == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			List<Answer> answers = answerService.getAnswersByQuestion(qId);
 			currentQuestion.setqAnswers(answers);
-			return currentQuestion;
+			rs = jsonService.toJsonString(currentQuestion,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
 		}
-		//此处是为了强行实现在页面中可以增加判断，是否能修改，写的极差
-		for (int i = 0; i < answers.size(); i++) {
-			if (answers.get(i).getaMadeByUserId() == currentUser.getuId()) {
-				answers.get(i).setCanUpdate(true);
-				break;
-			}
-		}
-		//Question currentQuestion = questionService.getCompleteQuesionById(qId);
-		currentQuestion.setqAnswers(answers);
-		return currentQuestion;
+		return rs;
 	}
 
 	//列表查询问题
-	@RequestMapping(value = "api/Questions",method = RequestMethod.GET)
-	public @ResponseBody List<Question> Questions() {
+	@RequestMapping(value = "api/Questions",method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String Questions() {
 		List<Question> questions = questionService.getQuestionsByTime();
-		return questions;
+		String rs;
+		rs = jsonService.toJsonString(questions,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		return rs;
 	}
 
 	//获取Question的feed流
-	@RequestMapping(value = "api/onlyQuestion/{qId}", method = RequestMethod.GET)
-	public @ResponseBody Question feedQuestion(@PathVariable("qId") int qId) {
+	@RequestMapping(value = "api/onlyQuestion/{qId}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String feedQuestion(@PathVariable("qId") int qId) {
 		Question currentQuestion = questionService.getQuestionById(qId);
+		String rs;
 		if(currentQuestion == null) {
-			return null;
-		} else return currentQuestion;
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);;
+		} else {
+			rs = jsonService.toJsonString(currentQuestion,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		}
+		return rs;
 	}
 
 

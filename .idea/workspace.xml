@@ -2,82 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="020997d5-73eb-4b56-8e36-09fd7282b43a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/JsonResult.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/PackAQE.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/JsonServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/JsonService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/EssayAjax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essays.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userSetting.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ssm/util/UserOperation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSecurity.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/addEssayAjax.js" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/AnswerAjax.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/Essay.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/vue.min.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showQuestion.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/follow.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/vue.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/addQuestion.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/listQuestion.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showAnswer.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showQuestion.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showUser.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/userSetting.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/TopicController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/TopicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/UserController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/AnswerMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/AnswerMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/QuestionMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/QuestionMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/UserMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Answer.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Answer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Question.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Question.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/AnswerService.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/AnswerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/AnswerServiceImple.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/AnswerServiceImple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/UserService.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/UserService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/AnswerController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/AnswerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/IndexController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/IndexController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/QuestionController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/QuestionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/TopicController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/TopicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/AnswerMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/AnswerMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/QuestionMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/QuestionMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/pojo/Answer.class" afterPath="$PROJECT_DIR$/target/classes/ssm/pojo/Answer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/pojo/Question.class" afterPath="$PROJECT_DIR$/target/classes/ssm/pojo/Question.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/AnswerService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/AnswerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/AnswerServiceImple.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/AnswerServiceImple.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/AnswerMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/AnswerMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Answer.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Answer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Essay.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Essay.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addEssay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addQuestion.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listEssay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listQuestion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEssay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showQuestion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showSearchResults.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showSearchResults.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateEssay.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSetting.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSetting.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/wrongInfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/wrongInfo.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userAjax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Answer.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Answer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/addQuestion.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/addQuestion.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/User.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/User.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/listQuestion.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/listQuestion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showAnswer.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showAnswer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showQuestion.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showQuestion.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showUser.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/showUser.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/topicCenter.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/topicCenter.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/userSetting.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/userSetting.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/wrongInfo.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/wrongInfo.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/header.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/frontResource/css/list.css" afterPath="$PROJECT_DIR$/target/YourAnswer/frontResource/css/list.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/Answer.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/Answer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/Question.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/User.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/User.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/addEssay.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/listEssay.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/login.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/showEssay.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/updateAnswer.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/updateEssay.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSetting.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/userSetting.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/EssayAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/EssayAjax.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essays.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/Essays.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Questions.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Questions.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/addQuestionAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/jquery-3.2.1.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/jquery-3.2.1.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/loginAjax.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userAjax.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userSetting.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userSetting.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/wangEditor.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/wangEditor.min.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -115,29 +141,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="EssayController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java">
+      <file leaf-file-name="topicCenter.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-717">
-              <caret line="71" column="19" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="71" selection-end-column="19" />
+            <state relative-caret-position="835">
+              <caret line="52" column="31" lean-forward="true" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="32" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#makeEssay#0;class#EssayController#0" expanded="false" />
-                <element signature="method#addEssay#0;class#EssayController#0" expanded="false" />
-                <element signature="method#deleteEssay#0;class#EssayController#0" expanded="false" />
-                <element signature="method#updateEssay#0;class#EssayController#0" expanded="false" />
-                <element signature="method#getEssay#0;class#EssayController#0" expanded="false" />
-                <element signature="method#Essays#0;class#EssayController#0" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <file leaf-file-name="TopicController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+            <state relative-caret-position="333">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicMapper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="782">
+              <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -159,11 +219,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>wrongInfoMessage</find>
-      <find>fo</find>
-      <find>footer</find>
-      <find>show</find>
-      <find>qMadeDate</find>
       <find>qId</find>
       <find>qID</find>
       <find>style</find>
@@ -180,7 +235,6 @@
       <find>opsForList</find>
       <find>pointUserId</find>
       <find>site</find>
-      <find>alert</find>
       <find>UNAME</find>
       <find>api/user</find>
       <find>alter</find>
@@ -188,7 +242,13 @@
       <find>fast</find>
       <find>RequestMethod</find>
       <find>navJS</find>
+      <find>uID</find>
+      <find>essay</find>
+      <find>essat</find>
+      <find>length</find>
       <find>question</find>
+      <find>alert</find>
+      <find>topicCenter</find>
     </findStrings>
     <replaceStrings>
       <replace>Answer_Column_List</replace>
@@ -203,57 +263,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/addAnswerAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header1.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSecurity.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userSetting.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addQuestion.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showSearchResults.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/wrongInfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSetting.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Answer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/util/UserOperation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/userAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/JsonResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/JsonResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/PackAQE.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/JsonService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/JsonServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/springMVC.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listQuestion.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showQuestion.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essays.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listEssay.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEssay.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/addEssayAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addEssay.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateEssay.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/EssayAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/showEssay.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Essay.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/AnswerServiceImple.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Answer.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/Essay.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Questions.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Answer/updateAnswer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/updateAnswer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/AnswerMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/AnswerAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" />
       </list>
     </option>
   </component>
@@ -390,6 +450,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -541,10 +604,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="frontResource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -868,14 +927,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../merpservfront1" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.27669346" />
@@ -884,16 +940,16 @@
     <property name="nodejs_interpreter_path" value="C:/MyProgram/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\MyProgram\nodejs\node.exe" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Data/Java/IDEA/YourAnswer/src/main/java/ssm/service/Impl/AnswerServiceImple.java&#10;getquei&#9;PSI&#9;JAVA://ssm.service.QuestionService#getQuestionById&#10;json&#9;PSI&#9;JAVA://javax.json.Json&#10;queryAnswersByQuestion&#9;PSI&#9;JAVA://ssm.mapper.AnswerMapper#queryAnswersByQuestion&#10;index&#9;FILE&#9;file://D:/Data/Java/IDEA/YourAnswer/src/main/java/ssm/controller/IndexController.java&#10;getQuestionByTime&#9;PSI&#9;JAVA://ssm.service.QuestionService#getQuestionByTime&#10;tryreg&#9;PSI&#9;JAVA://ssm.controller.UserController#tryRegister&#10;tryAn&#9;PSI&#9;JAVA://ssm.controller.AnswerController#tryAnswer&#10;tryAnswer&#9;PSI&#9;JAVA://ssm.controller.AnswerController#tryAnswer" />
+    <property name="SearchEverywhereHistoryKey" value="wrong&#9;FILE&#9;file://D:/Data/Java/IDEA/YourAnswer/src/main/webapp/WEB-INF/jsp/wrongInfo.jsp&#10;getquei&#9;PSI&#9;JAVA://ssm.service.QuestionService#getQuestionById&#10;json&#9;PSI&#9;JAVA://javax.json.Json&#10;queryAnswersByQuestion&#9;PSI&#9;JAVA://ssm.mapper.AnswerMapper#queryAnswersByQuestion&#10;index&#9;FILE&#9;file://D:/Data/Java/IDEA/YourAnswer/src/main/java/ssm/controller/IndexController.java&#10;getQuestionByTime&#9;PSI&#9;JAVA://ssm.service.QuestionService#getQuestionByTime&#10;tryreg&#9;PSI&#9;JAVA://ssm.controller.UserController#tryRegister&#10;tryAn&#9;PSI&#9;JAVA://ssm.controller.AnswerController#tryAnswer&#10;tryAnswer&#9;PSI&#9;JAVA://ssm.controller.AnswerController#tryAnswer" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\other" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Answer" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Essay" />
       <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS" />
       <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\css" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ssm.service" />
@@ -901,8 +957,11 @@
       <recent name="ssm.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\answer" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\resources" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\AboutAnswer" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\Answer" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\User" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\Question" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat8.5">
@@ -1263,15 +1322,15 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51703876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20953912" sideWeight="0.47106108" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22025724" sideWeight="0.47121033" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20150054" sideWeight="0.52020204" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21221864" sideWeight="0.52878964" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21811362" sideWeight="0.5289389" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32079905" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2467685" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1280,6 +1339,36 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2467685" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30317274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51703876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22025724" sideWeight="0.47121033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21221864" sideWeight="0.52878964" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21811362" sideWeight="0.5289389" order="4" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -1307,511 +1396,503 @@
     <MESSAGE value="&quot;部分功能改用Ajax异步读取数据，实现首页简单feed流显示，修改LOG日志，预备加入redis&quot;" />
     <MESSAGE value="&quot;使用redis作为缓存，在查询问题列表处测试缓存效果&quot;" />
     <MESSAGE value="&quot;修改接口，大幅使用api+Ajax获取数据，部分使用vue渲染json&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;修改接口，大幅使用api+Ajax获取数据，部分使用vue渲染json&quot;" />
+    <MESSAGE value="&quot;使用RESTful接口，利用POST DELETE PUT GET请求，实现增删改查&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;使用RESTful接口，利用POST DELETE PUT GET请求，实现增删改查&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essays.js</url>
+          <url>file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/Essays.js</url>
           <line>7</line>
-          <properties />
           <option name="timeStamp" value="230" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="263" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java</url>
+          <line>93</line>
+          <properties />
+          <option name="timeStamp" value="264" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="235" />
+      <option name="time" value="286" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="92" column="80" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="290">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        <state relative-caret-position="314">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/JsonResult.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="20" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="156">
+          <caret line="1002" column="0" lean-forward="false" selection-start-line="1002" selection-start-column="0" selection-end-line="1002" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/packClass/PackAQE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#520#521#0" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#790#791#0" expanded="true" />
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#848#849#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#961#962#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1054#1055#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/JsonServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="37" column="40" lean-forward="false" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springMVC.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/wrongInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userSetting.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3640">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/EssayService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/summernote.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/summernote.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/home.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-840">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-695">
-          <caret line="36" column="19" lean-forward="false" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-          <folding>
-            <marker date="1502767314736" expanded="false" signature="1714:1740" ph="..." />
-            <marker date="1502767314736" expanded="false" signature="1797:1810" ph="..." />
-            <marker date="1502767314736" expanded="false" signature="1841:1854" ph="..." />
-            <marker date="1502767314736" expanded="false" signature="2398:2411" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/bootstrap/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="4" column="14978" lean-forward="false" selection-start-line="4" selection-start-column="14978" selection-end-line="4" selection-end-column="14978" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="26" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/follow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/userAjax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/navJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/loginAjax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="62" column="43" lean-forward="false" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/JsonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listEssay.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-293">
-          <caret line="49" column="63" lean-forward="false" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listQuestion.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Questions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
-          <caret line="48" column="35" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="48" selection-end-column="35" />
-          <folding />
+          <caret line="17" column="29" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        <state relative-caret-position="664">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Question.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="115" column="51" lean-forward="false" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4930">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setUserRelationService#0;class#UserController#0" expanded="false" />
-            <element signature="method#captcha#0;class#UserController#0" expanded="false" />
-            <element signature="method#userLogin#0;class#UserController#0" expanded="false" />
-            <element signature="e#5713#5719#0" expanded="false" />
-            <element signature="method#setUserRelation#0;class#UserController#0" expanded="false" />
-            <element signature="method#getUserRelation#0;class#UserController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essays.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showQuestion.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="72" column="49" lean-forward="false" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="71" column="19" lean-forward="true" selection-start-line="71" selection-start-column="19" selection-end-line="71" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#tryQuestion#0;class#QuestionController#0" expanded="false" />
-            <element signature="e#2108#2109#0" expanded="false" />
-            <element signature="e#2136#2137#0" expanded="false" />
-            <element signature="method#deleteQuestion#0;class#QuestionController#0" expanded="false" />
-            <element signature="method#Questions#0;class#QuestionController#0" expanded="false" />
-            <element signature="method#feedQuestion#0;class#QuestionController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showEssay.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showAnswer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="41" column="20" lean-forward="true" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Essay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addEssay.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="49" column="15" lean-forward="true" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/EssayServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/EssayAjax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="47" column="39" lean-forward="true" selection-start-line="47" selection-start-column="39" selection-end-line="48" selection-end-column="45" />
-          <folding>
-            <element signature="e#81#1469#0" expanded="false" />
+            <marker date="1502936726850" expanded="true" signature="2276:2482" ph="INSERT INTO question... " />
+            <marker date="1502936726850" expanded="true" signature="2343:2482" ph="SELECT ##{qTi... DUAL" />
+            <marker date="1502936726850" expanded="true" signature="2433:2480" ph="SELECT * FRO... question" />
+            <marker date="1502936726850" expanded="true" signature="2586:2673" ph="select from question" />
+            <marker date="1502936726850" expanded="true" signature="2757:2795" ph="delete from " />
+            <marker date="1502936726850" expanded="true" signature="2879:3188" ph="update quest... " />
+            <marker date="1502936726850" expanded="true" signature="3317:3435" ph="SELECT FROM user" />
+            <marker date="1502936726850" expanded="true" signature="3578:3732" ph="SELECT * FRO... question" />
+            <marker date="1502936726850" expanded="true" signature="3841:3953" ph="select from question" />
+            <marker date="1502936726850" expanded="true" signature="4035:4211" ph="SELECT FROM user" />
+            <marker date="1502936726850" expanded="true" signature="4330:4466" ph="SELECT FROM question" />
+            <marker date="1502936726850" expanded="true" signature="4586:4840" ph="SELECT FROM question" />
+            <marker date="1502936726850" expanded="true" signature="4982:5105" ph="SELECT FROM user" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Essay.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="53" column="18" lean-forward="false" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+        <state relative-caret-position="228">
+          <caret line="101" column="50" lean-forward="false" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
           <folding>
-            <marker date="1502783170086" expanded="true" signature="1883:2053" ph="INSERT into essay... " />
-            <marker date="1502783170086" expanded="true" signature="2187:2315" ph="SELECT FROM essay" />
-            <marker date="1502783170086" expanded="true" signature="2434:2477" ph="DELETE FROM " />
-            <marker date="1502783170086" expanded="true" signature="2584:2877" ph="UPDATE essay... " />
-            <marker date="1502783170086" expanded="true" signature="3120:3267" ph="SELECT * FRO... essay" />
-            <marker date="1502783170086" expanded="true" signature="3391:3550" ph="SELECT * FRO... essay" />
-            <marker date="1502783170086" expanded="true" signature="3666:3889" ph="SELECT * FRO... essay" />
-            <marker date="1502783170086" expanded="true" signature="3967:4148" ph="SELECT FROM essay" />
+            <marker date="1502936653884" expanded="true" signature="2020:2190" ph="INSERT into essay... " />
+            <marker date="1502936653884" expanded="true" signature="2324:2452" ph="SELECT FROM essay" />
+            <marker date="1502936653884" expanded="true" signature="2571:2614" ph="DELETE FROM " />
+            <marker date="1502936653884" expanded="true" signature="2721:3014" ph="UPDATE essay... " />
+            <marker date="1502936653884" expanded="true" signature="3257:3404" ph="SELECT * FRO... essay" />
+            <marker date="1502936653884" expanded="true" signature="3528:3687" ph="SELECT * FRO... essay" />
+            <marker date="1502936653884" expanded="true" signature="3803:4026" ph="SELECT * FRO... essay" />
+            <marker date="1502936653884" expanded="true" signature="4104:4285" ph="SELECT FROM essay" />
+            <marker date="1502936653884" expanded="true" signature="4424:4556" ph="SELECT FROM essay" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateEssay.jsp">
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="40" column="60" lean-forward="false" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="60" />
+        <state relative-caret-position="260">
+          <caret line="895" column="0" lean-forward="false" selection-start-line="895" selection-start-column="0" selection-end-line="895" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="232" column="0" lean-forward="false" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Answer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="103" column="107" lean-forward="true" selection-start-line="103" selection-start-column="107" selection-end-line="103" selection-end-column="107" />
+          <folding>
+            <marker date="1502936666790" expanded="true" signature="2514:2810" ph="INSERT INTO answer... " />
+            <marker date="1502936666790" expanded="true" signature="2596:2810" ph="SELECT ##{aCo... DUAL" />
+            <marker date="1502936666790" expanded="true" signature="2704:2808" ph="SELECT * FRO... answer" />
+            <marker date="1502936666790" expanded="true" signature="2908:3061" ph="select from answer" />
+            <marker date="1502936666790" expanded="true" signature="3193:3346" ph="select from answer" />
+            <marker date="1502936666790" expanded="true" signature="3461:3497" ph="delete from " />
+            <marker date="1502936666790" expanded="true" signature="3613:3885" ph="update answe... " />
+            <marker date="1502936666790" expanded="true" signature="4030:4204" ph="SELECT FROM answer" />
+            <marker date="1502936666790" expanded="true" signature="4439:4636" ph="SELECT * FRO... answer" />
+            <marker date="1502936666790" expanded="true" signature="4747:4956" ph="SELECT * FRO... answer" />
+            <marker date="1502936666790" expanded="true" signature="5081:5306" ph="SELECT * FRO... answer" />
+            <marker date="1502936666790" expanded="true" signature="5447:5625" ph="SELECT FROM answer" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/AnswerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="33" column="31" lean-forward="false" selection-start-line="33" selection-start-column="31" selection-end-line="33" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="68" column="108" lean-forward="false" selection-start-line="68" selection-start-column="108" selection-end-line="68" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="26" column="56" lean-forward="false" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar!/org/springframework/aop/support/AopUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="301" column="0" lean-forward="false" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Operation.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding>
+            <marker date="1502939653729" expanded="true" signature="914:1214" ph="INSERT INTO useroperation... " />
+            <marker date="1502939653729" expanded="true" signature="1003:1214" ph="SELECT ##{uId... DUAL" />
+            <marker date="1502939653729" expanded="true" signature="1117:1212" ph="SELECT * FRO... useroperation" />
+            <marker date="1502939653729" expanded="true" signature="1332:1383" ph="SELECT * FRO... useroperation" />
+            <marker date="1502939653729" expanded="true" signature="1649:1722" ph="SELECT * FRO... useroperation" />
+            <marker date="1502939653729" expanded="true" signature="1852:2127" ph="SELECT opt.*... useroperation" />
+            <marker date="1502939653729" expanded="true" signature="1972:2099" ph="SELECT user_... user_relation" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/AnswerAjax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/vue.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/UserRelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="107" column="45" lean-forward="false" selection-start-line="107" selection-start-column="45" selection-end-line="107" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="21" column="32" lean-forward="false" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="49" column="33" lean-forward="false" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/User.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="141" column="33" lean-forward="false" selection-start-line="141" selection-start-column="33" selection-end-line="141" selection-end-column="33" />
+          <folding>
+            <marker date="1502961749689" expanded="true" signature="1349:1596" ph="INSERT INTO user... " />
+            <marker date="1502961749689" expanded="true" signature="1429:1596" ph="SELECT ##{uNa... DUAL" />
+            <marker date="1502961749689" expanded="true" signature="1547:1595" ph="SELECT uEmai... user" />
+            <marker date="1502961749689" expanded="true" signature="1710:1744" ph="DELETE from " />
+            <marker date="1502961749689" expanded="true" signature="1852:2438" ph="UPDATE user " />
+            <marker date="1502961749689" expanded="true" signature="2553:2737" ph="UPDATE user " />
+            <marker date="1502961749689" expanded="true" signature="2884:2935" ph="SELECT uPass... user" />
+            <marker date="1502961749689" expanded="true" signature="3046:3124" ph="SELECT FROM user" />
+            <marker date="1502961749689" expanded="true" signature="3247:3319" ph="SELECT FROM user" />
+            <marker date="1502961749689" expanded="true" signature="3458:3530" ph="SELECT FROM user" />
+            <marker date="1502961749689" expanded="true" signature="3644:3689" ph="SELECT autho... user" />
+            <marker date="1502961749689" expanded="true" signature="3803:3952" ph="SELECT FROM user" />
+            <marker date="1502961749689" expanded="true" signature="4030:4049" ph="SELECT * FRO... user" />
+            <marker date="1502961749689" expanded="true" signature="4163:4436" ph="INSERT INTO user_relation... " />
+            <marker date="1502961749689" expanded="true" signature="4229:4436" ph="SELECT ##{fro... DUAL" />
+            <marker date="1502961749689" expanded="true" signature="4310:4435" ph="SELECT * FRO... user_relation" />
+            <marker date="1502961749689" expanded="true" signature="4485:4673" ph="UPDATE user_... " />
+            <marker date="1502961749689" expanded="true" signature="4751:4872" ph="SELECT IFNUL... user_relation" />
+            <marker date="1502961749689" expanded="true" signature="4951:5047" ph="SELECT count... user_relation" />
+            <marker date="1502961749689" expanded="true" signature="5124:5218" ph="SELECT count... user_relation" />
+            <marker date="1502961749689" expanded="true" signature="5298:5468" ph="SELECT * FRO... user" />
+            <marker date="1502961749689" expanded="true" signature="5371:5467" ph="SELECT toUse... user_relation" />
+            <marker date="1502961749689" expanded="true" signature="5546:5716" ph="SELECT FROM user" />
+            <marker date="1502961749689" expanded="true" signature="5619:5715" ph="SELECT toUse... user_relation" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="5" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="9" selection-end-column="5" />
+        <state relative-caret-position="319">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2639">
+          <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
           <folding>
-            <marker date="1502689543828" expanded="true" signature="1054:1080" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="1156:1169" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="1215:1228" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="1373:1379" ph="&amp;nbsp;" />
-            <marker date="1502689543828" expanded="true" signature="1760:1773" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="2373:2399" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="2475:2488" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="2534:2547" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="2689:2695" ph="&amp;nbsp;" />
-            <marker date="1502689543828" expanded="true" signature="3158:3171" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="4249:4275" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="4351:4364" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="4410:4423" ph="..." />
-            <marker date="1502689543828" expanded="true" signature="4569:4575" ph="&amp;nbsp;" />
-            <marker date="1502689543828" expanded="true" signature="5012:5025" ph="..." />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="62" column="37" lean-forward="true" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="68" column="28" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="28" />
+          <folding>
+            <element signature="method#showAnswer#0;class#AnswerController#0" expanded="false" />
+            <element signature="method#tryUpdateAnswer#0;class#AnswerController#0" expanded="false" />
+            <element signature="method#updateAnswer#0;class#AnswerController#0" expanded="false" />
+            <element signature="method#getAnswer#0;class#AnswerController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-717">
-          <caret line="71" column="19" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="71" selection-end-column="19" />
+        <state relative-caret-position="-44">
+          <caret line="110" column="82" lean-forward="false" selection-start-line="110" selection-start-column="82" selection-end-line="110" selection-end-column="82" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#makeEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#addEssay#0;class#EssayController#0" expanded="false" />
+            <element signature="method#tryUpdateEssay#0;class#EssayController#0" expanded="false" />
             <element signature="method#deleteEssay#0;class#EssayController#0" expanded="false" />
             <element signature="method#updateEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#getEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#Essays#0;class#EssayController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
+        <state relative-caret-position="478">
+          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="835">
+          <caret line="52" column="31" lean-forward="true" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="21" column="73" lean-forward="false" selection-start-line="21" selection-start-column="68" selection-end-line="21" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding />
         </state>
       </provider>

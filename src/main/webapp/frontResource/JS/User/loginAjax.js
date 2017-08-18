@@ -1,7 +1,6 @@
 $(document).ready( function() {
 
     $('#loginMessage').addClass("alert-info");
-    $('#loginMessage').text("请先登录！");
 
 
     $('#captchaImage').click(function()

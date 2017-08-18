@@ -29,4 +29,7 @@ public interface QuestionMapper {
 	List<Question> queryQuestionByKeywords(@Param("keywords") String keywords);
 
 
+	//queryFeedQuestionById
+	Question queryFeedQuestionById(@Param("qId") Integer qId);
+
 }

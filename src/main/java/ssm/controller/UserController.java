@@ -69,10 +69,14 @@ public class UserController {
 		this.jsonService = jsonService;
 	}
 
+//此处使用rest风格的URL
 	@RequestMapping("login")
 	//跳转进入登录页面
-	public String tryLogin() {
-		return "login";
+	public ModelAndView tryLogin() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("loginMessage","请输入账号密码！");
+		mav.setViewName("User/login");
+		return mav;
 	}
 
 	//增加登录验证码功能
@@ -84,8 +88,52 @@ public class UserController {
 		System.out.println("randomString : " + randomString);
 	}
 
-	//用户相关API
-	@RequestMapping(value = "api/userLogin", produces = "application/json;charset=UTF-8" )
+
+	@RequestMapping(value = "userSetting/{uId}")
+	//校验是否有权限设置当前用户的信息
+	public ModelAndView userSetting(@PathVariable("uId") int uId, HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		User currentUser = (User) session.getAttribute("currentUser");
+		if (null != currentUser) {
+			if (uId == currentUser.getuId()) {
+				mav.addObject("settingUser", currentUser);
+				mav.setViewName("User/userSetting");
+			} else {
+				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+				mav.setViewName("wrongInfo");
+			}
+		} else {
+			mav.setViewName("User/login");
+		}
+		return mav;
+	}
+
+	@RequestMapping("user/{uId}")
+	//进入用户个人信息
+	public ModelAndView showUser(@PathVariable("uId") int uId) {
+		ModelAndView mav = new ModelAndView();
+		//获取目标用户的信息
+		User pointUser = userService.getUserById(uId);
+		if(pointUser == null) {
+			mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
+			mav.setViewName("wrongInfo");
+			return mav;
+		} else {
+			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
+			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
+			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
+			List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
+			mav.addObject("pointUser", pointUser);
+			mav.addObject("pointUsersQuestion", pointUsersQuestion);
+			mav.addObject("pointUsersAnswer", pointUsersAnswer);
+			mav.addObject("pointUserEssay", pointUserEssay);
+			mav.setViewName("User/showUser");
+			return mav;
+		}
+	}
+
+//用户相关API
+	@RequestMapping(value = "api/userLogin", method = RequestMethod.POST ,produces = "application/json;charset=UTF-8" )
 	//实现用户登录,用currentUser存储登录成功的用户信息，用loginMessage存储登录信息 VerificationCode
 	public @ResponseBody
 	String userLogin(@RequestParam("uEmail") String uEmail, @RequestParam("uPassword") String uPassword, HttpSession
@@ -110,7 +158,7 @@ public class UserController {
 		return rs;	//返回JSON字符串，包含登录的结果信息
 	}
 
-	@RequestMapping(value = "api/userLogout", produces = "application/json;charset=UTF-8")
+	@RequestMapping(value = "api/userLogout", method = RequestMethod.POST , produces = "application/json;charset=UTF-8")
 	//实现用户退出登录
 	public @ResponseBody
 	String userLogout(HttpSession session) {
@@ -155,26 +203,7 @@ public class UserController {
 	}
 
 
-	@RequestMapping(value = "userSetting/{uId}")
-	//校验是否有权限设置当前用户的信息
-	public ModelAndView userSetting(@PathVariable("uId") int uId, HttpSession session) {
-		ModelAndView mav = new ModelAndView();
-		User currentUser = (User) session.getAttribute("currentUser");
-		if (null != currentUser) {
-			if (uId == currentUser.getuId()) {
-				mav.addObject("settingUser", currentUser);
-				mav.setViewName("userSetting");
-			} else {
-				mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-				mav.setViewName("wrongInfo");
-			}
-		} else {
-			mav.setViewName("login");
-		}
-		return mav;
-	}
-
-	@RequestMapping(value = "api/userSetting", method = RequestMethod.POST)
+	@RequestMapping(value = "api/userSetting", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	//实现用户信息的更新，预计实现用户头像照片相关,带扩展
 	public @ResponseBody String updateUserSetting(User user, HttpSession session) {
 		User currentUser = (User) session.getAttribute("currentUser");
@@ -193,7 +222,7 @@ public class UserController {
 		return rs;
 	}
 
-	@RequestMapping(value = "api/userPwd",method = RequestMethod.POST)
+	@RequestMapping(value = "api/userPwd",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	//实现用户密码修改
 	public @ResponseBody String updateUserSecurity(User user, @RequestParam("uNewPassword1") String uNewPassword1, HttpSession
 			session) {
@@ -214,32 +243,6 @@ public class UserController {
 		}
 		rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		return rs;
-	}
-
-
-
-	@RequestMapping("user/{uId}")
-	//进入用户个人信息
-	public ModelAndView showUser(@PathVariable("uId") int uId) {
-		ModelAndView mav = new ModelAndView();
-		//获取目标用户的信息
-		User pointUser = userService.getUserById(uId);
-		if(pointUser == null) {
-			mav.addObject("wrongInfoMessage", "你似乎进入未知页面...");
-			mav.setViewName("wrongInfo");
-			return mav;
-		} else {
-			//此处为一次性查出所有记录，可拓展为一次查询最近多少条记录
-			List<Question> pointUsersQuestion = questionService.getQuestionsByUserId(uId);
-			List<Answer> pointUsersAnswer = answerService.getAnswersByUserId(uId);
-			List<Essay> pointUserEssay = essayService.getEssayByUserId(uId);
-			mav.addObject("pointUser", pointUser);
-			mav.addObject("pointUsersQuestion", pointUsersQuestion);
-			mav.addObject("pointUsersAnswer", pointUsersAnswer);
-			mav.addObject("pointUserEssay", pointUserEssay);
-			mav.setViewName("showUser");
-			return mav;
-		}
 	}
 
 	@RequestMapping(value = "UserRelation/{pointUserId}",method = RequestMethod.POST)
@@ -302,6 +305,32 @@ public class UserController {
 			map.put("followed",followed);
 			return map;
 		}
+	}
+
+	@RequestMapping(value = "api/user/{pointUserId}/Following" ,method = RequestMethod.GET, produces =
+			"application/json;charset=UTF-8")
+	public @ResponseBody String getUserFollowing(@PathVariable("pointUserId")int pointUserId) {
+		List<User> users = userRelationService.getFollowingUsers(pointUserId , UserRelation.RELATION_FOLLOW);
+		String rs;
+		if(users == null) {
+			rs = jsonService.toJsonString(users,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			rs = jsonService.toJsonString(users,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		}
+		return rs;
+	}
+
+	@RequestMapping(value = "api/user/{pointUserId}/Followed" ,method = RequestMethod.GET, produces =
+			"application/json;charset=UTF-8")
+	public @ResponseBody String getUserFollowed(@PathVariable("pointUserId")int pointUserId) {
+		List<User> users = userRelationService.getFollowedUsers(pointUserId , UserRelation.RELATION_FOLLOW);
+		String rs;
+		if(users == null) {
+			rs = jsonService.toJsonString(users,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			rs = jsonService.toJsonString(users,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		}
+		return rs;
 	}
 
 	@RequestMapping("userOpt/{uId}")

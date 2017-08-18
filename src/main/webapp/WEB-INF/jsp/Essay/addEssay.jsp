@@ -17,7 +17,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
 
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/EssayAjax.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/Essay/EssayAjax.js"></script>
 <style type="text/css">
 	#editor {
 		background-color: #fff;

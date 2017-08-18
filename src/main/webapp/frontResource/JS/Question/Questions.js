@@ -2,8 +2,8 @@ $(document).ready( function() {
 
     $.get('/YourAnswer/api/Questions',
         function(data,status){
-            if(status) {
-                var questions = data;
+            if(status && data.resultCode === 200) {
+                var questions = data.value;
                 showData(questions);
             }
         }

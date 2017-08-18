@@ -10,17 +10,30 @@ public class Operation {
 	private int uId;
 	private byte operationType;
 	private int operationId;
-	private byte  parentType;
-	private int parentId;
+	private String  realAction;
 	private Date createTime;
+
+	//产生这个feed的用户
+	private User optMadeByUser;
+
+	//具体内容的用户
+	private User actionMadeByUser;
+	//具体内容的Title
+	private String optTitle;
+	//具体内容的content
+	private String optContent;
+	//具体内容的时间
+	private Date optTime;
+
 
 	public Operation() {
 	}
 
-	public Operation(int uId, byte operationType, int operationId) {
+	public Operation(int uId, byte operationType, int operationId, String realAction) {
 		this.uId = uId;
 		this.operationType = operationType;
 		this.operationId = operationId;
+		this.realAction = realAction;
 	}
 
 	public int getOptId() {
@@ -55,20 +68,12 @@ public class Operation {
 		this.operationId = operationId;
 	}
 
-	public byte getParentType() {
-		return parentType;
+	public String getRealAction() {
+		return realAction;
 	}
 
-	public void setParentType(byte parentType) {
-		this.parentType = parentType;
-	}
-
-	public int getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(int parentId) {
-		this.parentId = parentId;
+	public void setRealAction(String realAction) {
+		this.realAction = realAction;
 	}
 
 	public Date getCreateTime() {
@@ -77,5 +82,45 @@ public class Operation {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public User getOptMadeByUser() {
+		return optMadeByUser;
+	}
+
+	public void setOptMadeByUser(User optMadeByUser) {
+		this.optMadeByUser = optMadeByUser;
+	}
+
+	public User getActionMadeByUser() {
+		return actionMadeByUser;
+	}
+
+	public void setActionMadeByUser(User actionMadeByUser) {
+		this.actionMadeByUser = actionMadeByUser;
+	}
+
+	public String getOptTitle() {
+		return optTitle;
+	}
+
+	public void setOptTitle(String optTitle) {
+		this.optTitle = optTitle;
+	}
+
+	public String getOptContent() {
+		return optContent;
+	}
+
+	public void setOptContent(String optContent) {
+		this.optContent = optContent;
+	}
+
+	public Date getOptTime() {
+		return optTime;
+	}
+
+	public void setOptTime(Date optTime) {
+		this.optTime = optTime;
 	}
 }

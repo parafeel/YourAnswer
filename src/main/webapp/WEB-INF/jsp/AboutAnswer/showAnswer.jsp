@@ -58,7 +58,7 @@
 				<h6 style="color:#999999" >${currentAnswer.aMadeByUser.uWord }</h6>
 				<hr>
 	    		<p>${currentAnswer.aContent }</p>
-	    		<p>	<fmt:formatDate value="${currentAnswer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
+	    		<pstyle="color:#999999">编辑于：	<fmt:formatDate value="${currentAnswer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
 	    	</div>
 		</div>
 	</div>

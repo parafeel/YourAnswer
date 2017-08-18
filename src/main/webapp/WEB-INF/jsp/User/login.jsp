@@ -8,12 +8,12 @@
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/style.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/other/jquery-3.2.1.min.js"></script>
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
 
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/loginAjax.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/User/loginAjax.js"></script>
 <title>Login or Regist --Answer</title>
 </head>
 <body>
@@ -48,7 +48,7 @@
 								<img id="captchaImage" src="captcha.form"/>
 							</div>
 							<div class="form-group col-md-8">
-								<div class="alert" role="alert" id="loginMessage"></div>
+								<div class="alert" role="alert" id="loginMessage">${loginMessage}</div>
 							</div>
 						</div>
 						<div>
@@ -56,8 +56,9 @@
 								立即登录</button>
 							<a href="#">  忘记密码 ?</a>
 						</div>
+					<hr>
 				</div>
-				
+
 				<div class="col-md-6">
 					<div class="heading"><h2>新用户？创建一个账号</h2></div>
 

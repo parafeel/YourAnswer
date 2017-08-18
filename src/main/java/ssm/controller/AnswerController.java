@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import ssm.pojo.Answer;
-import ssm.pojo.Operation;
-import ssm.pojo.Question;
-import ssm.pojo.User;
+import ssm.pojo.*;
 import ssm.service.AnswerService;
+import ssm.service.JsonService;
 import ssm.service.OperationService;
 import ssm.service.QuestionService;
 import ssm.util.StatusCode;
@@ -32,6 +30,8 @@ public class AnswerController {
 
 	private OperationService operationService;
 
+	private JsonService jsonService;
+
 	@Autowired
 	public void setQuestionService(QuestionService questionService) {
 		this.questionService = questionService;
@@ -44,44 +44,29 @@ public class AnswerController {
 	public void setOperationService(OperationService operationService) {
 		this.operationService = operationService;
 	}
+	@Autowired
+	public void setJsonService(JsonService jsonService) {
+		this.jsonService = jsonService;
+	}
 
 //此处使用rest风格的URL
 
-	//增加Answer
-	@RequestMapping(value = "api/Answer/{qId}",method = RequestMethod.POST)
-	public @ResponseBody int addAnswer(@PathVariable("qId") Integer qId, Answer answer, HttpSession session) {
-		User currentUser = (User)session.getAttribute("currentUser");
-		if(currentUser == null) {
-			return -1;	//表示未登录
-		} else {
-			Question currentQuesstion = questionService.getQuestionById(qId);
-			Answer currentAnswer = answerService.putAnswer(answer,currentQuesstion,currentUser);	//添加回答
-			if(currentAnswer != null) {
-				operationService.putOperation(new Operation(currentAnswer.getaMadeByUserId(), StatusCode.TYPE_ANSWER,
-						currentAnswer.getaId()));
-				int aId =currentAnswer.getaId();
-				return aId;
-			} else {
-				return 0;
-			}
-		}
-	}
-	
+	//查看Answer
 	@RequestMapping("Question/{qId}/Answer/{aId}")
 	public ModelAndView showAnswer(@PathVariable("aId") int aId) {
 		ModelAndView mav = new ModelAndView();
 		Answer currentAnswer = answerService.getAnserById(aId);
 		if(currentAnswer == null ) {
-			mav.addObject("wrongInfoMessage","你似乎进入未知页面...");
-			mav.setViewName("wrongInfo");
+			mav.setViewName("redirect:wrongInfo");
 		} else {
 			mav.addObject("currentAnswer", currentAnswer);
-			mav.setViewName("showAnswer");
+			mav.setViewName("AboutAnswer/showAnswer");
 		}
 		return mav;
 	}
 
-	@RequestMapping("answer/{aId}/update")
+	//修改Answer
+	@RequestMapping("Answer/{aId}/update")
 	public ModelAndView tryUpdateAnswer(@PathVariable("aId") int aId, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		User currentUser = (User)session.getAttribute("currentUser");
@@ -90,26 +75,55 @@ public class AnswerController {
 			mav.setViewName("redirect:/");
 		} else {
 			mav.addObject("currentAnswer", currentAnswer);
-			mav.setViewName("updateAnswer");
+			mav.setViewName("AboutAnswer/updateAnswer");
 		}
 		return mav;
 	}
 
-	@RequestMapping("updateAnswer/{aId}")
-	public ModelAndView updateAnswer(Answer answer) {
-		ModelAndView mav = new ModelAndView();
-		boolean isUpdate = answerService.updateAnswerById(answer);
-		if(isUpdate) {
-			Answer currentAnswer = answerService.getAnserById(answer.getaId());
-			mav.addObject("qId", currentAnswer.getaBelongToQuestionId());
-			mav.addObject("aId", currentAnswer.getaId());
-			mav.setViewName("redirect:/Question/{qId}/showAnswer/{aId}");
+
+
+//相关API
+	//增加Answer的API
+	@RequestMapping(value = "api/Answer/{qId}",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String addAnswer(@PathVariable("qId") Integer qId, Answer answer, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		String rs;
+		if(currentUser == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		} else {
-			mav.addObject("updateAnswerMessage","问题未修改成功！");
-			mav.addObject("currentAnswer", answer);
-			mav.setViewName("updateAnswer");
+			Question currentQuesstion = questionService.getQuestionById(qId);
+			Answer currentAnswer = answerService.putAnswer(answer,currentQuesstion,currentUser);	//添加回答
+			if(currentAnswer != null) {
+				Operation operation = new Operation(currentAnswer.getaMadeByUserId(), StatusCode.TYPE_ANSWER,
+						currentAnswer.getaId(),  StatusCode.ANSWER_QUESTION);
+				operationService.putOperation(operation);
+				rs = jsonService.toJsonString(currentAnswer,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+			} else {
+				rs = jsonService.toJsonString(null,StatusCode.CODE_DUPLICATE,StatusCode.REASON_FAILURE);
+			}
 		}
-		return mav;
+		return rs;	//表示未登录
+	}
+
+	//修改Answer的API
+	@RequestMapping(value = "api/Answer/{aId}",method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
+	public @ResponseBody String updateAnswer(@PathVariable("aId") int aId, Answer answer, HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		Answer currentAnswer = answerService.getAnserById(aId);
+		String rs;
+		if(currentUser == null || currentAnswer == null || answer.getaId() != aId ||
+				currentAnswer.getaMadeByUserId() != currentUser.getuId()) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			boolean isUpdate = answerService.updateAnswerById(answer);
+			if(isUpdate) {
+				rs = jsonService.toJsonString(answerService.getAnserById(aId),StatusCode.CODE_SUCCESS,
+						StatusCode.REASON_SUCCESS);
+			} else {
+				rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+			}
+		}
+		return rs;
 	}
 
 	//获取Answer的feed流

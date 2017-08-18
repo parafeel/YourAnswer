@@ -14,7 +14,7 @@
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/userSetting.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/user/userSetting.js"></script>
 
 <title>账户资料-- Answer</title>
 </head>
