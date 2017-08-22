@@ -31,94 +31,100 @@
 				<div class="form-group">
 					<h3>${pointUser.uName }</h3>
 				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<h6>${pointUser.uWord }</h6>
-							<h6 style="display: none" id="pointUserId">${pointUser.uId}</h6>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-2">
+							<img src="${pageContext.request.contextPath}/imgs/userPho/${currentUser.uId}_M.jpg"
+								 class="img-rounded">
 						</div>
-						<div class="form-group">
-							<span class="glyphicon glyphicon-briefcase"> ${pointUser.uResidence } ${pointUser.uProfession }</span>
+						<div class="col-md-4">
+							<div class="form-group">
+								<h6>${pointUser.uWord }</h6>
+								<h6 style="display: none" id="pointUserId">${pointUser.uId}</h6>
+							</div>
+							<div class="form-group">
+								<span class="glyphicon glyphicon-briefcase"> ${pointUser.uResidence } ${pointUser.uProfession }</span>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="row" align="center">
-							<div class="form-group col-md-2 ">
-								<a id="followingBtn" class="btn" data-toggle="modal" data-target="#myModal1">
-									<strong>关注了</strong>
-									<strong><h6 id="following">0</h6></strong>
-								</a>
-								<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-									 aria-labelledby="myModalLabel">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">关注了</h4>
-											</div>
-											<div class="modal-body">
-												<div id="app1">
-													<template v-for="user in users">
-														<div class="container">
-															<div class="form-group row">
-																<div class="col-md-3" align="left">
-																	<a :href="'${pageContext.request.contextPath}/user/' +
-																				 user.uId " target="_blank">
-																		{{user.uName}}</a> &nbsp;&nbsp;
-																	<p style="color:#999999">{{user.uWord}} </p>
+						<div class="col-md-4">
+							<div class="row" align="center">
+								<div class="form-group col-md-2 ">
+									<a id="followingBtn" class="btn" data-toggle="modal" data-target="#myModal1">
+										<strong>关注了</strong>
+										<strong><h6 id="following">0</h6></strong>
+									</a>
+									<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+										 aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">关注了</h4>
+												</div>
+												<div class="modal-body">
+													<div id="app1">
+														<template v-for="user in users">
+															<div class="container">
+																<div class="form-group row">
+																	<div class="col-md-3" align="left">
+																		<a :href="'${pageContext.request.contextPath}/user/' +
+																					 user.uId " target="_blank">
+																			{{user.uName}}</a> &nbsp;&nbsp;
+																		<p style="color:#999999">{{user.uWord}} </p>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</template>
+														</template>
+													</div>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-												</button>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="form-group col-md-2">
-								<a id="followedBtn" class="btn" data-toggle="modal" data-target="#myModal2">
-									<strong>关注者</strong>
-									<strong><h6 id="followed">0</h6></strong>
-								</a>
-								<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-									 aria-labelledby="myModalLabel">
-									<div class="modal-dialog" role="document">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">关注者</h4>
-											</div>
-											<div class="modal-body">
-												<div id="app2">
-													<template v-for="user in users">
-														<div class="container">
-															<div class="form-group row">
-																<div class="col-md-3" align="left">
-																	<a :href="'${pageContext.request.contextPath}/user/' +
-																				 user.uId " target="_blank">
-																		{{user.uName}}</a> &nbsp;&nbsp;
-																	<p style="color:#999999">{{user.uWord}} </p>
+								<div class="form-group col-md-2">
+									<a id="followedBtn" class="btn" data-toggle="modal" data-target="#myModal2">
+										<strong>关注者</strong>
+										<strong><h6 id="followed">0</h6></strong>
+									</a>
+									<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+										 aria-labelledby="myModalLabel">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+													<h4 class="modal-title" id="myModalLabel">关注者</h4>
+												</div>
+												<div class="modal-body">
+													<div id="app2">
+														<template v-for="user in users">
+															<div class="container">
+																<div class="form-group row">
+																	<div class="col-md-3" align="left">
+																		<a :href="'${pageContext.request.contextPath}/user/' +
+																					 user.uId " target="_blank">
+																			{{user.uName}}</a> &nbsp;&nbsp;
+																		<p style="color:#999999">{{user.uWord}} </p>
+																	</div>
 																</div>
 															</div>
-														</div>
-													</template>
+														</template>
+													</div>
 												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-												</button>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="form-group col-lg-2">
-								<button id="followBtn" class="btn btn-default" type="button">关注</button>
+								<div class="form-group col-lg-2">
+									<button id="followBtn" class="btn btn-default" type="button">关注</button>
+								</div>
 							</div>
 						</div>
 					</div>

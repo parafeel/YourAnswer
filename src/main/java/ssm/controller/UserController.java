@@ -1,25 +1,33 @@
 package ssm.controller;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.alibaba.fastjson.JSON;
+import net.coobird.thumbnailator.Thumbnails;
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.Answer;
 import ssm.pojo.Essay;
 import ssm.pojo.Question;
 import ssm.pojo.User;
+import ssm.pojo.utilPojo.CropAvatar;
 import ssm.service.*;
 import ssm.util.CaptchaUtil;
+import ssm.util.OperateImage;
 import ssm.util.StatusCode;
 import ssm.util.UserRelation;
 
@@ -81,8 +89,8 @@ public class UserController {
 
 	//增加登录验证码功能
 	@RequestMapping(value = "/captcha", method = RequestMethod.GET)
-	@ResponseBody
-	public void captcha(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public @ResponseBody void captcha(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+			IOException {
 		CaptchaUtil.outputCaptcha(request, response);
 		String randomString = (String) request.getSession().getAttribute("randomString");
 		System.out.println("randomString : " + randomString);
@@ -343,6 +351,58 @@ public class UserController {
 		return map;
 	}
 
+//上传图片API
+	@RequestMapping("/changePhoto")
+	public @ResponseBody Map<String,String> uploadAvatar(@RequestParam("avatarInput") MultipartFile filePhoto,
+														 @RequestParam("avatar_data") String avatarData, HttpSession session) {
+		Map<String,String> map = new HashMap<>(2);
+		User user = (User) session.getAttribute("currentUser");
+		if( user == null || filePhoto == null) {
+			map.put("flag","FAILED");
+			return map;
+		}
+		//获取相对地址,在tomcat中指定/YourAnswer虚拟目录对应的为docBase="D:\Data\Java\IDEA\YourAnswer\target\YourAnswer
+		//对应的JSP目录为${pageContext.request.contextPath}/imgs/userPho/。只有Tomcat虚拟目录，此处目录，JSP目录，三处相同，
+		// 才能实现图片的上传显示完美。
+		String filePath=session.getServletContext().getRealPath("/imgs/userPho/");
+		//获取图片原始名称、及图片扩展名
+		String originalFilename=filePhoto.getOriginalFilename();
+		String types=originalFilename.substring(originalFilename.lastIndexOf(".")+1).toLowerCase();
+		if(!types.equals("jpg")) {
+			map.put("flag","FAILED");
+			return map;
+		}
+		try {
+			//以用户id加图片扩展名给图片命名，O原生、B大图、M中图、S小图
+			String newFileName=user.getuId()+"_O"+originalFilename.substring(originalFilename.lastIndexOf("."));
+			String endFileName = filePath+newFileName;
+			File file=new File(endFileName);
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+			//上传
+			filePhoto.transferTo(file);
+			//裁剪得到B,M,S头像，先获得裁剪数据，以及大中小图名称
+			CropAvatar cropAvatar = JSON.parseObject(avatarData,CropAvatar.class);
+			String bigAvatar=user.getuId()+"_B"+originalFilename.substring(originalFilename.lastIndexOf("."));
+			String midAvatar=user.getuId()+"_M"+originalFilename.substring(originalFilename.lastIndexOf("."));
+			String smAvatar=user.getuId()+"_S"+originalFilename.substring(originalFilename.lastIndexOf("."));
+			OperateImage.cropImage(endFileName,filePath+bigAvatar,cropAvatar.getX(),cropAvatar.getY(),cropAvatar.getWidth(),
+					cropAvatar.getHeight(),"jpg","jpg");
+			//以80*80大小改变图片，此处使用thumbnailator-0.4.2.jar改变图片大小
+			File file1=new File(filePath+midAvatar);
+			File file2=new File(filePath+smAvatar);
+			Thumbnails.of(filePath+bigAvatar).size(100, 100).keepAspectRatio(false).toFile(file1);
+			Thumbnails.of(filePath+bigAvatar).size(50, 50).keepAspectRatio(false).toFile(file2);
+			userService.updatePhoto(user,"userPho/" + bigAvatar,"userPho/" + midAvatar,"userPho/" + smAvatar);
+
+			session.setAttribute("photo","photo");
+			map.put("result",session.getServletContext().getContextPath()+"/imgs/userPho/"+newFileName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return map;
+	}
 
 
 }

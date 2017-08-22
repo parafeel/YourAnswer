@@ -7,7 +7,6 @@ public class Topic {
 	private String tName;
 	private String tDetail;
 	private Date tMadeDate;
-	private int tQuestionCount;
 	public int gettId() {
 		return tId;
 	}
@@ -32,12 +31,6 @@ public class Topic {
 	}
 	public void settMadeDate(Date tMadeDate) {
 		this.tMadeDate = tMadeDate;
-	}
-	public int gettQuestionCount() {
-		return tQuestionCount;
-	}
-	public void settQuestionCount(int tQuestionCount) {
-		this.tQuestionCount = tQuestionCount;
 	}
 	
 	

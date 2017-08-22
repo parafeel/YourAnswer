@@ -14,6 +14,7 @@ public class User implements Serializable{
 	private String uTel;
 	private Date uRegistDate;
 
+	private String smPho;
 	private String uName;
 	private String uGender;
 	private String uWord;
@@ -57,6 +58,13 @@ public class User implements Serializable{
 	}
 	public void setuRegistDate(Date uRegistDate) {
 		this.uRegistDate = uRegistDate;
+	}
+
+	public String getSmPho() {
+		return smPho;
+	}
+	public void setSmPho(String smPho) {
+		this.smPho = smPho;
 	}
 	public String getuName() {
 		return uName;

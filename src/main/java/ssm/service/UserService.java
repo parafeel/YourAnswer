@@ -1,8 +1,10 @@
 package ssm.service;
 
+import org.springframework.web.multipart.MultipartFile;
 import ssm.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface UserService {
@@ -26,4 +28,8 @@ public interface UserService {
 
 	//通过关键字查询用户
 	List<User> getUsersByKeyWords(String keywords);
+
+	boolean updatePhoto(User user, String bigPho,String midPho,String smPho);
+
+
 }

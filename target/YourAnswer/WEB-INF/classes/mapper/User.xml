@@ -11,7 +11,8 @@
     		<result column="uRealName" property="uRealName" jdbcType="VARCHAR" />
     		<result column="uTel" property="uTel" jdbcType="VARCHAR" />
     		<result column="uRegistDate" property="uRegistDate" />
-    		
+
+			<result column="smPho" property="smPho" jdbcType="VARCHAR" />
     		<result column="uName" property="uName" jdbcType="VARCHAR" />
     		<result column="uGender" property="uGender" jdbcType="VARCHAR" />
     		<result column="uWord" property="uWord" jdbcType="VARCHAR" />
@@ -19,7 +20,7 @@
     		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
   		</resultMap>
   		<sql id="User_Column_List" >
-    		uId, uEmail, uRealName, uTel, uRegistDate, uName, uGender, uWord, uResidence, uProfession
+    		uId, uEmail, uRealName, uTel, uRegistDate, smPho ,uName, uGender, uWord, uResidence, uProfession
   		</sql>
 		<sql id="User_Sample_List" >
 			uId, uEmail, uName, uWord
@@ -66,6 +67,22 @@
 		   	</set>
 		   	WHERE uId = #{uId,jdbcType=INTEGER}   
         </update>
+
+		<update id="updatePhoto" parameterType="ssm.pojo.User" >
+			UPDATE user
+			<set >
+				<if test="bigPho != null" >
+					bigPho = #{bigPho,jdbcType=VARCHAR},
+				</if>
+				<if test="midPho != null" >
+					midPho = #{midPho,jdbcType=VARCHAR},
+				</if>
+				<if test="smPho != null" >
+					smPho = #{smPho,jdbcType=VARCHAR},
+				</if>
+			</set>
+			WHERE uId = #{uId,jdbcType=INTEGER}
+		</update>
 
 		<!--查询功能块 -->
 		<select id="queryUserPasswordByuEmail" resultType="java.lang.String" parameterType="java.lang.String">

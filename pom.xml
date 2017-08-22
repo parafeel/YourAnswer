@@ -210,6 +210,13 @@
       <version>5.2.4.Final</version>
     </dependency>
 
+    <!--增加上传图片裁剪依赖-->
+    <dependency>
+      <groupId>net.coobird</groupId>
+      <artifactId>thumbnailator</artifactId>
+      <version>0.4.8</version>
+    </dependency>
+
     <!-- 添加redis的依赖-->
     <dependency>
       <groupId>org.springframework.data</groupId>

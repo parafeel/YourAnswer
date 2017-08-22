@@ -56,10 +56,11 @@
 
                         <c:if test="${currentUser != null}">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-user">
-                                    ${currentUser.uName}
+                                <span>
+                                    <img src="${pageContext.request.contextPath}/imgs/userPho/${currentUser.uId}_S.jpg"
+                                         class="img-rounded" alt="头像" style="width: 25px ; height: 25px">
+                                     ${currentUser.uName}
                                 </span>
-                                <span class="caret "></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="${pageContext.request.contextPath}/user/${currentUser.uId}">

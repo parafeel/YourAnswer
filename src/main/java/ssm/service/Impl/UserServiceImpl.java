@@ -1,12 +1,15 @@
 package ssm.service.Impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.web.multipart.MultipartFile;
 import ssm.mapper.UserMapper;
 import ssm.pojo.User;
 import ssm.service.UserService;
@@ -108,6 +111,11 @@ public class UserServiceImpl implements UserService {
 		return userMapper.queryUserByKeywords(keywords);
 	}
 
-
+	@Override
+	public boolean updatePhoto(User user, String bigPho,String midPho,String smPho) {
+		int flag = userMapper.updatePhoto(user.getuId(),bigPho,midPho,smPho);
+		if(flag == 1) return true;
+		else  return false;
+	}
 
 }

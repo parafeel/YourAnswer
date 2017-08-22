@@ -6,11 +6,13 @@ import ssm.pojo.Topic;
 
 public interface TopicMapper {
 	
-	void addTopic(Topic topic);
+	int addTopic(Topic topic);
 	
-	void deleteTopicById(Integer tId);
+	int deleteTopicById(Integer tId);
 	
 	int updateTopicById(Topic topic);
+
+	Topic queryTopicById(Integer tId);
 	
 	List<Topic> queryTopic();
 	

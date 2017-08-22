@@ -61,6 +61,13 @@ $(document).ready( function() {
     });
 
 
+    $('#btnTest').on("click",function() {
+        this.$avatarModal = $("body").find('#avatar-modal');
+        this.$avatarForm = this.$avatarModal.find('.avatar-form');
+        var url = this.$avatarForm.attr('action');
+        alert(url);
+    })
+
 });
 
 function checkPassword() {

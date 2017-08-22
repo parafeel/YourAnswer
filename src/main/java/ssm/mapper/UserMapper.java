@@ -17,6 +17,9 @@ public interface UserMapper {
 	int updateUser(User user);
 	//更改用户密码
 	int updateUserPassword(User user);
+	//更新头像
+	int updatePhoto(@Param("uId") Integer uId, @Param("bigPho")String bigPho,
+					@Param("midPho")String midPho, @Param("smPho")String smPho);
 
 	//根据uEmail查询加密后的密码
 	String queryUserPasswordByuEmail(@Param("uEmail") String uEmail);
