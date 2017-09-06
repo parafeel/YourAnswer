@@ -67,8 +67,7 @@ public class TopicController {
 	//查询topicAPI,用于为问题随笔等添加话题标签
 	@RequestMapping(value = "api/Topic", method = RequestMethod.GET, produces = "application/json;" +
 			"charset=UTF-8")
-	public @ResponseBody
-	List<String> getTopicByKeyWords(@RequestParam("keywords")  String keywords) {
+	public @ResponseBody List<String> getTopicByKeyWords(@RequestParam("keywords")  String keywords) {
  		if("".equals(keywords)) {
 			return null;
 		}
@@ -154,7 +153,6 @@ public class TopicController {
 		return rs;
 	}
 
-	//@Pathvariable传的是路径上的值，@RequestParam传的是data数据里的值
 	//打开topic信息页面后，Ajax自动发出GET请求，进入此方法。方法最后返回topic和当前用户的关系值给前台。
 	@RequestMapping(value = "UserTopicRelation/{tId}" ,method = RequestMethod.GET, produces = "application/json;" +
 			"charset=UTF-8")
@@ -170,4 +168,15 @@ public class TopicController {
 		}
 		return rs;
 	}
+
+	//获取话题相关的问题
+	@RequestMapping(value = "TopicRelatedQuestion/{tId}" ,method = RequestMethod.GET, produces = "application/json;" +
+			"charset=UTF-8")
+	public @ResponseBody String getTopicRelatedQuestion(@PathVariable("tId")int tId, HttpSession session) {
+		String rs = "";
+
+		return rs;
+	}
+
+
 }
