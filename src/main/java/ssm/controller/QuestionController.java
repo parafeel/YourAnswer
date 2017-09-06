@@ -6,10 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import ssm.pojo.*;
@@ -83,11 +80,13 @@ public class QuestionController {
 //相关API
 	//增加问题API
 	@RequestMapping(value = "api/Question",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String  addQuestion(Question question, HttpSession session) {
+	public @ResponseBody String  addQuestion(Question question,  HttpSession session,
+			 @RequestParam(value = "qTopics[]", required = false,defaultValue = "") String[] qTopics) {
 		User currentUser = (User)session.getAttribute("currentUser");
+		System.out.println(qTopics);
 		String rs;
-		if(currentUser != null) {
-			Question currentQuestion = questionService.putQuestion(question, currentUser.getuId());
+		if(currentUser != null && question.getqTitle()!= null && !question.getqTitle().trim().equals("")) {
+			Question currentQuestion = questionService.putQuestion(question, currentUser.getuId(),qTopics);
 			if (currentQuestion != null) {
 				Operation operation = new Operation(currentQuestion.getqMadeByUserId(), StatusCode.TYPE_QUESTION,
 						currentQuestion.getqId() , StatusCode.FOCUS_QUESTION);
@@ -124,8 +123,6 @@ public class QuestionController {
 		if(currentQuestion == null) {
 			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
 		} else {
-			List<Answer> answers = answerService.getAnswersByQuestion(qId);
-			currentQuestion.setqAnswers(answers);
 			rs = jsonService.toJsonString(currentQuestion,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
 		}
 		return rs;

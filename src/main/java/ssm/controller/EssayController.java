@@ -2,10 +2,7 @@ package ssm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ssm.pojo.*;
 import ssm.service.EssayService;
@@ -95,7 +92,7 @@ public class EssayController {
 //相关API
 	//增加随笔API
 	@RequestMapping(value = "api/Essay",method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public @ResponseBody String addEssay(Essay essay, HttpSession session) {
+	public @ResponseBody String addEssay(Essay essay , HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
 		String rs;
 		if(currentUser == null) {

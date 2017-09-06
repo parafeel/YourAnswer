@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Null;
 
 import com.alibaba.fastjson.JSON;
 import net.coobird.thumbnailator.Thumbnails;
@@ -20,10 +21,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import ssm.pojo.Answer;
-import ssm.pojo.Essay;
-import ssm.pojo.Question;
-import ssm.pojo.User;
+import ssm.pojo.*;
 import ssm.pojo.utilPojo.CropAvatar;
 import ssm.service.*;
 import ssm.util.CaptchaUtil;
@@ -36,42 +34,37 @@ import ssm.util.UserRelation;
 public class UserController {
 
 	private UserService userService;
-
 	private QuestionService questionService;
-
 	private AnswerService answerService;
-
 	private EssayService essayService;
-
+	private TopicService topicService;
 	private UserRelationService userRelationService;
-
 	private JsonService jsonService;
 
 	@Autowired
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-
 	@Autowired
 	public void setQuestionService(QuestionService questionService) {
 		this.questionService = questionService;
 	}
-
 	@Autowired
 	public void setAnswerService(AnswerService answerService) {
 		this.answerService = answerService;
 	}
-
 	@Autowired
 	public void setEssayService(EssayService essayService) {
 		this.essayService = essayService;
 	}
-
+	@Autowired
+	public void setTopicService(TopicService topicService) {
+		this.topicService = topicService;
+	}
 	@Autowired
 	public void setUserRelationService(UserRelationService userRelationService) {
 		this.userRelationService = userRelationService;
 	}
-
 	@Autowired
 	public void setJsonService(JsonService jsonService) {
 		this.jsonService = jsonService;
@@ -83,7 +76,7 @@ public class UserController {
 	public ModelAndView tryLogin() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("loginMessage","请输入账号密码！");
-		mav.setViewName("User/login");
+		mav.setViewName("login");
 		return mav;
 	}
 
@@ -350,6 +343,36 @@ public class UserController {
 		map.put("pointUsersQuestion",pointUsersQuestion);
 		return map;
 	}
+
+	//获取用户关注的话题的API
+	@RequestMapping(value = "api/User/{uId}/FollowingTopics", method = RequestMethod.GET, produces =
+			"application/json;" + "charset=UTF-8")
+	public @ResponseBody String getTopicByuId(@PathVariable("uId")  int uId) {
+		List<Topic> topics = topicService.getRelatedTopic(uId,UserRelation.RELATION_FOLLOW);
+		String rs;
+		if(topics == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			rs = jsonService.toJsonString(topics,StatusCode.CODE_SUCCESS, StatusCode.REASON_SUCCESS);
+		}
+		return rs;
+	}
+	//获取当前用户关注的话题
+	@RequestMapping(value = "api/User/FollowingTopics", method = RequestMethod.GET, produces =
+			"application/json;" + "charset=UTF-8")
+	public @ResponseBody String getTopicBySession(HttpSession session) {
+		User currentUser = (User)session.getAttribute("currentUser");
+		String rs;
+		if(currentUser == null) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			int uId = currentUser.getuId();
+			List<Topic> topics = topicService.getRelatedTopic(uId, UserRelation.RELATION_FOLLOW);
+			rs = jsonService.toJsonString(topics, StatusCode.CODE_SUCCESS, StatusCode.REASON_SUCCESS);
+		}
+		return rs;
+	}
+
 
 //上传图片API
 	@RequestMapping("/changePhoto")

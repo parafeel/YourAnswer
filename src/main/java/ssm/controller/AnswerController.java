@@ -53,15 +53,11 @@ public class AnswerController {
 
 	//查看Answer
 	@RequestMapping("Question/{qId}/Answer/{aId}")
-	public ModelAndView showAnswer(@PathVariable("aId") int aId) {
+	public ModelAndView showAnswer(@PathVariable("qId") int qId,@PathVariable("aId") int aId) {
 		ModelAndView mav = new ModelAndView();
-		Answer currentAnswer = answerService.getAnserById(aId);
-		if(currentAnswer == null ) {
-			mav.setViewName("redirect:wrongInfo");
-		} else {
-			mav.addObject("currentAnswer", currentAnswer);
-			mav.setViewName("AboutAnswer/showAnswer");
-		}
+		mav.addObject("qId", qId);
+		mav.addObject("aId", aId);
+		mav.setViewName("AboutAnswer/showAnswer");
 		return mav;
 	}
 
@@ -105,7 +101,21 @@ public class AnswerController {
 		return rs;	//表示未登录
 	}
 
-	//修改Answer的API
+	//查看Answer的API
+	@RequestMapping(value = "api/Question/{qId}/Answer/{aId}",method = RequestMethod.GET, produces =
+			"application/json;charset=UTF-8")
+	public @ResponseBody String getAnswer(@PathVariable("aId") int aId) {
+		Answer currentAnswer = answerService.getAnserById(aId);
+		String rs;
+		if(currentAnswer == null ) {
+			rs = jsonService.toJsonString(null,StatusCode.CODE_FAILURE,StatusCode.REASON_FAILURE);
+		} else {
+			rs = jsonService.toJsonString(currentAnswer,StatusCode.CODE_SUCCESS,StatusCode.REASON_SUCCESS);
+		}
+		return rs;
+	}
+
+		//修改Answer的API
 	@RequestMapping(value = "api/Answer/{aId}",method = RequestMethod.PUT, produces = "application/json;charset=UTF-8")
 	public @ResponseBody String updateAnswer(@PathVariable("aId") int aId, Answer answer, HttpSession session) {
 		User currentUser = (User)session.getAttribute("currentUser");
@@ -128,7 +138,7 @@ public class AnswerController {
 
 	//获取Answer的feed流
 	@RequestMapping(value = "api/onlyAnswer/{aId}", method = RequestMethod.GET)
-	public @ResponseBody Answer getAnswer(@PathVariable("aId") int aId) {
+	public @ResponseBody Answer feedAnswer(@PathVariable("aId") int aId) {
 		Answer currentAnswer = answerService.getAnserById(aId);
 		if(currentAnswer == null) {
 			return null;

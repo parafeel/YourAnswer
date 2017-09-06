@@ -19,7 +19,7 @@
                 <ul class="nav navbar-nav">
                     <!-- 此处地址为/projectName/index，不能index原因是可能进入下一层url而出错 -->
                     <li><a href="${pageContext.request.contextPath}/">首页</a></li>
-                    <li><a href="${pageContext.request.contextPath}/topic">主题</a></li>
+                    <li><a href="${pageContext.request.contextPath}/topics">主题</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">参与<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

@@ -8,7 +8,7 @@ import ssm.pojo.Topic;
 
 public interface QuestionService {
 	
-	Question putQuestion(Question question,int CurrentuId);
+	Question putQuestion(Question question,int CurrentuId,String[] qTopics);
 
 	Question getQuestion(String qTitle);
 	

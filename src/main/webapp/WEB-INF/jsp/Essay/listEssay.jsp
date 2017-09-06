@@ -13,52 +13,79 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/list.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/frontResource/css/amazeui.min.css" rel="stylesheet" type="text/css">
+
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
-
 <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/amazeui.min.js" type="text/javascript" ></script>
 
 
-<title>Try To Answer --Answer</title>
+<title>随笔列表 --Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
-	
-	<br>
-	<br>
-	<br>
 
-	<div id="app">
-		<template v-for="essay in essays">
-			<div class="container">
-				<div class="highlight" style="background-color: #f6f6f6;">
-					<div class="form-group smallInfo" style="color:#D0D0D0">
-						<h6><a style="color:#999999" :href=" '${pageContext.request.contextPath}/user/' + essay.essayMadeByUserId "
-							   target="_blank">{{essay.essayMadeByUser.uName}}</a> &nbsp;发表了随笔：</h6>
-					</div>
-					<hr>
-					<div class="form-group">
-						<h3>
-							<a :href=" '${pageContext.request.contextPath}/Essay/' + essay.essayId">{{essay.essayTitle}}</a>
-						</h3>
-					</div>
-					<div class="form-group" >
-						<p>	点击标题查看随笔全部内容</p>
-					</div>
-					<div class="form-group"  style="color:#999999">
-						<!-- 格式化从数据库读取的时间 -->
-						<h6>发布于：{{ new Date(essay.essayMadeDate).toLocaleString() }}</h6>
-					</div>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div id="app">
+			<div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+				<!--列表标题-->
+				<div class="am-list-news-hd am-cf">
+					<!--带更多链接-->
+					<a href="#" class="">
+						<h2>随笔列表：</h2>
+						<span class="am-list-news-more am-fr">更多 &raquo;</span>
+					</a>
+				</div>
+
+				<div class="am-list-news-bd">
+					<ul class="am-list">
+						<template v-for="essay in essays">
+							<li class="am-g am-list-item-desced">
+								<article class="am-article">
+									<div class="am-article-hd">
+										<p class="am-article-meta">
+											<a style="color:#999999" :href=" '${pageContext.request.contextPath}/user/' + essay.essayMadeByUserId "
+											   target="_blank">
+												{{essay.essayMadeByUser.uName}}
+											</a> &nbsp;发表了随笔：
+										</p>
+									</div>
+									<div class="am-article-hd">
+										<h2>
+											<a :href=" '${pageContext.request.contextPath}/Essay/' + essay.essayId">
+												{{essay.essayTitle}}
+											</a>
+										</h2>
+									</div>
+									<div class="am-list-item-text">
+										<div class="am-article-bd">
+											<div v-html="essay.essayContent"></div>
+										</div>
+									</div>
+									<div class="am-article-hd">
+										<p class="am-article-meta">
+											发布于：{{ new Date(essay.essayMadeDate).toLocaleString() }}
+										</p>
+									</div>
+								</article>
+							</li>
+						</template>
+					</ul>
 				</div>
 			</div>
-		</template>
-	</div>
-    
-    <div id="myTopBtn" class="text-center">
-		<a id="myTopBtn" href="#" class="back-to-top">
-			<span class="glyphicon glyphicon-arrow-up">
-			</span>
-		</a>
+		</div>
+
+
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+			<a href="#top" title="回到顶部">
+				<span class="am-gotop-title">回到顶部</span>
+				<i class="glyphicon glyphicon-circle-arrow-up"></i>
+			</a>
+		</div>
 	</div>
 	<br>
 	<br>

@@ -31,6 +31,12 @@
 		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
 		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
 	</resultMap>
+	<resultMap id="TopicResultMap" type="ssm.pojo.Topic" >
+		<id column="tId" property="tId" jdbcType="INTEGER" />
+		<result column="tName" property="tName" jdbcType="VARCHAR" />
+		<result column="tDetail" property="tDetail" jdbcType="VARCHAR" />
+		<result column="tMadeDate" property="tMadeDate" />
+	</resultMap>
 
 
 	<sql id="Question_Column_List" >
@@ -84,6 +90,11 @@
 	<select id="queryCompleteQuesionById" resultMap="QuestionResultMap" parameterType="java.lang.Integer"  >
 		SELECT  * FROM (question JOIN user ON question.qId= #{qId} AND user.uId=question.qMadeByUserId )
 		LEFT JOIN answer ON answer.aBelongToQuestionId = #{qId}
+	</select>
+
+	<select id="queryTopicOfQuestion" resultMap="TopicResultMap" parameterType="ssm.pojo.Question"  >
+		SELECT  topic.tId,topic.tName FROM topic_relation , topic WHERE
+			topic_relation.trType=100 AND topic_relation.trTypeId = #{qId} AND topic_relation.tId=topic.tId
 	</select>
 
 	<select id="queryQuesion" resultMap="QuestionResultMap" parameterType="ssm.pojo.Question"  >

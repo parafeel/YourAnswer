@@ -2,6 +2,7 @@ package ssm.service.Impl;
 
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.alibaba.fastjson.JSON;
@@ -11,15 +12,25 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import ssm.mapper.QuestionMapper;
+import ssm.mapper.TopicMapper;
+import ssm.pojo.Answer;
 import ssm.pojo.Question;
 import ssm.pojo.Topic;
+import ssm.pojo.utilPojo.TopicRelation;
+import ssm.service.AnswerService;
 import ssm.service.QuestionService;
 import ssm.service.RedisCacheUtil;
+import ssm.service.TopicService;
+import ssm.util.StatusCode;
 
 @Service
 public class QuestionServiceImpl implements QuestionService{
 	@Autowired
 	QuestionMapper questionMapper;
+	@Autowired
+	TopicService topicService;
+	@Autowired
+	AnswerService answerService;
 
 	@Autowired
 	private RedisCacheUtil<Object> redisCache;
@@ -27,7 +38,7 @@ public class QuestionServiceImpl implements QuestionService{
 	//增
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED,rollbackForClassName="Exception")
-	public Question putQuestion(Question question,int CurrentuId) {
+	public Question putQuestion(Question question,int CurrentuId,String[] qTopics) {
 		//因为实体question中的时间为util.Date，而数据库存时需要sql.Date格式，故转化
 		//读取的时候则不必再转化，因为读出来的相当于sql.Date，是Util的子类，可以直接存入对象
 		question.setqMadeByUserId(CurrentuId);
@@ -36,6 +47,8 @@ public class QuestionServiceImpl implements QuestionService{
 		//修改查询语句，即可将插入后的记录的ID传回！
 		int flag = questionMapper.addQuestion(question);
 		if(flag == 1) {
+			List<Topic>  topics = topicService.getTopicsTid(qTopics);
+			topicService.putToTopicRelation(topics,StatusCode.TYPE_QUESTION,question.getqId(), insertTime);
 			return question;
 		} else {
 			return  null;
@@ -82,8 +95,10 @@ public class QuestionServiceImpl implements QuestionService{
 	public Question getQuestionById(int qId) {
 		// TODO Auto-generated method stub
 		Question question = questionMapper.queryQuestionById(qId);
-		String jsonStrQuestion = JSON.toJSONString(question);
-		System.out.println(jsonStrQuestion);
+		List<Answer> answers = answerService.getAnswersByQuestion(qId);
+		question.setqAnswers(answers);
+		List<Topic> topics = questionMapper.queryTopicOfQuestion(question);
+		question.setqTopics(topics);
 		return question;
 	}
 

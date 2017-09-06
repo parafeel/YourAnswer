@@ -3,13 +3,15 @@ $(document).ready(function() {
     $('#addEssayBtn').on("click",function(event) {
         var essayTitle = $('#essayTitle').val();
         var essayContent = $('#editor').summernote('code');
+        var tags=$('#demo1').tagEditor('getTags')[0].tags;
         if(essayTitle.length > 1 && essayContent.length > 1) {
             $.ajax({
                 type: 'POST',
                 url: '/YourAnswer/api/Essay',
                 data: {
                     "essayTitle": essayTitle,
-                    "essayContent": essayContent
+                    "essayContent": essayContent,
+                    "essayTags":essayTags
                 },
                 success: function (data) {
                     alert("success:" + data);

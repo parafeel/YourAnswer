@@ -9,8 +9,11 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/list.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/jquery.caret.min.js"></script>
+<
 
 <!--富文本编辑器	 -->
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
@@ -58,8 +61,22 @@
 			</script>
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" name="essayTopic" id="essayTopic" placeholder="标签">
+			<textarea id="demo1" class="form-control tag-editor-hidden-src " rows="1" readonly="readonly"
+					  style="display: block;"></textarea>
 		</div>
+		<script>
+			$('#demo1').tagEditor({
+				autocomplete: {
+					delay: 0, // show suggestions immediately
+					position: { collision: 'flip' }, // automatic menu position up/down
+	//                source: ['ActionScript', 'AppleScript', 'Asp', ... 'Python', 'Ruby']
+					source: '/YourAnswer/api/Topic',
+				},
+				forceLowercase: false,
+				placeholder: '选择相关话题标签'
+			});
+		</script>
+
 		<div>
 			<span id="addEssayMessage" class="text-left text-danger"></span>
 		</div>

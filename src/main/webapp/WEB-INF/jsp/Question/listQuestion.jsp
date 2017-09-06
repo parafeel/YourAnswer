@@ -13,13 +13,15 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/list.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/frontResource/css/amazeui.min.css" rel="stylesheet" type="text/css">
+
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
-
 <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/amazeui.min.js" type="text/javascript" ></script>
 
 
-<title>Try To Answer --Answer</title>
+<title>问题列表 --Answer</title>
 </head>
 <body>
 	<%@ include file="/WEB-INF/staticSource/header.jsp"%>
@@ -27,40 +29,67 @@
 	<br>
 	<br>
 	<br>
+	<div class="container">
+		<div id="app">
+			<div data-am-widget="list_news" class="am-list-news am-list-news-default" >
+				<!--列表标题-->
+				<div class="am-list-news-hd am-cf">
+					<!--带更多链接-->
+					<a href="#" class="">
+						<h2>问题列表：</h2>
+						<span class="am-list-news-more am-fr">更多 &raquo;</span>
+					</a>
+				</div>
 
-	<div id="app">
-		<template v-for="question in questions">
-			<div class="container">
-				<div class="highlight" style="background-color: #f6f6f6;">
-					<div class="form-group smallInfo" style="color:#D0D0D0">
-						<h6><a style="color:#999999" :href="'${pageContext.request.contextPath}/user/' +
-							   question.qMadeByUserId "
-							   target="_blank">{{question.qMadeByUser.uName}}</a> &nbsp;提出了问题：</h6>
-					</div>
-					<hr>
-					<div class="form-group">
-						<h3><a :href="'${pageContext.request.contextPath}/Question/' + question.qId ">
-							{{question.qTitle}}</a></h3>
-					</div>
-					<div class="form-group" v-html="question.qDetail">
-					</div>
-					<div class="form-group"  style="color:#999999">
-						<!-- 格式化从数据库读取的时间 -->
-						<h6>发布于：{{ new Date(question.qMadeDate).toLocaleString() }}</h6>
-					</div>
+				<div class="am-list-news-bd">
+					<ul class="am-list">
+						<template v-for="question in questions">
+							<li class="am-g am-list-item-desced">
+								<article class="am-article">
+									<div class="am-article-hd">
+										<p class="am-article-meta">
+											<a style="color:#999999" target="_blank"
+											   :href=" '${pageContext.request.contextPath}/user/' + question.qMadeByUserId">
+												<img :src=" '${pageContext.request.contextPath}/imgs/userPho/'+ question.qMadeByUserId + '_S.jpg' "
+													 class="img-rounded" alt="头像" style="width: 25px ; height: 25px">
+												{{question.qMadeByUser.uName}}
+											</a>
+											&nbsp;提出了问题：
+										</p>
+									</div>
+									<div class="am-article-hd">
+										<h2>
+											<a :href="'${pageContext.request.contextPath}/Question/' + question.qId ">
+											{{question.qTitle}}
+											</a>
+										</h2>
+									</div>
+									<div class="am-list-item-text">
+										<div class="am-article-bd">
+											<div v-html="question.qDetail"></div>
+										</div>
+									</div>
+									<div class="am-article-hd">
+										<p class="am-article-meta">
+											发布于：{{ new Date(question.qMadeDate).toLocaleString() }}
+										</p>
+									</div>
+								</article>
+							</li>
+						</template>
+					</ul>
 				</div>
 			</div>
-		</template>
+		</div>
 	</div>
 
-
-    
-    <div id="myTopBtn" class="text-center">
-		<a id="myTopBtn" href="#" class="back-to-top">
-			<span class="glyphicon glyphicon-arrow-up">
-			</span>
+	<div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+		<a href="#top" title="回到顶部">
+			<span class="am-gotop-title">回到顶部</span>
+			<i class="glyphicon glyphicon-circle-arrow-up"></i>
 		</a>
 	</div>
+
 	<br>
 	<br>
 	<br>

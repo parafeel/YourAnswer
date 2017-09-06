@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import ssm.pojo.Question;
+import ssm.pojo.Topic;
 
 public interface QuestionMapper {
 	int addQuestion(Question question);
@@ -17,6 +18,8 @@ public interface QuestionMapper {
 	Question queryQuestionById(Integer qId);
 
 	Question queryCompleteQuesionById(int qId);
+
+	List<Topic> queryTopicOfQuestion(Question question);
 	
 	Question queryQuesion(Question question);
 	

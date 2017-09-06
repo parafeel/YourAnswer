@@ -13,8 +13,13 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/list.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/frontResource/css/home.css">
 <link href="${pageContext.request.contextPath}/frontResource/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
-<script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js"></script>
+<link href="${pageContext.request.contextPath}/frontResource/css/amazeui.min.css" rel="stylesheet" type="text/css">
+
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/jquery-3.2.1.min.js" type="text/javascript" ></script>
+<script src="${pageContext.request.contextPath}/frontResource/bootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/vue.min.js"></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/wangEditor.min.js" type="text/javascript" ></script>
+<script src="${pageContext.request.contextPath}/frontResource/JS/other/amazeui.min.js" type="text/javascript" ></script>
 
 <title>${currentAnswer.aBelongToQuestion.qTitle } --Answer</title>
 </head>
@@ -25,45 +30,95 @@
 		<br>
 		<br>
 		<br>
-       	<div class="highlight" style="background-color: #f6f6f6;">
-			<div class="form-group">
-	    		<h2>${currentAnswer.aBelongToQuestion.qTitle }</h2>
-	  		</div>
-	  		<div class="form-group">
-	    		<p>	${currentAnswer.aBelongToQuestion.qDetail }</p>
-	    	</div>
-	  		<div>
-	    		<p>问题标签：</p>
-	    		<p>	暂无</p>
-	    	</div>
-	    	
-	    	<div class="QuestionButtonGroup" style = "text-align:right;">
-	    		<form method="post" action="${pageContext.request.contextPath}/tryAnswer/${currentAnswer.aBelongToQuestion.qId }" target="_blank">
-	    			<input type="hidden" name="qId" id="qId" value="${currentAnswer.aBelongToQuestion.qId }">
-	    			<button type="submit" class="btn btn-default">回答</button>
-	    		</form>
-	    	</div>
-	    	
-	    	<div>
-				<div class="alert alert-warning" role="alert"><a href="${pageContext.request.contextPath}/Question/${currentAnswer.aBelongToQuestion.qId }">查看的全部答案</a></div>
+		<div id="app2" v-cloak>
+			<section class="am-panel am-panel-default">
+				<header class="am-panel-hd">
+					<template v-for="topic in answer.aBelongToQuestion.qTopics">
+							<span class="Tag-content">
+								<button type="button" class="am-btn am-btn-secondary am-round am-btn-xs">
+									{{topic.tName}}
+								</button>
+								&nbsp;
+							</span>
+					</template>
+					<hr>
+					<div >
+						<h2 class="am-panel-title">{{answer.aBelongToQuestion.qTitle}}</h2>
+						<h2 style="display: none" name="qId" id="qId">${qId}</h2>
+					</div>
+				</header>
+				<div class="am-panel-bd">
+					<div style="padding: 5px 0; color:#999999">问题详情：</div>
+					<div v-html="answer.aBelongToQuestion.qDetail">
+					</div>
+					<div style="padding: 5px 0; color:#999999">
+						<!-- 格式化从数据库读取的时间 -->
+						<h6>发布于：{{ new Date(answer.aBelongToQuestion.qMadeDate).toLocaleString() }}</h6>
+					</div>
+					<div class="QuestionButtonGroup">
+						<a href="#addAnswer"><button type="button" class="am-btn am-btn-secondary">去回答问题</button></a>
+					</div>
+				</div>
+			</section>
+
+			<div class="alert alert-warning" role="alert">
+				<a :href=" '${pageContext.request.contextPath}/Question/' + answer.aBelongToQuestion.qId">
+					查看的全部答案
+				</a>
 			</div>
+
+			<hr class="am-article-divider">
+
+			<section class="am-panel am-panel-default">
+				<div class="am-panel-bd">
+					<h2 style="display: none" name="aId" id="aId">${aId}</h2>
+					<a :href=" '${pageContext.request.contextPath}/user/' + answer.aMadeByUser.uId"
+										  target="_blank">
+						<img :src=" '${pageContext.request.contextPath}/imgs/userPho/'+ answer.aMadeByUser.uId + '_S.jpg' "
+							 class="img-rounded" alt="头像" style="width: 25px ; height: 25px">
+						{{answer.aMadeByUser.uName}}
+						<h6 style="color:#999999;display:inline-block;" >{{answer.aMadeByUser.uWord}}</h6>
+					</a>
+					<div v-html="answer.aContent">
+					</div>
+					<div style="color:#999999">
+						<!-- 格式化从数据库读取的时间 -->
+						<h6>编辑于：{{ new Date(answer.aMadeDate).toLocaleString()}}</h6>
+						<p v-if="answer.canUpdate">
+							<a :href=" '${pageContext.request.contextPath}/answer/' + answer.aId + '/update' "><span
+									class="glyphicon glyphicon-pencil"></span> 修改</a>
+						</p>
+					</div>
+				</div>
+			</section>
 		</div>
+
+		<br>
+		<hr>
+		<br>
+		<article class="am-comment">
+			<div id="addAnswer">
+				<div style="padding: 5px 0; color:#999999">您的回答：</div>
+				<div id="editoraContent">
+				</div>
+				<script type="text/javascript">
+                    var E = window.wangEditor;
+                    var editoraContent = new E('#editoraContent');
+                    editoraContent.customConfig.zIndex = 100;
+                    editoraContent.create();
+				</script>
+
+				<div class="QuestionButtonGroup" style = "text-align:left;">
+					<div class="text-left alert " role="alert" id="addAnswerMessage"></div>
+					<button type="button" class="am-btn am-btn-secondary" id="addAnswerBtn">添加回答</button>
+				</div>
+			</div>
+		</article>
 	</div>
-	
-	<div  class="container">
-		<div class="highlight" style="background-color: #f6f6f6;">
-			<div class="form-group">
-	    		<h6><a href="${pageContext.request.contextPath}/user/${currentAnswer.aMadeByUser.uId}"
-					   target="_blank">${currentAnswer.aMadeByUser.uName }</a></h6>
-				<h6 style="color:#999999" >${currentAnswer.aMadeByUser.uWord }</h6>
-				<hr>
-	    		<p>${currentAnswer.aContent }</p>
-	    		<pstyle="color:#999999">编辑于：	<fmt:formatDate value="${currentAnswer.aMadeDate }" pattern="yyyy-MM-dd HH:mm"/></p>
-	    	</div>
-		</div>
-	</div>
-	
-	
+
+
 	<%@ include file="/WEB-INF/staticSource/footer.jsp"%>
+
+	<script type="text/javascript" src="${pageContext.request.contextPath}/frontResource/JS/Answer/showAnswer.js"></script>
 </body>
 </html>

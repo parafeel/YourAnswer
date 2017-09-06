@@ -7,6 +7,7 @@ public class Topic {
 	private String tName;
 	private String tDetail;
 	private Date tMadeDate;
+
 	public int gettId() {
 		return tId;
 	}

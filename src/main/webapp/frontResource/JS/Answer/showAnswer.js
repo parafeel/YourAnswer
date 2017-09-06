@@ -3,13 +3,14 @@
 $(document).ready( function() {
 
     var qId = $('#qId').text();
+    var aId = $('#aId').text();
     $.ajax({
         type: 'GET',
-        url: '/YourAnswer/api/Question/' + qId,
+        url: '/YourAnswer/api/Question/'+ qId +'/Answer/' + +aId,
         success: function (data) {
             if (data.resultCode === 200) {
-                var question = data.value;
-                showQuesion(question);
+                var answer = data.value;
+                showAnswer(answer);
             } else {
                 window.location.href = "/YourAnswer/wrongInfo";
             }
@@ -19,13 +20,12 @@ $(document).ready( function() {
         }
     });
 
-    function showQuesion(question) {
-        document.title = question.qTitle + "---Answer";
+    function showAnswer(answer) {
+        document.title = answer.aBelongToQuestion.qTitle + "---Answer";
         new Vue({
-            el: '#app1',
+            el: '#app2',
             data: {
-                question : question,
-                answerList: question.qAnswers
+                answer : answer
             }
         });
     }

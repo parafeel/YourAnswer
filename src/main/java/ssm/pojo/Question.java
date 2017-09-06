@@ -17,6 +17,7 @@ public class Question implements Serializable{
 	//额外关联信息，可以查询填充
 	private User qMadeByUser;
 	private List<Answer> qAnswers;
+	private List<Topic> qTopics;
 
 
 	public int getqId() {
@@ -62,6 +63,13 @@ public class Question implements Serializable{
 	public void setqAnswers(List<Answer> qAnswers) {
 		this.qAnswers = qAnswers;
 	}
-	
-	
+
+	public List<Topic> getqTopics() {
+		return qTopics;
+	}
+
+	public void setqTopics(List<Topic> qTopics) {
+		this.qTopics = qTopics;
+	}
+
 }

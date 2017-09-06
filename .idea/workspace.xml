@@ -1,50 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="020997d5-73eb-4b56-8e36-09fd7282b43a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_coobird_thumbnailator_0_4_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/utilPojo/CropAvatar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/util/OperateImage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/cropper/cropper.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/cropper/cropper.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/sitelogo/sitelogo.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/sitelogo/sitelogo.js" />
+    <list default="true" id="020997d5-73eb-4b56-8e36-09fd7282b43a" name="Default" comment="&quot;增加话题分类模块&quot;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/utilPojo/TopicRelation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopic.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topicCenter.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topics.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/showAnswer.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/ShowTopic.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/TopicCenter.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Topics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/amazeui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/jquery.caret.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/jquery.tagsinput.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/css/amazeui.min.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/topicCenter.jsp" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/AnswerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/QuestionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/TopicController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/TopicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/UserController.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/QuestionMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/QuestionMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/TopicMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/TopicMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/mapper/UserMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Question.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Question.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Topic.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/Topic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/User.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/pojo/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/UserService.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/UserService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/QuestionServiceImpl.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/QuestionServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/TopicServiceImpl.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/Impl/TopicServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/QuestionService.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/QuestionService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/TopicService.class" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/ssm/service/TopicService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/AnswerController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/AnswerController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/QuestionController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/QuestionController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/TopicController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/TopicController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/controller/UserController.class" afterPath="$PROJECT_DIR$/target/classes/ssm/controller/UserController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/QuestionMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/QuestionMapper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/TopicMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/TopicMapper.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" afterPath="$PROJECT_DIR$/target/classes/ssm/mapper/UserMapper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/pojo/Question.class" afterPath="$PROJECT_DIR$/target/classes/ssm/pojo/Question.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/pojo/Topic.class" afterPath="$PROJECT_DIR$/target/classes/ssm/pojo/Topic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/pojo/User.class" afterPath="$PROJECT_DIR$/target/classes/ssm/pojo/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/YourAnswer_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/YourAnswer_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/QuestionServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/QuestionServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/Impl/TopicServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/Impl/TopicServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/QuestionService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/QuestionService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ssm/service/TopicService.class" afterPath="$PROJECT_DIR$/target/classes/ssm/service/TopicService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/YourAnswer.iml" afterPath="$PROJECT_DIR$/YourAnswer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/pojo/User.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/pojo/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/QuestionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/QuestionServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/QuestionService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/QuestionService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java" afterPath="$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/Topic.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Topic.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/springMVC.xml" afterPath="$PROJECT_DIR$/src/main/resources/springMVC.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/userSetting.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/userSetting.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/addEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/addEssay.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/listEssay.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/listEssay.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/footer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/footer.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userSetting.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userSetting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/EssayAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/EssayAjax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" afterPath="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Topic.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/Topic.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/User.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/mapper/User.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/springMVC.xml" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/classes/springMVC.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/jsp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/footer.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/footer.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/header.jsp" afterPath="$PROJECT_DIR$/target/YourAnswer/WEB-INF/staticSource/header.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/YourAnswer/frontResource/css/list.css" afterPath="$PROJECT_DIR$/target/YourAnswer/frontResource/css/list.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/Question.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/Question.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/Topic.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/Topic.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/User.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/User.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/springMVC.xml" afterPath="$PROJECT_DIR$/target/classes/springMVC.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,6 +91,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/YourAnswer$Tomcat8_5.coverage" NAME="Tomcat8.5 Coverage Results" MODIFIED="1503904837328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -82,16 +122,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TopicController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="28" />
+              <folding>
+                <element signature="e#779#780#0" expanded="false" />
+                <element signature="e#818#819#0" expanded="false" />
+                <element signature="e#885#886#0" expanded="false" />
+                <element signature="e#922#923#0" expanded="false" />
+                <element signature="method#getTopicByKeyWords#0;class#TopicController#0" expanded="false" />
+                <element signature="method#getTopicById#0;class#TopicController#0" expanded="false" />
+                <element signature="method#setUserTopicRelation#0;class#TopicController#0" expanded="false" />
+                <element signature="method#getUserTopicRelation#0;class#TopicController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-638">
-              <caret line="343" column="21" lean-forward="true" selection-start-line="343" selection-start-column="21" selection-end-line="343" selection-end-column="21" />
+            <state relative-caret-position="4524">
+              <caret line="373" column="5" lean-forward="false" selection-start-line="373" selection-start-column="5" selection-end-line="373" selection-end-column="5" />
               <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#1348#1349#0" expanded="false" />
+                <element signature="e#1385#1386#0" expanded="false" />
+                <element signature="e#1464#1465#0" expanded="false" />
+                <element signature="e#1509#1510#0" expanded="false" />
+                <element signature="e#1582#1583#0" expanded="false" />
+                <element signature="e#1623#1624#0" expanded="false" />
+                <element signature="e#1693#1694#0" expanded="false" />
+                <element signature="e#1732#1733#0" expanded="false" />
+                <element signature="e#1802#1803#0" expanded="false" />
+                <element signature="e#1841#1842#0" expanded="false" />
+                <element signature="e#2052#2053#0" expanded="false" />
+                <element signature="e#2089#2090#0" expanded="false" />
                 <element signature="method#tryLogin#0;class#UserController#0" expanded="false" />
                 <element signature="method#captcha#0;class#UserController#0" expanded="false" />
                 <element signature="method#userSetting#0;class#UserController#0" expanded="false" />
-                <element signature="method#showUser#0;class#UserController#0" expanded="false" />
                 <element signature="method#userLogin#0;class#UserController#0" expanded="false" />
                 <element signature="method#userLogout#0;class#UserController#0" expanded="false" />
                 <element signature="method#userRegister#0;class#UserController#0" expanded="false" />
@@ -103,30 +174,70 @@
                 <element signature="method#getUserFollowing#0;class#UserController#0" expanded="false" />
                 <element signature="method#getUserFollowed#0;class#UserController#0" expanded="false" />
                 <element signature="method#showUserOpt#0;class#UserController#0" expanded="false" />
+                <element signature="method#uploadAvatar#0;class#UserController#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TopicController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
+      <file leaf-file-name="showTopic.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopic.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+            <state relative-caret-position="1972">
+              <caret line="68" column="97" lean-forward="false" selection-start-line="67" selection-start-column="44" selection-end-line="68" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Topic.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java">
+      <file leaf-file-name="ShowTopic.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/ShowTopic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="1624">
+              <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
               <folding>
-                <element signature="e#576#577#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topicCenter.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topicCenter.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="51" column="102" lean-forward="false" selection-start-line="51" selection-start-column="102" selection-end-line="51" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TopicCenter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/TopicCenter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topics.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topics.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="404">
+              <caret line="54" column="44" lean-forward="false" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Topics.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Topics.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="13" column="9" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -148,24 +259,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>UNAME</find>
-      <find>api/user</find>
-      <find>alter</find>
-      <find>aBelongToQuestionTitle</find>
-      <find>fast</find>
-      <find>RequestMethod</find>
-      <find>navJS</find>
-      <find>uID</find>
-      <find>essay</find>
-      <find>essat</find>
-      <find>length</find>
-      <find>question</find>
-      <find>alert</find>
-      <find>topicCenter</find>
-      <find>ico</find>
-      <find>isShow</find>
-      <find>commons-file</find>
-      <find>context</find>
       <find>navbar</find>
       <find>avatar_file</find>
       <find>avatarInput</find>
@@ -178,6 +271,24 @@
       <find>filePath</find>
       <find>11</find>
       <find>img src=&quot;${pageC</find>
+      <find>sessionFactory</find>
+      <find>term</find>
+      <find>keyup keydown focu</find>
+      <find>box</find>
+      <find>li</find>
+      <find>box_l</find>
+      <find>preset</find>
+      <find>opints</find>
+      <find>box_r</find>
+      <find>getQuestionById</find>
+      <find>makeAnswer</find>
+      <find>form-</find>
+      <find>am-list-item-text{margin-top:</find>
+      <find>-list-item-text{margin-top:1rem;</find>
+      <find>relation</find>
+      <find>queryRelation</find>
+      <find>followBtn</find>
+      <find>red</find>
     </findStrings>
     <replaceStrings>
       <replace>Answer_Column_List</replace>
@@ -192,57 +303,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Questions.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showUser.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Answer/updateAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/updateAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/EssayMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Answer.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/AnswerMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/OperationService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Operation.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/OperationMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/OperationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/AnswerAjax.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/springMVC.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userSetting.js" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/util/OperateImage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/jquery.tag-editor.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/other/jquery.tag-editor.min.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Essay.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Essay.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/EssayAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/addEssay.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/orso.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/QuestionService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/utilPojo/TopicRelation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Question.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/QuestionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/amazeui.min.css" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/showAnswer.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/listEssay.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/userSetting.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopicRealtion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Question.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/util/UserRelation.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/User.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/followTopic.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopicRelation.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Topic.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Topic.js" />
+        <option value="$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ssm/pojo/utilPojo/CropAvatar.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopic.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Topics.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/TopicCenter.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topicCenter.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topics.jsp" />
       </list>
     </option>
   </component>
@@ -315,7 +426,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
+    <option name="width" value="1924" />
     <option name="height" value="1048" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -379,6 +490,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -443,36 +557,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="staticSource" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YourAnswer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="YourAnswer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="jsp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -507,7 +591,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="User" />
+              <option name="myItemId" value="AboutTopic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -530,6 +614,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontResource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YourAnswer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YourAnswer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontResource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JS" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -765,6 +883,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pojo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="packClass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YourAnswer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="YourAnswer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ssm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mapper" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -823,14 +975,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../merpservfront1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.27669346" />
@@ -843,24 +992,24 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\AboutTopic" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\css" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Question" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS" />
       <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\other" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Answer" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Essay" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ssm.service" />
       <recent name="ssm.mapper" />
       <recent name="ssm.controller" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\AboutAnswer" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\Answer" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\User" />
-      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\Question" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Topic" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\WEB-INF\jsp\AboutTopic" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\Answer" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\JS\other" />
+      <recent name="D:\Data\Java\IDEA\YourAnswer\src\main\webapp\frontResource\css" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat8.5">
@@ -1196,7 +1345,7 @@
   <component name="SvnConfiguration">
     <configuration />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -1206,44 +1355,46 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30317274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32549942" sideWeight="0.5021436" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51703876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22025724" sideWeight="0.47121033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24190065" sideWeight="0.46651" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21221864" sideWeight="0.52878964" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2357985" sideWeight="0.53349" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21811362" sideWeight="0.5289389" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3149236" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30082256" sideWeight="0.49785638" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30317274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51703876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32549942" sideWeight="0.5021436" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1253,18 +1404,18 @@
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3149236" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30082256" sideWeight="0.49785638" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30317274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30317274" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51703876" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22025724" sideWeight="0.47121033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24190065" sideWeight="0.46651" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21221864" sideWeight="0.52878964" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2357985" sideWeight="0.53349" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32902467" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21811362" sideWeight="0.5289389" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1297,469 +1448,334 @@
     <MESSAGE value="&quot;修改接口，大幅使用api+Ajax获取数据，部分使用vue渲染json&quot;" />
     <MESSAGE value="&quot;使用RESTful接口，利用POST DELETE PUT GET请求，实现增删改查&quot;" />
     <MESSAGE value="&quot;优化页面数据显示，部分采用vue进行渲染，优化feed流&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;优化页面数据显示，部分采用vue进行渲染，优化feed流&quot;" />
+    <MESSAGE value="&quot;优化用户照片的上传和显示&quot;" />
+    <MESSAGE value="&quot;增加话题分类模块&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;增加话题分类模块&quot;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Essay/Essays.js</url>
-          <line>7</line>
-          <option name="timeStamp" value="230" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java</url>
-          <line>86</line>
+          <line>84</line>
           <properties />
-          <option name="timeStamp" value="263" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java</url>
-          <line>93</line>
-          <properties />
-          <option name="timeStamp" value="264" />
+          <option name="timeStamp" value="344" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="306" />
+      <option name="time" value="357" />
     </breakpoint-manager>
     <watches-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Question.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        <state relative-caret-position="464">
+          <caret line="97" column="13" lean-forward="true" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="62" column="37" lean-forward="true" selection-start-line="62" selection-start-column="37" selection-end-line="62" selection-end-column="37" />
+        <state relative-caret-position="116">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/AnswerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/JsonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/JsonServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="725">
+          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Answer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Answer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/amazeui.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="0" column="115087" lean-forward="false" selection-start-line="0" selection-start-column="115087" selection-end-line="0" selection-end-column="115087" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="25" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/list.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="957">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1131">
+          <caret line="39" column="1" lean-forward="false" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="36" column="41" lean-forward="true" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Essay/listEssay.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="53" column="49" lean-forward="false" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/listQuestion.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="53" column="117" lean-forward="true" selection-start-line="52" selection-start-column="48" selection-end-line="53" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/javax/javaee-api/7.0/javaee-api-7.0-sources.jar!/javax/servlet/http/HttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="329" column="18" lean-forward="false" selection-start-line="329" selection-start-column="18" selection-end-line="329" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/StatusCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/showQuestion.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
+        <state relative-caret-position="510">
+          <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="81" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/EssayController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/Question.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="110" column="82" lean-forward="false" selection-start-line="110" selection-start-column="82" selection-end-line="110" selection-end-column="82" />
-          <folding>
-            <element signature="method#makeEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#tryUpdateEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#deleteEssay#0;class#EssayController#0" expanded="false" />
-            <element signature="method#updateEssay#0;class#EssayController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="503">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/IndexController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/UserRelationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="609">
+          <caret line="23" column="59" lean-forward="true" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/SearchController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserRelationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="-174">
+          <caret line="40" column="9" lean-forward="true" selection-start-line="35" selection-start-column="8" selection-end-line="40" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/QuestionMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/CaptchaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="98" column="20" lean-forward="true" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/jre/lib/rt.jar!/sun/misc/Unsafe.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="23" column="52" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="23" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/concurrent/atomic/AtomicInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2610">
-          <caret line="176" column="59" lean-forward="false" selection-start-line="176" selection-start-column="54" selection-end-line="176" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3555">
-          <caret line="181" column="10" lean-forward="true" selection-start-line="181" selection-start-column="10" selection-end-line="181" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/lang/ThreadLocal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="399" column="13" lean-forward="true" selection-start-line="399" selection-start-column="13" selection-end-line="399" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="114" column="94" lean-forward="true" selection-start-line="114" selection-start-column="94" selection-end-line="114" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/topicCenter.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="183" column="30" lean-forward="false" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="74" column="29" lean-forward="true" selection-start-line="74" selection-start-column="29" selection-end-line="74" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/cropper/cropper.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/sitelogo/sitelogo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/UtilPojo.kt" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/net/DualStackPlainSocketImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="282" column="22" lean-forward="false" selection-start-line="282" selection-start-column="22" selection-end-line="282" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/fastjson/1.2.35/fastjson-1.2.35-sources.jar!/com/alibaba/fastjson/JSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="84" column="22" lean-forward="false" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/JsonServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="19" />
+          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="40" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/followTopic.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutAnswer/showAnswer.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1529">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="558">
+          <caret line="112" column="24" lean-forward="false" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/imgs/userPho/31.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/userSetting.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="67" column="19" lean-forward="false" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-          <folding>
-            <element signature="e#77#1160#0" expanded="false" />
-            <element signature="e#1214#2169#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="395">
+          <caret line="125" column="108" lean-forward="true" selection-start-line="125" selection-start-column="36" selection-end-line="125" selection-end-column="108" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="187">
+          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Question/addQuestionAjax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="116">
+          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.2.5.RELEASE/spring-aop-4.2.5.RELEASE-sources.jar!/org/springframework/aop/support/AopUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Question/addQuestion.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="301" column="0" lean-forward="false" selection-start-line="301" selection-start-column="0" selection-end-line="301" selection-end-column="0" />
+        <state relative-caret-position="490">
+          <caret line="103" column="111" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/UserRelation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/User.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3639">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <marker date="1503367860553" expanded="true" signature="1415:1662" ph="INSERT INTO user... " />
-            <marker date="1503367860553" expanded="true" signature="1495:1662" ph="SELECT ##{uNa... DUAL" />
-            <marker date="1503367860553" expanded="true" signature="1613:1661" ph="SELECT uEmai... user" />
-            <marker date="1503367860553" expanded="true" signature="1776:1810" ph="DELETE from " />
-            <marker date="1503367860553" expanded="true" signature="1918:2504" ph="UPDATE user " />
-            <marker date="1503367860553" expanded="true" signature="2619:2803" ph="UPDATE user " />
-            <marker date="1503367860553" expanded="true" signature="2888:3207" ph="UPDATE user " />
-            <marker date="1503367860553" expanded="true" signature="3345:3396" ph="SELECT uPass... user" />
-            <marker date="1503367860553" expanded="true" signature="3507:3585" ph="SELECT FROM user" />
-            <marker date="1503367860553" expanded="true" signature="3708:3780" ph="SELECT FROM user" />
-            <marker date="1503367860553" expanded="true" signature="3919:3991" ph="SELECT FROM user" />
-            <marker date="1503367860553" expanded="true" signature="4105:4150" ph="SELECT autho... user" />
-            <marker date="1503367860553" expanded="true" signature="4264:4413" ph="SELECT FROM user" />
-            <marker date="1503367860553" expanded="true" signature="4491:4510" ph="SELECT * FRO... user" />
-            <marker date="1503367860553" expanded="true" signature="4624:4897" ph="INSERT INTO user_relation... " />
-            <marker date="1503367860553" expanded="true" signature="4690:4897" ph="SELECT ##{fro... DUAL" />
-            <marker date="1503367860553" expanded="true" signature="4771:4896" ph="SELECT * FRO... user_relation" />
-            <marker date="1503367860553" expanded="true" signature="4946:5134" ph="UPDATE user_... " />
-            <marker date="1503367860553" expanded="true" signature="5212:5333" ph="SELECT IFNUL... user_relation" />
-            <marker date="1503367860553" expanded="true" signature="5412:5508" ph="SELECT count... user_relation" />
-            <marker date="1503367860553" expanded="true" signature="5585:5679" ph="SELECT count... user_relation" />
-            <marker date="1503367860553" expanded="true" signature="5759:5929" ph="SELECT * FRO... user" />
-            <marker date="1503367860553" expanded="true" signature="5832:5928" ph="SELECT toUse... user_relation" />
-            <marker date="1503367860553" expanded="true" signature="6007:6177" ph="SELECT FROM user" />
-            <marker date="1503367860553" expanded="true" signature="6080:6176" ph="SELECT toUse... user_relation" />
-          </folding>
+        <state relative-caret-position="466">
+          <caret line="155" column="17" lean-forward="false" selection-start-line="152" selection-start-column="8" selection-end-line="155" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/UserMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/AnswerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="56" column="55" lean-forward="false" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
+        <state relative-caret-position="362">
+          <caret line="130" column="51" lean-forward="true" selection-start-line="129" selection-start-column="16" selection-end-line="130" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/QuestionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1573">
+          <caret line="83" column="54" lean-forward="false" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-redis.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/TopicServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="519">
+          <caret line="130" column="61" lean-forward="false" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springMVC.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="220" column="0" lean-forward="false" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/staticSource/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="59" column="105" lean-forward="false" selection-start-line="59" selection-start-column="105" selection-end-line="59" selection-end-column="105" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/showUser.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="36" column="110" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/util/OperateImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/User/userSetting.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="146" column="101" lean-forward="true" selection-start-line="146" selection-start-column="101" selection-end-line="146" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/Impl/UserServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/mapper/TopicMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding>
-            <element signature="method#registUser#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#getUserById#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#updateUserInfo#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#updateUserPassword#0;class#UserServiceImpl#0" expanded="false" />
-            <element signature="method#getUserAuthority#0;class#UserServiceImpl#0" expanded="false" />
-          </folding>
+          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/service/TopicService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="30" column="5" lean-forward="false" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="302">
+          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/Topic.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Topic.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="e#576#577#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/pojo/utilPojo/CropAvatar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding>
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="316">
+          <caret line="88" column="47" lean-forward="true" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-638">
-          <caret line="343" column="21" lean-forward="true" selection-start-line="343" selection-start-column="21" selection-end-line="343" selection-end-column="21" />
+        <state relative-caret-position="4524">
+          <caret line="373" column="5" lean-forward="false" selection-start-line="373" selection-start-column="5" selection-end-line="373" selection-end-column="5" />
           <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1348#1349#0" expanded="false" />
+            <element signature="e#1385#1386#0" expanded="false" />
+            <element signature="e#1464#1465#0" expanded="false" />
+            <element signature="e#1509#1510#0" expanded="false" />
+            <element signature="e#1582#1583#0" expanded="false" />
+            <element signature="e#1623#1624#0" expanded="false" />
+            <element signature="e#1693#1694#0" expanded="false" />
+            <element signature="e#1732#1733#0" expanded="false" />
+            <element signature="e#1802#1803#0" expanded="false" />
+            <element signature="e#1841#1842#0" expanded="false" />
+            <element signature="e#2052#2053#0" expanded="false" />
+            <element signature="e#2089#2090#0" expanded="false" />
             <element signature="method#tryLogin#0;class#UserController#0" expanded="false" />
             <element signature="method#captcha#0;class#UserController#0" expanded="false" />
             <element signature="method#userSetting#0;class#UserController#0" expanded="false" />
-            <element signature="method#showUser#0;class#UserController#0" expanded="false" />
             <element signature="method#userLogin#0;class#UserController#0" expanded="false" />
             <element signature="method#userLogout#0;class#UserController#0" expanded="false" />
             <element signature="method#userRegister#0;class#UserController#0" expanded="false" />
@@ -1771,7 +1787,89 @@
             <element signature="method#getUserFollowing#0;class#UserController#0" expanded="false" />
             <element signature="method#getUserFollowed#0;class#UserController#0" expanded="false" />
             <element signature="method#showUserOpt#0;class#UserController#0" expanded="false" />
+            <element signature="method#uploadAvatar#0;class#UserController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/User/follow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1443">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Answer/showAnswer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-591">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/showTopic.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1972">
+          <caret line="68" column="97" lean-forward="false" selection-start-line="67" selection-start-column="44" selection-end-line="68" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/ShowTopic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1624">
+          <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ssm/controller/TopicController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="28" />
+          <folding>
+            <element signature="e#779#780#0" expanded="false" />
+            <element signature="e#818#819#0" expanded="false" />
+            <element signature="e#885#886#0" expanded="false" />
+            <element signature="e#922#923#0" expanded="false" />
+            <element signature="method#getTopicByKeyWords#0;class#TopicController#0" expanded="false" />
+            <element signature="method#getTopicById#0;class#TopicController#0" expanded="false" />
+            <element signature="method#setUserTopicRelation#0;class#TopicController#0" expanded="false" />
+            <element signature="method#getUserTopicRelation#0;class#TopicController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/TopicCenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topicCenter.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="51" column="102" lean-forward="false" selection-start-line="51" selection-start-column="102" selection-end-line="51" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/frontResource/JS/Topic/Topics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="13" column="9" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/AboutTopic/topics.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="54" column="44" lean-forward="false" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

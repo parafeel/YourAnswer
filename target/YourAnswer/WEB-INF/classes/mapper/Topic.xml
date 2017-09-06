@@ -3,46 +3,97 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
-    <mapper namespace="ssm.mapper.TopicMapper">
-    	<resultMap id="TopicResultMap" type="ssm.pojo.Topic" >
-    		<id column="tId" property="tId" jdbcType="INTEGER" />
-    		<result column="tName" property="tName" jdbcType="VARCHAR" />
-    		<result column="tDetail" property="tDetail" jdbcType="VARCHAR" />
-    		<result column="tMadeDate" property="tMadeDate" />
-    		<result column="tQuestionCount" property="tQuestionCount" jdbcType="INTEGER" />
-  		</resultMap>
-  		<sql id="Topic_Column_List" >
-    		tId, tName, tDetail, tMadeDate, tQuestionCount
-  		</sql>
-    	
-    	<insert id="addTopic" parameterType="ssm.pojo.Topic" >
-            INSERT INTO topic (tId, tName, tDetail, tMadeDate, tQuestionCount) 
-            	SELECT #{tId} ,#{tName} ,#{tDetail} ,#{tMadeDate},#{tQuestionCount}   
-            	FROM DUAL WHERE NOT EXISTS(SELECT tName FROM user tName uEmail = #{tName}) 
-        </insert>
-         
-        <delete id="deleteTopicById" parameterType="java.lang.Integer" >
-            delete from topic where tId= #{tId}   
-        </delete>
-         
-        <update id="updateTopicById" parameterType="ssm.pojo.Topic" >
-            update topic
-		    <set >
-		    	<if test="tName != null" >
-		       		tName = #{tName,jdbcType=VARCHAR},
-		     	</if>
-		     	<if test="tDetail != null" >
-		       		tDetail = #{tDetail,jdbcType=VARCHAR},
-		     	</if>
-		     	<if test="tQuestionCount != null" >
-		     		tQuestionCount = #{tQuestionCount,jdbcType=INTEGER},
-		     	</if>
-		   	</set>
-		   	where tId = #{tId,jdbcType=INTEGER}   
-        </update>
-         
-        <select id="queryTopic" resultMap="TopicResultMap">
-            SELECT <include refid="Topic_Column_List" /> FROM topic  
-        </select>
-  
-    </mapper>
+<mapper namespace="ssm.mapper.TopicMapper">
+	<resultMap id="TopicResultMap" type="ssm.pojo.Topic" >
+		<id column="tId" property="tId" jdbcType="INTEGER" />
+		<result column="tName" property="tName" jdbcType="VARCHAR" />
+		<result column="tDetail" property="tDetail" jdbcType="VARCHAR" />
+		<result column="tMadeDate" property="tMadeDate" />
+	</resultMap>
+	<sql id="Topic_Column_List" >
+		tId, tName, tDetail, tMadeDate
+	</sql>
+	<sql id="Topic_Sample_List" >
+		tId, tName
+	</sql>
+
+	<insert id="addTopic" parameterType="ssm.pojo.Topic" >
+		INSERT INTO topic (tId, tName, tDetail, tMadeDate)
+			SELECT #{tId} ,#{tName} ,#{tDetail} ,#{tMadeDate}}
+			FROM DUAL WHERE NOT EXISTS(SELECT * FROM topic WHERE tName = #{tName})
+	</insert>
+
+	<insert id="addToTopicRelation" parameterType="java.util.List">
+		INSERT INTO typewithtopic (tId, trType, trTypeId, trCreatetime)
+		VALUES
+		<foreach collection="list" item="item" index="index" separator="," >
+			(#{item.tId},#{item.trType},#{item.trTypeId},#{item.trCreatetime})
+		</foreach>
+	</insert>
+
+
+	<delete id="deleteTopicById" parameterType="java.lang.Integer" >
+		delete from topic where tId= #{tId}
+	</delete>
+
+	<update id="updateTopicById" parameterType="ssm.pojo.Topic" >
+		update topic
+		<set >
+			<if test="tName != null" >
+				tName = #{tName,jdbcType=VARCHAR},
+			</if>
+			<if test="tDetail != null" >
+				tDetail = #{tDetail,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where tId = #{tId,jdbcType=INTEGER}
+	</update>
+
+	<!--查询功能块 -->
+	<select id="queryTopicById" resultMap="TopicResultMap" parameterType="java.lang.Integer"  >
+		SELECT  <include refid="Topic_Column_List" /> FROM topic  WHERE tId= #{tId}
+	</select>
+
+	<select id="queryTopic" resultMap="TopicResultMap">
+		SELECT <include refid="Topic_Column_List" /> FROM topic  WHERE tName like CONCAT('%',#{keywords},'%')
+	</select>
+	<select id="listTopic" resultMap="TopicResultMap">
+		SELECT <include refid="Topic_Column_List" /> FROM topic
+	</select>
+
+	<select id="queryTopicsTid" resultMap="TopicResultMap">
+		SELECT <include refid="Topic_Column_List" /> FROM topic  WHERE tName IN
+		<foreach collection="array" item="tName" index="index"
+				 open="(" separator="," close=")" >
+			#{tName}
+		</foreach>
+	</select>
+
+	<!--话题关注-->
+	<select id="queryUserTopicRelationType" resultType="java.lang.Integer">
+		SELECT IFNULL( MAX(relationType) ,-10) FROM usertopic_relation  WHERE uId = #{uId} AND tId =
+		#{tId}
+	</select>
+
+	<insert id="follow">
+		INSERT INTO usertopic_relation (uId ,tId ,relationType)
+		SELECT #{uId} ,#{tId} ,#{relationType}
+		FROM DUAL WHERE NOT EXISTS(SELECT * FROM usertopic_relation WHERE uId = #{uId} AND tId =
+		#{tId} AND relationType = #{relationType})
+	</insert>
+
+	<update id="updateRelation" >
+		UPDATE usertopic_relation
+		<set >
+			<if test="relationType != null" >
+				relationType = #{relationType},
+			</if>
+		</set>
+		WHERE uId = #{uId} AND tId = #{tId}
+	</update>
+	<select id="queryRelatedTopic" resultMap="TopicResultMap">
+		SELECT <include refid="Topic_Sample_List" /> FROM topic WHERE tId IN (
+		SELECT tId FROM usertopic_relation  WHERE uId = #{uId} AND relationType = #{relationType})
+	</select>
+
+</mapper>

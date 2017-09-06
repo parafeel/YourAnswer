@@ -137,7 +137,7 @@
 			</set>
 			WHERE fromUserId = #{fromUserId} AND toUserId = #{toUserId}
 		</update>
-
+<!--如果不存在，则返回-10-->
 		<select id="queryRelation" resultType="java.lang.Integer">
 			SELECT IFNULL( MAX(relationType) ,-10) FROM user_relation  WHERE fromUserId = #{fromUserId} AND toUserId =
 			#{toUserId}
